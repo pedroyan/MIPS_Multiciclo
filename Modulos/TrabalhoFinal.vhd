@@ -141,19 +141,28 @@ signal mux2_U3 : std_logic_vector(31 downto 0);
 signal SaidaMemoria : std_logic_vector(31 downto 0);
 --regMemoria
 signal SaidaRegMemoria	:  std_logic_vector(31 downto 0);
---
+--mux2_4bits
+signal mux2_4bits_U6 : std_logic_vector(3 downto 0);
 
 
 begin
+
 	--U1: pc port map(clk,"enable","reg_in",sSaidaPC);
 	--U2: cntrMIPS port map(clk,"OP",sOpALU, sOrigBALU, sOrigPC,sOrigAALU ,sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR,sCtlEnd,sCtlInT,sSaidaSomadorT,sSaidaAddressT,sSaidaEstadoT );
 	--U3: mux2 port map (sSaidaPC,"SaidaALU",sIouD,mux2_U3);
 	--U4: memoria port map('1'& mux2_U3(8 downto 2) ,'1',"regB",sEscreveMem,SaidaMemoria);--verificar address dps
 	--U5: reg_32 port map(clk,SaidaMemoria,SaidaRegMemoria);
-	
+
+	U1: pc port map(clk,"enable","reg_in",sSaidaPC);
+	U2: cntrMIPS port map(clk,SaidaMemoria(31 downto 26),sOpALU, sOrigBALU, sOrigPC,sOrigAALU ,sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR,sCtlEnd,sCtlInT,sSaidaSomadorT,sSaidaAddressT,sSaidaEstadoT );
+	U3: mux2 port map (sSaidaPC,"SaidaALU",sIouD,mux2_U3);
+	U4: memoria port map('1'& mux2_U3(8 downto 2) ,'1',"regB",sEscreveMem,SaidaMemoria);--verificar address dps
+	U5: reg_32 port map(clk,SaidaMemoria,SaidaRegMemoria);
+	U6: mux2_4bits port map (SaidaMemoria(20 downto 16),SaidaMemoria(15 downto 11),sregDst,mux2_4bits_U6);
+	U7: mux2 port map("saidaula")
+
+
 	end Behavioral;
-
-
 
 
 -----------------------------------------
