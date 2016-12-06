@@ -1,1 +1,15 @@
 db/TrabalhoFinal.quiproj.7596.rdr.flock
+TrabalhoFinal.qws
+db/TrabalhoFinal.db_info
+db/
+incremental_db/
+*.rpt
+output_files/TrabalhoFinal.done
+output_files/TrabalhoFinal.fit.summary
+output_files/TrabalhoFinal.map.summary
+output_files/TrabalhoFinal.sof
+simulation/modelsim/TrabalhoFinal.vho
+simulation/modelsim/TrabalhoFinal_fast.vho
+simulation/modelsim/TrabalhoFinal_modelsim.xrf
+simulation/modelsim/TrabalhoFinal_vhd.sdo
+simulation/modelsim/TrabalhoFinal_vhd_fast.sdo
