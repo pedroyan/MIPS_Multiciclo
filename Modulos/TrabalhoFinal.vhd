@@ -16,7 +16,7 @@ end TrabalhoFinal;
 architecture Behavioral of TrabalhoFinal  is
 component alu_ctr is
 	port (
-		op_alu		: in std_logic_vector(1 downto 0);
+		op_alu		: in std_logic_vector(2 downto 0);
 		funct			: in std_logic_vector(5 downto 0);
 		alu_ctr	   : out std_logic_vector(3 downto 0)
 	);
