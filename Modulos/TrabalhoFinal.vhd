@@ -14,6 +14,13 @@ entity TrabalhoFinal is
 end TrabalhoFinal;
 
 architecture Behavioral of TrabalhoFinal  is
+component alu_ctr is
+	port (
+		op_alu		: in std_logic_vector(1 downto 0);
+		funct			: in std_logic_vector(5 downto 0);
+		alu_ctr	   : out std_logic_vector(3 downto 0)
+	);
+end component;	
 component mux_2_5bits is
 	port (
 	 	in0, in1	: in std_logic_vector(4 downto 0);
@@ -163,13 +170,15 @@ signal SaidaA_2,SaidaB_2 : std_logic_vector(31 downto 0);
 signal mux2_U13 : std_logic_vector(31 downto 0);
 --mux U13(B)
 signal mux4_U14 : std_logic_vector(31 downto 0);
+--ULA Control
+signal opcode_ula   : std_logic_vector(3 downto 0);
 --ULA
 signal sSaidaULA : std_logic_vector(31 downto 0);
 signal svai,sovfl,szero :std_logic;
 --RegUla
 signal SaidaULA_2 : std_logic_vector(31 downto 0);
 --Mux3(pos ula)
-signal  mux3_U17: std_logic_vector(31 downto 0);
+signal  mux3_U18: std_logic_vector(31 downto 0);
 --Controle do Enable(Final do controle)
 signal enablePC : std_logic;
 
@@ -178,7 +187,7 @@ signal enablePC : std_logic;
 begin
 
 	
-	U1: pc port map(clk,enablePC,mux3_U17,sSaidaPC);
+	U1: pc port map(clk,enablePC,mux3_U18,sSaidaPC);
 	U2: cntrMIPS port map(clk,SaidaMemoria(31 downto 26),sOpALU, sOrigBALU, sOrigPC,sOrigAALU ,sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR,sCtlEnd,sCtlInT,sSaidaSomadorT,sSaidaAddressT,sSaidaEstadoT );
 	U3: mux_2 port map (sSaidaPC,SaidaUla_2,sIouD,mux2_U3);
 	U4: memoria port map('1'& mux2_U3(8 downto 2) ,'1',SaidaB_2,sEscreveMem,SaidaMemoria);
@@ -192,9 +201,10 @@ begin
 	U12: reg_32 port map (clk,SaidaB,SaidaB_2);
 	U13: mux_2 port map(sSaidaPC,SaidaA_2,sOrigAALU,mux2_U13);
 	U14: mux_4 port map(SaidaB_2,X"00000004",SaidaExt32,SaidaDeslocamento,sOrigBALU,mux4_U14);
-	U15: ula port map("0000",mux2_U13,mux4_U14,SaidaULA,svai,sovfl,szero);-- o numero inserido eh o de teste da ULACONTROL
-	U16: reg_32 port map(clk,sSaidaULA,SaidaUla_2);
-	U17: mux_3 port map(sSaidaULA,SaidaULa_2,sSaidaPC(31 downto 28)& SaidaMemoria(25 downto 0) & "00",sOpALU,mux3_U17); 
+	U15: alu_ctr port map(sOpALU,SaidaMemoria(5 downto 0),opcode_ula);
+	U16: ula port map(opcode_ula,mux2_U13,mux4_U14,SaidaULA,svai,sovfl,szero);
+	U17: reg_32 port map(clk,sSaidaULA,SaidaUla_2);
+	U18: mux_3 port map(sSaidaULA,SaidaULa_2,sSaidaPC(31 downto 28)& SaidaMemoria(25 downto 0) & "00",sOpALU,mux3_U18); 
 	enablePC <= sEscrevePC or (sEscrevePCCond and szero);
 
 	end Behavioral;

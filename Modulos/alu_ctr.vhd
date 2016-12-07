@@ -27,7 +27,8 @@ with funct select functOP <=
 		"0001" when "100101", --or
 		"1000" when "100111", --nor
 		"1001" when "100110", --xor
-		"0110" when "101010"; --slt
+		"0110" when "101010", --slt
+		"0000" when others;
 end architecture;
 		
 		
