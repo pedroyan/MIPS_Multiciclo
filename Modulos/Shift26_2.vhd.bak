@@ -9,7 +9,7 @@ entity Shift26_2 is
 		PC			:  in std_logic_vector(4 downto 0);
 		saida 		:  out std_logic_vector(31 downto 0)
 	);
-end Shift26_2;
+end Shift32_2;
 
 architecture Shift26_2_arch of Shift26_2 is
 
@@ -18,4 +18,4 @@ begin
 	saida(1) <= '0';
 	saida(0) <= '0';
 	saida(31 downto 28) <= PC;
-end Shift26_2_arch;
+end Shift32_2_arch;
