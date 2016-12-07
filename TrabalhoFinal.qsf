@@ -77,3 +77,9 @@ set_global_assignment -name VHDL_FILE Modulos/extsgn.vhd
 set_global_assignment -name VHDL_FILE Modulos/Breg.vhd
 set_global_assignment -name QIP_FILE Modulos/Memoria/memoria.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH ProgramaFinal_Tb -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME ProgramaFinal_Tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ProgramaFinal_Tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ProgramaFinal_Tb -section_id ProgramaFinal_Tb
+set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/TrabalhoFinal.vht -section_id ProgramaFinal_Tb
