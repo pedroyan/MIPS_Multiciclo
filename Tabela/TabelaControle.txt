@@ -1,0 +1,20 @@
+TABELA CONTROLE INSTRUÇÕES
+
+OpALU       |	INSTRUÇÃO	|	FUNCT	|	OPERAÇÃO
+000			|	LW E SW		|	XXXXXX	|	ADD
+001			|	BEQ E BNE	|	XXXXXX	|	SUB
+010			|				|			|	
+011			|	NAND		|	XXXXXX	|	NAND
+100			|	ADDI		|	XXXXXX	|	ADD
+101			|	ORI			|	XXXXXX	|	OR
+110			|	SLTI		|	XXXXXX	|	SLT
+111			|				|			|
+XXX			|	ADD			|	100000	|	ADD
+XXX			|	SUB			|	100010	|	SUB
+XXX			|	AND			|	100100	|	AND
+XXX			|	OR			|	100101	|	OR
+XXX			|	NOR			|	100111	|	NOR
+XXX			|	XOR			|	100110	|	XOR
+XXX			|	SLT			|	101010	|	SLT
+XXX			|	SLL			|	000000	|	SLL
+XXX			|	JR			|	001000	|	ADD
