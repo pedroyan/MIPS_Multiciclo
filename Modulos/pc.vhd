@@ -6,7 +6,7 @@ entity PC is
 	(
 		clk		: in std_logic;
 		enable	: in std_logic;
-		reg_in	: in std_logic_vector(31 downto 0);
+		reg_in	: in std_logic_vector(31 downto 0); 
 		reg_out	: out std_logic_vector(31 downto 0)
 	);
 end entity;
