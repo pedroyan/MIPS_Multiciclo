@@ -16,3 +16,4 @@ simulation/modelsim/TrabalhoFinal_vhd_fast.sdo
 output_files/TrabalhoFinal.sta.summary
 output_files/TrabalhoFinal.jdi
 *.dat
+simulation/modelsim/TrabalhoFinal_run_msim_rtl_vhdl.do.bak10
