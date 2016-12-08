@@ -5,7 +5,8 @@ use ieee.numeric_std.all;
 entity ROM is
 port (
 		Entrada : in std_logic_vector(3 downto 0);
-		OpALU, OrigBALU, OrigPC : out std_logic_vector(1 downto 0);
+		OpALU : out std_logic_vector(2 downto 0);
+		OrigBALU, OrigPC : out std_logic_vector(1 downto 0);
 		OrigAALU : out std_logic;
 		EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,
 		EscreveMem, EscreveIR : out std_logic;
@@ -13,7 +14,7 @@ port (
 end ROM;
 
 architecture Behavioral of ROM is
-	SUBTYPE microComandos_T is std_logic_vector(14 downto 0);
+	SUBTYPE microComandos_T is std_logic_vector(15 downto 0);
 	SUBTYPE nextAddress_T is std_logic_vector(1 downto 0);
 	TYPE microInstrucao_T is RECORD
 		microCmds : microComandos_T;
@@ -26,9 +27,9 @@ architecture Behavioral of ROM is
 	constant DISPATCH_1 : nextAddress_T := "01";
 	constant DISPATCH_2 : nextAddress_T := "10";
 	--tipos alu cntr
-	constant ADD : std_logic_vector(1 downto 0) := "00";
-	constant subt : std_logic_vector(1 downto 0) := "01";
-	constant funcCode : std_logic_vector(1 downto 0) := "10";
+	constant ADD : std_logic_vector(2 downto 0) := "000";
+	constant subt : std_logic_vector(2 downto 0) := "001";
+	constant funcCode : std_logic_vector(2 downto 0) := "111";
 	
 	--tipos SRC2
 	constant SRC_2_B : std_logic_vector(1 downto 0) := "00";
@@ -57,13 +58,13 @@ architecture Behavioral of ROM is
 	constant mFETCH : microInstrucao_T := (ADD & '0' & SRC_2_4 & Reg_Read & Mem_readPC & PC_ALU , SEQ );
 	constant mFETCH2 : microInstrucao_T := (ADD & '0' & SRC_2_Extshift & Reg_Read & Mem_readPC & "0000", DISPATCH_1);
 	constant Mem1 : microInstrucao_T := (ADD & '1' & SRC_2_Extend & Reg_Read & Mem_readPC & "0000",DISPATCH_2);
-	constant LW : microInstrucao_T := ("00000000" & Mem_readALU & "0000", SEQ);
-	constant LW2 : microInstrucao_T := ("00000" & Reg_writeMDR & "0000000", FETCH);
-	constant SW2 : microInstrucao_T := ("00000000" & Mem_writeALU & "0000", FETCH);
+	constant LW : microInstrucao_T := ("000000000" & Mem_readALU & "0000", SEQ);
+	constant LW2 : microInstrucao_T := ("000000" & Reg_writeMDR & "0000000", FETCH);
+	constant SW2 : microInstrucao_T := ("000000000" & Mem_writeALU & "0000", FETCH);
 	constant Rformat : microInstrucao_T := (funcCode & '1' & SRC_2_B & "0000000000", SEQ);
-	constant Rformat2 : microInstrucao_T := ("00000" & Reg_writeAlu & "0000000", FETCH);
+	constant Rformat2 : microInstrucao_T := ("000000" & Reg_writeAlu & "0000000", FETCH);
 	constant BEQ : microInstrucao_T := (subt & '1' & SRC_2_B & "000000" & PC_ALUOut_cond, FETCH);
-	constant JUMP : microInstrucao_T := ("00000000000" & PC_JumpAddress,FETCH);
+	constant JUMP : microInstrucao_T := ("000000000000" & PC_JumpAddress,FETCH);
 	
 begin
 
@@ -77,7 +78,7 @@ begin
 		instrucaoSelecionada := programa(to_integer(unsigned(Entrada)));
 		comando := instrucaoSelecionada.microCmds;
 		prox := instrucaoSelecionada.nextAddress;
-		OpALU <= comando (14 downto 13);
+		OpALU <= comando (15 downto 13);
 		OrigAALU <= comando(12);
 		OrigBALU <= comando (11 downto 10);
 		EscreveReg <= comando(9);
