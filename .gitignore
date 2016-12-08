@@ -17,3 +17,5 @@ output_files/TrabalhoFinal.sta.summary
 output_files/TrabalhoFinal.jdi
 *.bak
 output_files/TrabalhoFinal.pof
+*.dat
+*.bak10
