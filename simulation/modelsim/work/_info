@@ -1,0 +1,40 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Projetos\MIPS\simulation\modelsim
+Etrabalhofinal_vhd_tst
+Z1 w1481215941
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\Projetos\MIPS\simulation\modelsim
+Z5 8C:/Projetos/MIPS/simulation/modelsim/TrabalhoFinal.vht
+Z6 FC:/Projetos/MIPS/simulation/modelsim/TrabalhoFinal.vht
+l0
+L30
+VV7W@BF>hce6lEegCO`KI=1
+!s100 [Sk;]CB`7bC30CiEWZzP>2
+Z7 OV;C;10.1d;51
+32
+!i10b 1
+Z8 !s108 1481216135.546000
+Z9 !s90 -reportprogress|300|-work|work|C:/Projetos/MIPS/simulation/modelsim/TrabalhoFinal.vht|
+Z10 !s107 C:/Projetos/MIPS/simulation/modelsim/TrabalhoFinal.vht|
+Z11 o-work work -O0
+Z12 tExplicit 1
+Atrabalhofinal_arch
+R2
+R3
+DEx4 work 21 trabalhofinal_vhd_tst 0 22 V7W@BF>hce6lEegCO`KI=1
+l52
+L32
+VTjdOgV7cGMQ;UaE8h^jhA2
+!s100 ECDUN0>@VD?JeEzikO8`I2
+R7
+32
+!i10b 1
+R8
+R9
+R10
+R11
+R12
