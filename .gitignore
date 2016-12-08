@@ -15,3 +15,5 @@ simulation/modelsim/TrabalhoFinal_vhd.sdo
 simulation/modelsim/TrabalhoFinal_vhd_fast.sdo
 output_files/TrabalhoFinal.sta.summary
 output_files/TrabalhoFinal.jdi
+*.bak10
+*.dat
