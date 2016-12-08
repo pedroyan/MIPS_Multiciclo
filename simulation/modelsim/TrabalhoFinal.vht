@@ -33,13 +33,14 @@ ARCHITECTURE TrabalhoFinal_arch OF TrabalhoFinal_vhd_tst IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL clk : STD_LOGIC;
+SIGNAL reset : STD_LOGIC;
 SIGNAL SaidaPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL SaidaRDM : STD_LOGIC;
 SIGNAL SaidaRI : STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL SaidaULA : STD_LOGIC_VECTOR(31 DOWNTO 0);
 COMPONENT TrabalhoFinal
 	PORT (
-	clk : IN STD_LOGIC;
+	clk,reset : IN STD_LOGIC;
 	SaidaPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SaidaRDM : IN STD_LOGIC;
 	SaidaRI : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -54,6 +55,7 @@ BEGIN
 	PORT MAP (
 -- list connections between master ports and signals
 	clk => clk,
+	reset=> reset,
 	SaidaPC => SaidaPC,
 	SaidaRDM => SaidaRDM,
 	SaidaRI => SaidaRI,
@@ -62,12 +64,15 @@ BEGIN
  -- Clock process definitions
    clk_process :process
    begin
+   	reset<='1';
+	   wait for clk_period/2;
+		reset <='0';
 		clk <= '0';
 		wait for clk_period/2;
 		clk <= '1';
 		wait for clk_period/2;
    end process;
- 
+
 	
 	
    -- Stimulus process

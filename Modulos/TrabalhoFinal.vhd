@@ -6,7 +6,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 
 entity TrabalhoFinal is
-    Port ( clk : in  STD_LOGIC;
+    Port ( clk,reset : in  STD_LOGIC;
            SaidaPC : out  STD_LOGIC_VECTOR (31 downto 0);
           SaidaULA : out  STD_LOGIC_VECTOR (31 downto 0);
           SaidaRI : out  STD_LOGIC_VECTOR (31 downto 0);
@@ -72,6 +72,7 @@ component PC is
 	(
 		clk		: in std_logic;
 		enable	: in std_logic;
+		reset   : in std_logic;
 		reg_in	   : in std_logic_vector(31 downto 0);
 		reg_out	: out std_logic_vector(31 downto 0)
 	);
@@ -225,7 +226,7 @@ signal enablePC : std_logic;
 begin
   
 	
-	U1: pc port map(clk,enablePC,mux3_U18,sSaidaPC);
+	U1: pc port map(clk,enablePC,reset,mux3_U18,sSaidaPC);
 	U2: cntrMIPS port map(clk,sopcode,sOpALU, sOrigBALU, sOrigPC,sOrigAALU ,sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR,sCtlEnd,sCtlInT,sSaidaSomadorT,sSaidaAddressT,sSaidaEstadoT );
 	U3: mux_2_8bit port map (sSaidaPC(7 downto 0),AddressDado,sIouD,EntradaMemoria);
 	U4: memoria port map(EntradaMemoria,clk,SaidaB_2,sEscreveMem,SaidaMemoria);
