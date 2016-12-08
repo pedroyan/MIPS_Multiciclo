@@ -25,6 +25,7 @@ component reg_int is
 	port 
 	(
 		clk		: in std_logic;
+		enable   : in std_logic;
 		reg_in	: in std_logic_vector(31 downto 0);
 		opcode	: out std_logic_vector(5 downto 0);
 		rs		 	: out std_logic_vector(4 downto 0);
@@ -228,7 +229,7 @@ begin
 	U2: cntrMIPS port map(clk,sopcode,sOpALU, sOrigBALU, sOrigPC,sOrigAALU ,sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR,sCtlEnd,sCtlInT,sSaidaSomadorT,sSaidaAddressT,sSaidaEstadoT );
 	U3: mux_2_8bit port map (sSaidaPC(7 downto 0),AddressDado,sIouD,EntradaMemoria);
 	U4: memoria port map(EntradaMemoria,clk,SaidaB_2,sEscreveMem,SaidaMemoria);
-	U19:reg_int port map(clk,SaidaMemoria,sopcode,srs,srt,srd,sshamnt,sfunct,simm16,simm26);
+	U19:reg_int port map(clk,sEscreveIR,SaidaMemoria,sopcode,srs,srt,srd,sshamnt,sfunct,simm16,simm26);
 	U5: reg_32 port map(clk,SaidaMemoria,SaidaRegMemoria);
 	U6: mux_2_5bits port map (srt,srd,sregDst,mux2_5bits_U6);
 	U7: mux_2 port map(SaidaUla_2,SaidaRegMemoria,sMemparaReg,mux2_U7);
@@ -240,13 +241,15 @@ begin
 	U13: mux_2 port map(sSaidaPC,SaidaA_2,sOrigAALU,mux2_U13);
 	U14: mux_4 port map(SaidaB_2,X"00000004",SaidaExt32,SaidaDeslocamento,sOrigBALU,mux4_U14);
 	U15: alu_ctr port map(sOpALU,sfunct,opcode_ula);
-	U16: ula port map(opcode_ula,mux2_U13,mux4_U14,SaidaULA,svai,sovfl,szero);
+	U16: ula port map(opcode_ula,mux2_U13,mux4_U14,sSaidaULA,svai,sovfl,szero);
 	U17: reg_32 port map(clk,sSaidaULA,SaidaUla_2);
 	U18: mux_3 port map(sSaidaULA,SaidaULa_2,Entrada2Mux,sOrigPc,mux3_U18); 
 	enablePC <= sEscrevePC or (sEscrevePCCond and szero);
 	
 	 --Sinais concatenados auxiliares
 	 
+	 
+	 SaidaUla<=SaidaULa_2;
 	 SaidaPC<=sSaidaPC;
 	 SaidaRI <=SaidaMemoria;
 AddressDado<= '1'& saidaULA_2(8 downto 2) ;

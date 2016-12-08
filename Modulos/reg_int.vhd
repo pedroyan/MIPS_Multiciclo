@@ -5,6 +5,7 @@ entity reg_int is
 	port 
 	(
 		clk		: in std_logic;
+		enable   : in std_logic;
 		reg_in	: in std_logic_vector(31 downto 0);
 		opcode	: out std_logic_vector(5 downto 0);
 		rs		 	: out std_logic_vector(4 downto 0);
@@ -21,7 +22,7 @@ architecture rtl of reg_int is
 begin
 	process(clk)
 	begin
-		if (rising_edge(clk)) then
+		if (rising_edge(clk) and enable = '1') then
 				opcode <= reg_in(31 downto 26);
 				rs <= reg_in(25 downto 21);
 				rt <= reg_in(20 downto 16);
