@@ -47,7 +47,7 @@ COMPONENT TrabalhoFinal
 	);
 END COMPONENT;
  -- Clock period definitions
-   constant clk_period : time := 10 ns;
+   constant clk_period : time := 10 ps;
    
 BEGIN
 	i1 : TrabalhoFinal
