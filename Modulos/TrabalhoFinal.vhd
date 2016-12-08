@@ -220,7 +220,7 @@ begin
 	U1: pc port map(clk,enablePC,mux3_U18,sSaidaPC);
 	U2: cntrMIPS port map(clk,sopcode,sOpALU, sOrigBALU, sOrigPC,sOrigAALU ,sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR,sCtlEnd,sCtlInT,sSaidaSomadorT,sSaidaAddressT,sSaidaEstadoT );
 	U3: mux_2 port map (sSaidaPC,SaidaUla_2,sIouD,mux2_U3);
-	U4: memoria port map(EntradaAddress ,'1',SaidaB_2,sEscreveMem,SaidaMemoria);
+	U4: memoria port map(EntradaAddress ,clk,SaidaB_2,sEscreveMem,SaidaMemoria);
 	U19:reg_int port map(clk,SaidaMemoria,sopcode,srs,srt,srd,sshamnt,sfunct,simm16,simm26);
 	U5: reg_32 port map(clk,SaidaMemoria,SaidaRegMemoria);
 	U6: mux_2_5bits port map (srt,srd,sregDst,mux2_5bits_U6);
