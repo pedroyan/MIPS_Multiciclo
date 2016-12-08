@@ -19,3 +19,10 @@ output_files/TrabalhoFinal.jdi
 output_files/TrabalhoFinal.pof
 *.dat
 *.bak10
+*.bak11
+*.dbs
+*.prw
+*.psm
+simulation/modelsim/msim_transcript
+simulation/modelsim/rtl_work/_info
+simulation/modelsim/rtl_work/_vmake
