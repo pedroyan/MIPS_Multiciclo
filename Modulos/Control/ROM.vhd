@@ -20,7 +20,7 @@ architecture Behavioral of ROM is
 		microCmds : microComandos_T;
 		nextAddress : nextAddress_T;
 	end RECORD;
-	TYPE microPrograma_T is array (0 to 9) of microInstrucao_T;
+	TYPE microPrograma_T is array (0 to 12) of microInstrucao_T;
 	-- valores para o campo de sequenciamento
 	constant SEQ : nextAddress_T := "11";
 	constant FETCH : nextAddress_T := "00";
@@ -29,7 +29,11 @@ architecture Behavioral of ROM is
 	--tipos alu cntr
 	constant ADD : std_logic_vector(2 downto 0) := "000";
 	constant subt : std_logic_vector(2 downto 0) := "001";
+	constant Alu_nand : std_logic_vector(2 downto 0) := "011";
+	constant Alu_or : std_logic_vector(2 downto 0) := "101";
+	constant Alu_slt : std_logic_vector(2 downto 0):= "110";
 	constant funcCode : std_logic_vector(2 downto 0) := "111";
+	
 	
 	--tipos SRC2
 	constant SRC_2_B : std_logic_vector(1 downto 0) := "00";
@@ -55,21 +59,23 @@ architecture Behavioral of ROM is
 
 	-- micro programa: listar os sinais de saida na ordem da figura
 	-- microinstrucao | ALU Cntr | SRC 1 | SRC 2 | Regs | Memory control | PC Write | Seq
-	constant mFETCH : microInstrucao_T := (ADD & '0' & SRC_2_4 & Reg_Read & Mem_readPC & PC_ALU , SEQ );
-	constant mFETCH2 : microInstrucao_T := (ADD & '0' & SRC_2_Extshift & Reg_Read & Mem_readPC & "0000", DISPATCH_1);
-	constant Mem1 : microInstrucao_T := (ADD & '1' & SRC_2_Extend & Reg_Read & Mem_readPC & "0000",DISPATCH_2);
-	constant LW : microInstrucao_T := ("000000000" & Mem_readALU & "0000", SEQ);
-	constant LW2 : microInstrucao_T := ("000000" & Reg_writeMDR & "0000000", FETCH);
-	constant SW2 : microInstrucao_T := ("000000000" & Mem_writeALU & "0000", FETCH);
-	constant Rformat : microInstrucao_T := (funcCode & '1' & SRC_2_B & "0000000000", SEQ);
-	constant Rformat2 : microInstrucao_T := ("000000" & Reg_writeAlu & "0000000", FETCH);
-	constant BEQ : microInstrucao_T := (subt & '1' & SRC_2_B & "000000" & PC_ALUOut_cond, FETCH);
-	constant JUMP : microInstrucao_T := ("000000000000" & PC_JumpAddress,FETCH);
-	
+	constant mFETCH : microInstrucao_T := (ADD & '0' & SRC_2_4 & Reg_Read & Mem_readPC & PC_ALU , SEQ ); --0 
+	constant mFETCH2 : microInstrucao_T := (ADD & '0' & SRC_2_Extshift & Reg_Read & Mem_readPC & "0000", DISPATCH_1);--1
+	constant Mem1 : microInstrucao_T := (ADD & '1' & SRC_2_Extend & Reg_Read & Mem_readPC & "0000",DISPATCH_2);--2
+	constant LW : microInstrucao_T := ("000000000" & Mem_readALU & "0000", SEQ);--3
+	constant LW2 : microInstrucao_T := ("000000" & Reg_writeMDR & "0000000", FETCH);--4
+	constant SW2 : microInstrucao_T := ("000000000" & Mem_writeALU & "0000", FETCH);--5
+	constant Rformat : microInstrucao_T := (funcCode & '1' & SRC_2_B & "0000000000", SEQ);--6
+	constant WriteBack : microInstrucao_T := ("000000" & Reg_writeAlu & "0000000", FETCH);--7
+	constant BEQ : microInstrucao_T := (subt & '1' & SRC_2_B & "000000" & PC_ALUOut_cond, FETCH);--8
+	constant JUMP : microInstrucao_T := ("000000000000" & PC_JumpAddress,FETCH);--9
+	constant ADDI1 : microInstrucao_T := (ADD & '1' & SRC_2_Extend & "000" & "000" & "0000",DISPATCH_2);--10
+	constant ORI : microInstrucao_T := (Alu_or & '1' & SRC_2_Extend & "000" & "000" & "0000", DISPATCH_2);--11
+	constant SLTI : microInstrucao_T:= (Alu_slt & '1' & SRC_2_Extend & "000" & "000" & "0000", DISPATCH_2);--12
 begin
 
 	proc_ROM : process (Entrada)
-		variable programa : microPrograma_T := (mFETCH,mFETCH2,Mem1,LW,LW2,SW2,Rformat,Rformat2,BEQ,JUMP);
+		variable programa : microPrograma_T := (mFETCH,mFETCH2,Mem1,LW,LW2,SW2,Rformat,WriteBack,BEQ,JUMP,ADDI1,ORI,SLTI);
 		variable instrucaoSelecionada : microInstrucao_T;
 		variable comando : microComandos_T;
 		variable prox : nextAddress_T;

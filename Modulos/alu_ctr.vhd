@@ -17,8 +17,7 @@ signal functOP : std_logic_vector(3 downto 0);
 begin
 with op_alu select alu_ctr <=
 		"0010" when "000", --lw e sw
-		"0100" when "001", -- beq e bne
-		"0111" when "011", --nand
+		"0100" when "001", -- beq e bne (subt)
 		"0010" when "100", --addi
 		"0001" when "101", --ori
 		"0110" when "110", --slti
@@ -34,6 +33,7 @@ with funct select functOP <=
 		"0110" when "101010", --slt
 		"1010" when "000000", --sll
 		"0010" when "001000", --jr (tipo r)
+		--"0111" when "functNand" , --nand
 		"0000" when others;
 end architecture;
 		
