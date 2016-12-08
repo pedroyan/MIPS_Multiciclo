@@ -7,6 +7,7 @@ vmap work rtl_work
 
 vcom -93 -work work {C:/Users/Pietro/Documents/MIPS_Multiciclo/Modulos/reg_int.vhd}
 vcom -93 -work work {C:/Users/Pietro/Documents/MIPS_Multiciclo/Modulos/alu_ctr.vhd}
+vcom -93 -work work {C:/Users/Pietro/Documents/MIPS_Multiciclo/Modulos/mux_2_8bit.vhd}
 vcom -93 -work work {C:/Users/Pietro/Documents/MIPS_Multiciclo/Modulos/mux_2_5bits.vhd}
 vcom -93 -work work {C:/Users/Pietro/Documents/MIPS_Multiciclo/Modulos/TrabalhoFinal.vhd}
 vcom -93 -work work {C:/Users/Pietro/Documents/MIPS_Multiciclo/Modulos/Control/Somador.vhd}

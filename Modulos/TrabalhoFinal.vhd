@@ -1,4 +1,4 @@
---ula,bReg,memo,control,mux2.2,mux3.2,mux4.2,reg32.2,pc.2,extsgn2,Shift32_2,mux_2_5bits,reg_int
+--ula,bReg,memo,control,mux2.2,mux3.2,mux4.2,reg32.2,pc.2,extsgn2,Shift32_2,mux_2_5bits,reg_int,mux2_8bit
 --PIETRO LINDO S2
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -14,6 +14,13 @@ entity TrabalhoFinal is
 end TrabalhoFinal;
 
 architecture Behavioral of TrabalhoFinal  is
+component mux_2_8bit is
+	port (
+	 	in0, in1	: in std_logic_vector(7 downto 0);
+		sel			: in std_logic;
+		m_out		: out std_logic_vector(7 downto 0));
+end component;
+
 component reg_int is
 	port 
 	(
@@ -165,7 +172,7 @@ end component;
 --PC:		
 signal sSaidaPc : std_logic_vector(31 downto 0):= (others => '0');
 --MUX2, U3:(pos pc)
-signal mux2_U3 : std_logic_vector(31 downto 0):= (others => '0');
+signal EntradaMemoria : std_logic_vector(7 downto 0):= (others => '0');
 --MEMoria
 signal SaidaMemoria : std_logic_vector(31 downto 0):= (others => '0');
 --regMemoria
@@ -209,7 +216,7 @@ signal enablePC : std_logic;
 
 --cocatenacao de sinais
   --U4 ->  address  
-  signal EntradaAddress : std_logic_vector(7 downto 0) := (others => '0');
+  signal AddressDado : std_logic_vector(7 downto 0) := (others => '0');
   --U18
   signal  Entrada2Mux: std_logic_vector(31 downto 0) := (others => '0');
 
@@ -219,8 +226,8 @@ begin
 	
 	U1: pc port map(clk,enablePC,mux3_U18,sSaidaPC);
 	U2: cntrMIPS port map(clk,sopcode,sOpALU, sOrigBALU, sOrigPC,sOrigAALU ,sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR,sCtlEnd,sCtlInT,sSaidaSomadorT,sSaidaAddressT,sSaidaEstadoT );
-	U3: mux_2 port map (sSaidaPC,SaidaUla_2,sIouD,mux2_U3);
-	U4: memoria port map(EntradaAddress ,clk,SaidaB_2,sEscreveMem,SaidaMemoria);
+	U3: mux_2_8bit port map (sSaidaPC(7 downto 0),AddressDado,sIouD,EntradaMemoria);
+	U4: memoria port map(EntradaMemoria,clk,SaidaB_2,sEscreveMem,SaidaMemoria);
 	U19:reg_int port map(clk,SaidaMemoria,sopcode,srs,srt,srd,sshamnt,sfunct,simm16,simm26);
 	U5: reg_32 port map(clk,SaidaMemoria,SaidaRegMemoria);
 	U6: mux_2_5bits port map (srt,srd,sregDst,mux2_5bits_U6);
@@ -239,7 +246,10 @@ begin
 	enablePC <= sEscrevePC or (sEscrevePCCond and szero);
 	
 	 --Sinais concatenados auxiliares
-EntradaAddress <= '1'& mux2_U3(8 downto 2) ;
+	 
+	 SaidaPC<=sSaidaPC;
+	 SaidaRI <=SaidaMemoria;
+AddressDado<= '1'& saidaULA_2(8 downto 2) ;
 Entrada2Mux <= sSaidaPC(31 downto 28)& simm26 & "00";
 
 	end Behavioral;
