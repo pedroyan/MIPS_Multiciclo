@@ -5,18 +5,18 @@ entity cntrMIPS is
 port (
 		clk : in std_logic;
 		Op : in std_logic_vector(5 downto 0);
-		OpALU, OrigBALU, OrigPC : out std_logic_vector(1 downto 0);
+		OpALU : out std_logic_vector(2 downto 0);
+		OrigBALU, OrigPC : out std_logic_vector(1 downto 0);
 		OrigAALU : out std_logic;
 		EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,
 		EscreveMem, EscreveIR : out std_logic;
 		CtlEnd : inout std_logic_vector(1 downto 0);
 		
-	  CtlInT : out STD_LOGIC_VECTOR (1 downto 0);
-	 SaidaSomadorT : out  STD_LOGIC_VECTOR (3 downto 0);
-	 SaidaAddressT :  out STD_LOGIC_VECTOR (3 downto 0);
-	 SaidaEstadoT :  out STD_LOGIC_VECTOR (3 downto 0)
-		
-		);
+		CtlInT : out STD_LOGIC_VECTOR (1 downto 0);
+		SaidaSomadorT : out  STD_LOGIC_VECTOR (3 downto 0);
+		SaidaAddressT :  out STD_LOGIC_VECTOR (3 downto 0);
+		SaidaEstadoT :  out STD_LOGIC_VECTOR (3 downto 0)
+	);
 end cntrMIPS;
 
 architecture Behavioral of cntrMIPS is
@@ -32,7 +32,8 @@ end component;
 	component  ROM is
 	port (
 			Entrada : in std_logic_vector(3 downto 0);
-			OpALU, OrigBALU, OrigPC : out std_logic_vector(1 downto 0);
+			OpALU : out std_logic_vector(2 downto 0);
+			OrigBALU, OrigPC : out std_logic_vector(1 downto 0);
 			OrigAALU : out std_logic;
 			EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,
 			EscreveMem, EscreveIR : out std_logic;
