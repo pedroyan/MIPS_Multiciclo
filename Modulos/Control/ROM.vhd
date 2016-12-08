@@ -29,6 +29,7 @@ architecture Behavioral of ROM is
 	--tipos alu cntr
 	constant ADD : std_logic_vector(2 downto 0) := "000";
 	constant subt : std_logic_vector(2 downto 0) := "001";
+	constant Alu_nand : std_logic_vector(2 downto 0) := "011";
 	constant funcCode : std_logic_vector(2 downto 0) := "111";
 	
 	--tipos SRC2
@@ -62,15 +63,16 @@ architecture Behavioral of ROM is
 	constant LW2 : microInstrucao_T := ("000000" & Reg_writeMDR & "0000000", FETCH);
 	constant SW2 : microInstrucao_T := ("000000000" & Mem_writeALU & "0000", FETCH);
 	constant Rformat : microInstrucao_T := (funcCode & '1' & SRC_2_B & "0000000000", SEQ);
-	constant Rformat2 : microInstrucao_T := ("000000" & Reg_writeAlu & "0000000", FETCH);
+	constant WriteBack : microInstrucao_T := ("000000" & Reg_writeAlu & "0000000", FETCH);
 	constant BEQ : microInstrucao_T := (subt & '1' & SRC_2_B & "000000" & PC_ALUOut_cond, FETCH);
 	constant JUMP : microInstrucao_T := ("000000000000" & PC_JumpAddress,FETCH);
-	constant ADDI1 : microInstrucao_T := (ADD & '1' & SRC_2_Extend & "000" & "000" & "0000",SEQ);
-	constant ADDI2 : microInstrucao_T := ("000" & '0' & "00" & Reg_writeAlu & "000" & "0000",FETCH);
+	constant ADDI1 : microInstrucao_T := (ADD & '1' & SRC_2_Extend & "000" & "000" & "0000",DISPATCH_2);
+	constant INAND : microInstrucao_T := (Alu_nand & '1' & SRC_2_B & "000" & "000" & "0000",DISPATCH_2);
+	--constant 
 begin
 
 	proc_ROM : process (Entrada)
-		variable programa : microPrograma_T := (mFETCH,mFETCH2,Mem1,LW,LW2,SW2,Rformat,Rformat2,BEQ,JUMP,ADDI1,ADDI2);
+		variable programa : microPrograma_T := (mFETCH,mFETCH2,Mem1,LW,LW2,SW2,Rformat,WriteBack,BEQ,JUMP,ADDI1,INAND);
 		variable instrucaoSelecionada : microInstrucao_T;
 		variable comando : microComandos_T;
 		variable prox : nextAddress_T;
