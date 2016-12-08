@@ -63,6 +63,7 @@ set_global_assignment -name EDA_TEST_BENCH_NAME ProgramaFinal_Tb -section_id eda
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ProgramaFinal_Tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ProgramaFinal_Tb -section_id ProgramaFinal_Tb
 set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/TrabalhoFinal.vht -section_id ProgramaFinal_Tb
+set_global_assignment -name VHDL_TEST_BENCH_FILE simulation/modelsim/TrabalhoFinal.vht
 set_global_assignment -name MIF_FILE Modulos/Memoria/memoria.mif
 set_global_assignment -name VHDL_FILE Modulos/reg_int.vhd
 set_global_assignment -name VHDL_FILE Modulos/Shift26_2.vhd

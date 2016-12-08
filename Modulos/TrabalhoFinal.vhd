@@ -153,65 +153,65 @@ component mux_2 is
 end component;
 --SINAIS
 --CONTROLE:
-		SIGNAL sOpALU : std_logic_vector(2 downto 0);
-		SIGNAL  sOrigBALU, sOrigPC :  std_logic_vector(1 downto 0);
+		SIGNAL sOpALU : std_logic_vector(2 downto 0):= (others => '0');
+		SIGNAL  sOrigBALU, sOrigPC :  std_logic_vector(1 downto 0):= (others => '0');
 		SIGNAL sOrigAALU :  std_logic;
 		SIGNAL sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR :  std_logic;
-		SIGNAL sCtlEnd : std_logic_vector(1 downto 0);	
-	   SIGNAL sCtlInT :  STD_LOGIC_VECTOR (1 downto 0);
+		SIGNAL sCtlEnd : std_logic_vector(1 downto 0):= (others => '0');	
+	   SIGNAL sCtlInT :  STD_LOGIC_VECTOR (1 downto 0):= (others => '0');
 	   SIGNAL sSaidaSomadorT :   STD_LOGIC_VECTOR (3 downto 0);
-	   SIGNAL sSaidaAddressT :   STD_LOGIC_VECTOR (3 downto 0);
-	   SIGNAL sSaidaEstadoT :   STD_LOGIC_VECTOR (3 downto 0);
+	   SIGNAL sSaidaAddressT :   STD_LOGIC_VECTOR (3 downto 0):= (others => '0');
+	   SIGNAL sSaidaEstadoT :   STD_LOGIC_VECTOR (3 downto 0):= (others => '0');
 --PC:		
-signal sSaidaPc : std_logic_vector(31 downto 0);
+signal sSaidaPc : std_logic_vector(31 downto 0):= (others => '0');
 --MUX2, U3:(pos pc)
-signal mux2_U3 : std_logic_vector(31 downto 0);
+signal mux2_U3 : std_logic_vector(31 downto 0):= (others => '0');
 --MEMoria
-signal SaidaMemoria : std_logic_vector(31 downto 0);
+signal SaidaMemoria : std_logic_vector(31 downto 0):= (others => '0');
 --regMemoria
-signal SaidaRegMemoria	:  std_logic_vector(31 downto 0);
+signal SaidaRegMemoria	:  std_logic_vector(31 downto 0):= (others => '0');
 --mux2_U6(registrador de escrita)
-signal mux2_5bits_U6 : std_logic_vector(4 downto 0);
+signal mux2_5bits_U6 : std_logic_vector(4 downto 0):= (others => '0');
 --mux2_U7(dados para escrita)
-signal mux2_U7 : std_logic_vector(31 downto 0);
+signal mux2_U7 : std_logic_vector(31 downto 0):= (others => '0');
 --BREG
-signal saidaA,saidaB : std_logic_vector(31 downto 0);
+signal saidaA,saidaB : std_logic_vector(31 downto 0):= (others => '0');
 --extsgn32bits
-signal SaidaExt32 : std_logic_vector(31 downto 0);
+signal SaidaExt32 : std_logic_vector(31 downto 0):= (others => '0');
 ---Shift32_2
-signal SaidaDeslocamento : std_logic_vector(31 downto 0);
+signal SaidaDeslocamento : std_logic_vector(31 downto 0):= (others => '0');
 --reg_32 A,B
-signal SaidaA_2,SaidaB_2 : std_logic_vector(31 downto 0);
+signal SaidaA_2,SaidaB_2 : std_logic_vector(31 downto 0):= (others => '0');
 --mux U13(A)
-signal mux2_U13 : std_logic_vector(31 downto 0);
+signal mux2_U13 : std_logic_vector(31 downto 0):= (others => '0');
 --mux U13(B)
-signal mux4_U14 : std_logic_vector(31 downto 0);
+signal mux4_U14 : std_logic_vector(31 downto 0):= (others => '0');
 --ULA Control
-signal opcode_ula   : std_logic_vector(3 downto 0);
+signal opcode_ula   : std_logic_vector(3 downto 0):= (others => '0');
 --ULA
-signal sSaidaULA : std_logic_vector(31 downto 0);
+signal sSaidaULA : std_logic_vector(31 downto 0):= (others => '0');
 signal svai,sovfl,szero :std_logic;
 --RegUla
-signal SaidaULA_2 : std_logic_vector(31 downto 0);
+signal SaidaULA_2 : std_logic_vector(31 downto 0):= (others => '0');
 --Mux3(pos ula)
-signal  mux3_U18: std_logic_vector(31 downto 0);
+signal  mux3_U18: std_logic_vector(31 downto 0):= (others => '0');
 --Controle do Enable(Final do controle)
 signal enablePC : std_logic;
 --registrador innstrucao
-   signal sopcode	:  std_logic_vector(5 downto 0);
-	signal	srs		 	:  std_logic_vector(4 downto 0);
-	signal	srt		 	:  std_logic_vector(4 downto 0);
-	signal	srd		 	:  std_logic_vector(4 downto 0);
-	signal	sshamnt 	:  std_logic_vector(4 downto 0);
-	signal	sfunct 	:  std_logic_vector(5 downto 0);
-	signal	simm16		:  std_logic_vector(15 downto 0); 
-	signal	simm26		:  std_logic_vector(25 downto 0);
+   signal sopcode	:  std_logic_vector(5 downto 0):= (others => '0');
+	signal	srs		 	:  std_logic_vector(4 downto 0):= (others => '0');
+	signal	srt		 	:  std_logic_vector(4 downto 0):= (others => '0');
+	signal	srd		 	:  std_logic_vector(4 downto 0):= (others => '0');
+	signal	sshamnt 	:  std_logic_vector(4 downto 0):= (others => '0');
+	signal	sfunct 	:  std_logic_vector(5 downto 0):= (others => '0');
+	signal	simm16		:  std_logic_vector(15 downto 0):= (others => '0'); 
+	signal	simm26		:  std_logic_vector(25 downto 0):= (others => '0');
 
 --cocatenacao de sinais
   --U4 ->  address  
-  signal EntradaAddress : std_logic_vector(7 downto 0);
+  signal EntradaAddress : std_logic_vector(7 downto 0) := (others => '0');
   --U18
-  signal  Entrada2Mux: std_logic_vector(31 downto 0);
+  signal  Entrada2Mux: std_logic_vector(31 downto 0) := (others => '0');
 
 
 begin

@@ -26,3 +26,4 @@ output_files/TrabalhoFinal.pof
 simulation/modelsim/msim_transcript
 simulation/modelsim/rtl_work/_info
 simulation/modelsim/rtl_work/_vmake
+*.wlf
