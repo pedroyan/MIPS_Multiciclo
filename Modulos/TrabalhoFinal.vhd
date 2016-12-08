@@ -16,7 +16,7 @@ end TrabalhoFinal;
 architecture Behavioral of TrabalhoFinal  is
 component alu_ctr is
 	port (
-		op_alu		: in std_logic_vector(1 downto 0);
+		op_alu		: in std_logic_vector(2 downto 0);
 		funct			: in std_logic_vector(5 downto 0);
 		alu_ctr	   : out std_logic_vector(3 downto 0)
 	);
@@ -114,7 +114,8 @@ component cntrMIPS is
 port (
 		clk : in std_logic;
 		Op : in std_logic_vector(5 downto 0);
-		OpALU, OrigBALU, OrigPC : out std_logic_vector(1 downto 0);
+		OpALU : out std_logic_vector(2 downto 0);
+		OrigBALU, OrigPC : out std_logic_vector(1 downto 0);
 		OrigAALU : out std_logic;
 		EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,
 		EscreveMem, EscreveIR : out std_logic;
@@ -137,8 +138,8 @@ component mux_2 is
 end component;
 --SINAIS
 --CONTROLE:
-
-		SIGNAL sOpALU, sOrigBALU, sOrigPC :  std_logic_vector(1 downto 0);
+		SIGNAL sOpALU : std_logic_vector(2 downto 0);
+		SIGNAL  sOrigBALU, sOrigPC :  std_logic_vector(1 downto 0);
 		SIGNAL sOrigAALU :  std_logic;
 		SIGNAL sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR :  std_logic;
 		SIGNAL sCtlEnd : std_logic_vector(1 downto 0);	
