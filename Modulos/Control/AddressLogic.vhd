@@ -20,6 +20,7 @@ begin
 		"0010" when "101011",
 		"1010" when "001000", --addi
 		"1011" when "001101", --ori
+		"1100" when "001010", -- SLTI
 		"0000" when others;
 
 	with OPcode select dispatch2 <=
@@ -27,6 +28,7 @@ begin
 		"0101" when "101011",
 		"0111" when "001000",
 		"0111" when "001101",
+		"0111" when "001010",
 		"0000" when others;
 	
 	with CtlEnd select AddressOut <=

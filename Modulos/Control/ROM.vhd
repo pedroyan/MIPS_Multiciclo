@@ -20,7 +20,7 @@ architecture Behavioral of ROM is
 		microCmds : microComandos_T;
 		nextAddress : nextAddress_T;
 	end RECORD;
-	TYPE microPrograma_T is array (0 to 11) of microInstrucao_T;
+	TYPE microPrograma_T is array (0 to 12) of microInstrucao_T;
 	-- valores para o campo de sequenciamento
 	constant SEQ : nextAddress_T := "11";
 	constant FETCH : nextAddress_T := "00";
@@ -30,8 +30,10 @@ architecture Behavioral of ROM is
 	constant ADD : std_logic_vector(2 downto 0) := "000";
 	constant subt : std_logic_vector(2 downto 0) := "001";
 	constant Alu_nand : std_logic_vector(2 downto 0) := "011";
-	constant Alu_or : std_logic_vector(2 downto 0) := "101"
+	constant Alu_or : std_logic_vector(2 downto 0) := "101";
+	constant Alu_slt : std_logic_vector(2 downto 0):= "110";
 	constant funcCode : std_logic_vector(2 downto 0) := "111";
+	
 	
 	--tipos SRC2
 	constant SRC_2_B : std_logic_vector(1 downto 0) := "00";
@@ -69,10 +71,11 @@ architecture Behavioral of ROM is
 	constant JUMP : microInstrucao_T := ("000000000000" & PC_JumpAddress,FETCH);--9
 	constant ADDI1 : microInstrucao_T := (ADD & '1' & SRC_2_Extend & "000" & "000" & "0000",DISPATCH_2);--10
 	constant ORI : microInstrucao_T := (Alu_or & '1' & SRC_2_Extend & "000" & "000" & "0000", DISPATCH_2);--11
+	constant SLTI : microInstrucao_T:= (Alu_slt & '1' & SRC_2_Extend & "000" & "000" & "0000", DISPATCH_2);--12
 begin
 
 	proc_ROM : process (Entrada)
-		variable programa : microPrograma_T := (mFETCH,mFETCH2,Mem1,LW,LW2,SW2,Rformat,WriteBack,BEQ,JUMP,ADDI1,INAND);
+		variable programa : microPrograma_T := (mFETCH,mFETCH2,Mem1,LW,LW2,SW2,Rformat,WriteBack,BEQ,JUMP,ADDI1,ORI,SLTI);
 		variable instrucaoSelecionada : microInstrucao_T;
 		variable comando : microComandos_T;
 		variable prox : nextAddress_T;
