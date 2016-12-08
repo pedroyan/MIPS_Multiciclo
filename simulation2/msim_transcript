@@ -1,0 +1,192 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do TrabalhoFinal_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/reg_int.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity reg_int
+# -- Compiling architecture rtl of reg_int
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/alu_ctr.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity alu_ctr
+# -- Compiling architecture alu_ctr_arch of alu_ctr
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/mux_2_8bit.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mux_2_8bit
+# -- Compiling architecture rtl of mux_2_8bit
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/mux_2_5bits.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mux_2_5bits
+# -- Compiling architecture rtl of mux_2_5bits
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/TrabalhoFinal.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity TrabalhoFinal
+# -- Compiling architecture Behavioral of TrabalhoFinal
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/Control/Somador.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Somador
+# -- Compiling architecture Behavioral of Somador
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/Control/ROM.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ROM
+# -- Compiling architecture Behavioral of ROM
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/Control/Estado.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity Estado
+# -- Compiling architecture Behavioral of Estado
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/Control/cntrMIPS.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity cntrMIPS
+# -- Compiling architecture Behavioral of cntrMIPS
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/Control/AddressLogic.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity AddressLogic
+# -- Compiling architecture Behavioral of AddressLogic
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/ula.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity ula
+# -- Compiling architecture behavioral of ula
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/Shift32_2.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Shift32_2
+# -- Compiling architecture Shift32_2_arch of Shift32_2
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/reg_32.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity reg_32
+# -- Compiling architecture rtl of reg_32
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/pc.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity PC
+# -- Compiling architecture rtl of PC
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/mux_4.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mux_4
+# -- Compiling architecture rtl of mux_4
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/mux_3.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mux_3
+# -- Compiling architecture rtl of mux_3
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/mux_2.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity mux_2
+# -- Compiling architecture rtl of mux_2
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/extsgn.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity extsgn
+# -- Compiling architecture extsgn_arch of extsgn
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/Breg.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity Breg
+# -- Compiling architecture Behavioral of Breg
+# vcom -93 -work work {C:/Projetos/MIPS/Modulos/Memoria/memoria.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity memoria
+# -- Compiling architecture SYN of memoria
+# 
+# vcom -93 -work work {C:/Projetos/MIPS/simulation/modelsim/TrabalhoFinal.vht}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity TrabalhoFinal_vhd_tst
+# -- Compiling architecture TrabalhoFinal_arch of TrabalhoFinal_vhd_tst
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs="+acc"  ProgramaFinal_Tb
+# vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps ProgramaFinal_Tb 
+# ** Error: (vsim-3170) Could not find 'C:/Projetos/MIPS/simulation2/rtl_work.ProgramaFinal_Tb'.
+# 
+# Error loading design
+# Error: Error loading design 
+#        Pausing macro execution 
+# MACRO ./TrabalhoFinal_run_msim_rtl_vhdl.do PAUSED at line 31

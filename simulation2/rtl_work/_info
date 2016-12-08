@@ -1,0 +1,786 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Projetos\MIPS\simulation2
+Eaddresslogic
+Z1 w1481215941
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dC:\Projetos\MIPS\simulation2
+Z5 8C:/Projetos/MIPS/Modulos/Control/AddressLogic.vhd
+Z6 FC:/Projetos/MIPS/Modulos/Control/AddressLogic.vhd
+l0
+L4
+VHXNc3QCg6^H2X8RF3OLR10
+Z7 OV;C;10.1d;51
+31
+Z8 !s108 1481217734.837000
+Z9 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/Control/AddressLogic.vhd|
+Z10 !s107 C:/Projetos/MIPS/Modulos/Control/AddressLogic.vhd|
+Z11 o-93 -work work -O0
+Z12 tExplicit 1
+!s100 a>UY>^ZHkNYe0K66ZnF=11
+!i10b 1
+Abehavioral
+R2
+R3
+DEx4 work 12 addresslogic 0 22 HXNc3QCg6^H2X8RF3OLR10
+l13
+L11
+V[M]jf_VNTao4QjH18cT@[0
+R7
+31
+R8
+R9
+R10
+R11
+R12
+!s100 Td=BC>5<Ol3mgXHTJm?531
+!i10b 1
+Ealu_ctr
+R1
+Z13 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z14 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z15 DPx4 ieee 16 std_logic_signed 0 22 E>OLoMaBGQ?hbGgOoNXM^1
+R2
+R3
+R4
+Z16 8C:/Projetos/MIPS/Modulos/alu_ctr.vhd
+Z17 FC:/Projetos/MIPS/Modulos/alu_ctr.vhd
+l0
+L6
+VE[bzzC^4n_^WD:m;82FPP1
+R7
+31
+Z18 !s108 1481217732.106000
+Z19 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/alu_ctr.vhd|
+Z20 !s107 C:/Projetos/MIPS/Modulos/alu_ctr.vhd|
+R11
+R12
+!s100 J]BZ0X8?]42_nXb>iSKi52
+!i10b 1
+Aalu_ctr_arch
+R13
+R14
+R15
+R2
+R3
+DEx4 work 7 alu_ctr 0 22 E[bzzC^4n_^WD:m;82FPP1
+l17
+L15
+V_?eU4WzQRBSO5zQO?jKGa3
+R7
+31
+R18
+R19
+R20
+R11
+R12
+!s100 PcOmojZ<nl?<ZAb0mCF]m0
+!i10b 1
+Ebreg
+R1
+R13
+R2
+R3
+R4
+Z21 8C:/Projetos/MIPS/Modulos/Breg.vhd
+Z22 FC:/Projetos/MIPS/Modulos/Breg.vhd
+l0
+L5
+V5OH`XCbW[A6Xd99g5eG940
+R7
+31
+Z23 !s108 1481217738.025000
+Z24 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/Breg.vhd|
+Z25 !s107 C:/Projetos/MIPS/Modulos/Breg.vhd|
+R11
+R12
+!s100 H@RmiP04@[6kN;J5Q?`^_3
+!i10b 1
+Abehavioral
+R13
+R2
+R3
+DEx4 work 4 breg 0 22 5OH`XCbW[A6Xd99g5eG940
+l18
+L14
+V7kEk<RO5]M=W;8Mdi^hAd1
+R7
+31
+R23
+R24
+R25
+R11
+R12
+!s100 2OKU9Z6U@EH<Im<NhhEZ63
+!i10b 1
+Ecntrmips
+R1
+R2
+R3
+R4
+Z26 8C:/Projetos/MIPS/Modulos/Control/cntrMIPS.vhd
+Z27 FC:/Projetos/MIPS/Modulos/Control/cntrMIPS.vhd
+l0
+L4
+VinIe4m[Fc4ofKo67R00_d2
+R7
+31
+Z28 !s108 1481217734.560000
+Z29 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/Control/cntrMIPS.vhd|
+Z30 !s107 C:/Projetos/MIPS/Modulos/Control/cntrMIPS.vhd|
+R11
+R12
+!s100 L1HBV]CJOo]iBo2Ref`^A1
+!i10b 1
+Abehavioral
+R2
+R3
+DEx4 work 8 cntrmips 0 22 inIe4m[Fc4ofKo67R00_d2
+l60
+L22
+V?OInUGXYi[Y@KU96^YQUz3
+R7
+31
+R28
+R29
+R30
+R11
+R12
+!s100 [85_`l`fl<`J?:Tgl]O3<0
+!i10b 1
+Eestado
+R1
+R2
+R3
+R4
+Z31 8C:/Projetos/MIPS/Modulos/Control/Estado.vhd
+Z32 FC:/Projetos/MIPS/Modulos/Control/Estado.vhd
+l0
+L4
+V_BULmNS3A<HCKe181WjPz1
+R7
+31
+Z33 !s108 1481217734.239000
+Z34 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/Control/Estado.vhd|
+Z35 !s107 C:/Projetos/MIPS/Modulos/Control/Estado.vhd|
+R11
+R12
+!s100 O;TZnV1X734bU:nH>GA>I1
+!i10b 1
+Abehavioral
+R2
+R3
+DEx4 work 6 estado 0 22 _BULmNS3A<HCKe181WjPz1
+l12
+L10
+V@M^=P3kT_7@:g_Z0=c@BL1
+R7
+31
+R33
+R34
+R35
+R11
+R12
+!s100 PK:64hfJ@8m7NM5^jJOTU0
+!i10b 1
+Eextsgn
+R1
+R13
+R14
+R15
+R2
+R3
+R4
+Z36 8C:/Projetos/MIPS/Modulos/extsgn.vhd
+Z37 FC:/Projetos/MIPS/Modulos/extsgn.vhd
+l0
+L6
+V6T<F97XQ]R7QEkXR2FXKB2
+R7
+31
+Z38 !s108 1481217737.582000
+Z39 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/extsgn.vhd|
+Z40 !s107 C:/Projetos/MIPS/Modulos/extsgn.vhd|
+R11
+R12
+!s100 ]=ZlLZJYRJgaH;4>VjHi@3
+!i10b 1
+Aextsgn_arch
+R13
+R14
+R15
+R2
+R3
+DEx4 work 6 extsgn 0 22 6T<F97XQ]R7QEkXR2FXKB2
+l14
+L13
+VEoWU];91iJ6UMQHZ]]^YL1
+R7
+31
+R38
+R39
+R40
+R11
+R12
+!s100 Xcmb8OG3o1_AazFIajdgd1
+!i10b 1
+Ememoria
+Z41 w1481217434
+R2
+R3
+R4
+Z42 8C:/Projetos/MIPS/Modulos/Memoria/memoria.vhd
+Z43 FC:/Projetos/MIPS/Modulos/Memoria/memoria.vhd
+l0
+L42
+V37o7h4MEP0AnGR1?Mabm_0
+R7
+31
+Z44 !s108 1481217738.319000
+Z45 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/Memoria/memoria.vhd|
+Z46 !s107 C:/Projetos/MIPS/Modulos/Memoria/memoria.vhd|
+R11
+R12
+!s100 1VaF?aP52kzlQgJ`QDTJN2
+!i10b 1
+Asyn
+R2
+R3
+DEx4 work 7 memoria 0 22 37o7h4MEP0AnGR1?Mabm_0
+l86
+L54
+VCFUXXl4_b[b[cBcbZf_lT0
+R7
+31
+R44
+R45
+R46
+R11
+R12
+!s100 SiO>P]g3B[RPI1]Zj_imZ1
+!i10b 1
+Emux_2
+R41
+R13
+R14
+R15
+R2
+R3
+R4
+Z47 8C:/Projetos/MIPS/Modulos/mux_2.vhd
+Z48 FC:/Projetos/MIPS/Modulos/mux_2.vhd
+l0
+L7
+V89JHnYgj;cj]1I2kT527_1
+R7
+31
+Z49 !s108 1481217737.269000
+Z50 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/mux_2.vhd|
+Z51 !s107 C:/Projetos/MIPS/Modulos/mux_2.vhd|
+R11
+R12
+!s100 :e5666mfj6NS;L4:O<<h12
+!i10b 1
+Artl
+R13
+R14
+R15
+R2
+R3
+DEx4 work 5 mux_2 0 22 89JHnYgj;cj]1I2kT527_1
+l15
+L14
+V>34H<nHM26GQSCGJ??e@40
+R7
+31
+R49
+R50
+R51
+R11
+R12
+!s100 Z9GlLEV`AAQAHZMSXH__j0
+!i10b 1
+Emux_2_5bits
+R41
+R13
+R14
+R15
+R2
+R3
+R4
+Z52 8C:/Projetos/MIPS/Modulos/mux_2_5bits.vhd
+Z53 FC:/Projetos/MIPS/Modulos/mux_2_5bits.vhd
+l0
+L7
+V6CW<]AI@IdN3oB56O?_Fm1
+R7
+31
+Z54 !s108 1481217732.851000
+Z55 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/mux_2_5bits.vhd|
+Z56 !s107 C:/Projetos/MIPS/Modulos/mux_2_5bits.vhd|
+R11
+R12
+!s100 m:fSE[zAS8JeZ[d=nXLOP3
+!i10b 1
+Artl
+R13
+R14
+R15
+R2
+R3
+DEx4 work 11 mux_2_5bits 0 22 6CW<]AI@IdN3oB56O?_Fm1
+l15
+L14
+V`f;A=G?@SilMYDEYP^eT=0
+R7
+31
+R54
+R55
+R56
+R11
+R12
+!s100 U39?J<c7XbDnkN`^<1BP=0
+!i10b 1
+Emux_2_8bit
+R41
+R13
+R14
+R15
+R2
+R3
+R4
+Z57 8C:/Projetos/MIPS/Modulos/mux_2_8bit.vhd
+Z58 FC:/Projetos/MIPS/Modulos/mux_2_8bit.vhd
+l0
+L7
+VVC@GLk41PnB]WNE6om@9o1
+R7
+31
+Z59 !s108 1481217732.545000
+Z60 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/mux_2_8bit.vhd|
+Z61 !s107 C:/Projetos/MIPS/Modulos/mux_2_8bit.vhd|
+R11
+R12
+!s100 [dzjbCDnMcY0d16U1:GB`2
+!i10b 1
+Artl
+R13
+R14
+R15
+R2
+R3
+DEx4 work 10 mux_2_8bit 0 22 VC@GLk41PnB]WNE6om@9o1
+l15
+L14
+VUmM2iZ7z]GD=]L0N3Q6DS1
+R7
+31
+R59
+R60
+R61
+R11
+R12
+!s100 8_H10Q`E2k_6a>c;4fJ2V3
+!i10b 1
+Emux_3
+R1
+R13
+R14
+R15
+R2
+R3
+R4
+Z62 8C:/Projetos/MIPS/Modulos/mux_3.vhd
+Z63 FC:/Projetos/MIPS/Modulos/mux_3.vhd
+l0
+L7
+V7AKh1kbbFiI1Qa[<OPjLJ2
+R7
+31
+Z64 !s108 1481217736.964000
+Z65 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/mux_3.vhd|
+Z66 !s107 C:/Projetos/MIPS/Modulos/mux_3.vhd|
+R11
+R12
+!s100 78aA<`EGcfVn=QJa0Ii?O1
+!i10b 1
+Artl
+R13
+R14
+R15
+R2
+R3
+DEx4 work 5 mux_3 0 22 7AKh1kbbFiI1Qa[<OPjLJ2
+l15
+L14
+VBGTB45iQ33OZ2BeoA;^kH2
+R7
+31
+R64
+R65
+R66
+R11
+R12
+!s100 bgBKlXFTH:^D@bJz<CjIW0
+!i10b 1
+Emux_4
+R41
+R2
+R3
+R4
+Z67 8C:/Projetos/MIPS/Modulos/mux_4.vhd
+Z68 FC:/Projetos/MIPS/Modulos/mux_4.vhd
+l0
+L5
+V2]]TECU=_P^?Q2>]f2iID1
+R7
+31
+Z69 !s108 1481217736.593000
+Z70 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/mux_4.vhd|
+Z71 !s107 C:/Projetos/MIPS/Modulos/mux_4.vhd|
+R11
+R12
+!s100 lU<g8Z<eZB@akcd^O3SC81
+!i10b 1
+Artl
+R2
+R3
+DEx4 work 5 mux_4 0 22 2]]TECU=_P^?Q2>]f2iID1
+l13
+L12
+VJSKNGmG^1;m]_dBYMoFIc1
+R7
+31
+R69
+R70
+R71
+R11
+R12
+!s100 hRSTH>fg?9e>U^jSZMdW;1
+!i10b 1
+Epc
+R41
+R2
+R3
+R4
+Z72 8C:/Projetos/MIPS/Modulos/pc.vhd
+Z73 FC:/Projetos/MIPS/Modulos/pc.vhd
+l0
+L4
+Vl1R^BEDlRl7XHCo5O^c<Y0
+R7
+31
+Z74 !s108 1481217736.199000
+Z75 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/pc.vhd|
+Z76 !s107 C:/Projetos/MIPS/Modulos/pc.vhd|
+R11
+R12
+!s100 iHAdmhGT7<6FRV7EVkE@[0
+!i10b 1
+Artl
+R2
+R3
+DEx4 work 2 pc 0 22 l1R^BEDlRl7XHCo5O^c<Y0
+l15
+L14
+VhhF34iMY3B@;>LPZm7gVM2
+R7
+31
+R74
+R75
+R76
+R11
+R12
+!s100 Q^:D07S31HBN^:QfMIEld0
+!i10b 1
+Ereg_32
+R1
+R2
+R3
+R4
+Z77 8C:/Projetos/MIPS/Modulos/reg_32.vhd
+Z78 FC:/Projetos/MIPS/Modulos/reg_32.vhd
+l0
+L4
+V^J@UB]^cmd63JH;9i8Q7G2
+R7
+31
+Z79 !s108 1481217735.886000
+Z80 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/reg_32.vhd|
+Z81 !s107 C:/Projetos/MIPS/Modulos/reg_32.vhd|
+R11
+R12
+!s100 ?f18ZDSEURTYH:D@e4jHG0
+!i10b 1
+Artl
+R2
+R3
+DEx4 work 6 reg_32 0 22 ^J@UB]^cmd63JH;9i8Q7G2
+l14
+L13
+VEicG^a]ZVEDD[E1NbQ]UG3
+R7
+31
+R79
+R80
+R81
+R11
+R12
+!s100 :o_G?<9NgzK0Z^6PRTZG43
+!i10b 1
+Ereg_int
+R41
+R2
+R3
+R4
+Z82 8C:/Projetos/MIPS/Modulos/reg_int.vhd
+Z83 FC:/Projetos/MIPS/Modulos/reg_int.vhd
+l0
+L4
+VOBzc?[GN9[f;BMGSYFOBz3
+R7
+31
+Z84 !s108 1481217731.727000
+Z85 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/reg_int.vhd|
+Z86 !s107 C:/Projetos/MIPS/Modulos/reg_int.vhd|
+R11
+R12
+!s100 GG<3dh9b:4KQn4`GdV7K]2
+!i10b 1
+Artl
+R2
+R3
+DEx4 work 7 reg_int 0 22 OBzc?[GN9[f;BMGSYFOBz3
+l21
+L20
+VNJjmKH8NBJHZ6W3d4E=H21
+R7
+31
+R84
+R85
+R86
+R11
+R12
+!s100 CmOl5K?4LLlA3^e[;`4j30
+!i10b 1
+Erom
+R1
+R13
+R2
+R3
+R4
+Z87 8C:/Projetos/MIPS/Modulos/Control/ROM.vhd
+Z88 FC:/Projetos/MIPS/Modulos/Control/ROM.vhd
+l0
+L5
+V;51clPF]_i^ZC:ec@oP1[1
+R7
+31
+Z89 !s108 1481217733.983000
+Z90 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/Control/ROM.vhd|
+Z91 !s107 C:/Projetos/MIPS/Modulos/Control/ROM.vhd|
+R11
+R12
+!s100 MToMO1ki?93Kb4UF575d80
+!i10b 1
+Abehavioral
+R13
+R2
+R3
+DEx4 work 3 rom 0 22 ;51clPF]_i^ZC:ec@oP1[1
+l75
+L16
+Ve:9dh:_6[Pg8:C?gXDBb32
+R7
+31
+R89
+R90
+R91
+R11
+R12
+!s100 B0V5g4Gla<1hG^BG<bI>80
+!i10b 1
+Eshift32_2
+R1
+R13
+R2
+R3
+R4
+Z92 8C:/Projetos/MIPS/Modulos/Shift32_2.vhd
+Z93 FC:/Projetos/MIPS/Modulos/Shift32_2.vhd
+l0
+L5
+V^AiNb?PinWG=Ra5b891hY3
+R7
+31
+Z94 !s108 1481217735.568000
+Z95 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/Shift32_2.vhd|
+Z96 !s107 C:/Projetos/MIPS/Modulos/Shift32_2.vhd|
+R11
+R12
+!s100 aYc_FTRcR3>VP]EAzA^053
+!i10b 1
+Ashift32_2_arch
+R13
+R2
+R3
+DEx4 work 9 shift32_2 0 22 ^AiNb?PinWG=Ra5b891hY3
+l17
+L13
+VzNP2aOjaJ5fMVX0=aR_V73
+R7
+31
+R94
+R95
+R96
+R11
+R12
+!s100 XT3N2`W6zO=bSR;jV[F_o3
+!i10b 1
+Esomador
+R1
+R13
+R2
+R3
+R4
+Z97 8C:/Projetos/MIPS/Modulos/Control/Somador.vhd
+Z98 FC:/Projetos/MIPS/Modulos/Control/Somador.vhd
+l0
+L5
+V`ADb@9j;F[^2Em;;ICh[L2
+R7
+31
+Z99 !s108 1481217733.483000
+Z100 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/Control/Somador.vhd|
+Z101 !s107 C:/Projetos/MIPS/Modulos/Control/Somador.vhd|
+R11
+R12
+!s100 ]1kE@46naJ?S52oW_aFRM2
+!i10b 1
+Abehavioral
+R13
+R2
+R3
+DEx4 work 7 somador 0 22 `ADb@9j;F[^2Em;;ICh[L2
+l13
+L11
+VKJIZX3>@cmJlEldI[<LGA0
+R7
+31
+R99
+R100
+R101
+R11
+R12
+!s100 8I=`<mCCbQW[1IPndQ3Yd3
+!i10b 1
+Etrabalhofinal
+R41
+R2
+R3
+R4
+Z102 8C:/Projetos/MIPS/Modulos/TrabalhoFinal.vhd
+Z103 FC:/Projetos/MIPS/Modulos/TrabalhoFinal.vhd
+l0
+L8
+VHz]711Xm<1Cgf15kaHNQh3
+R7
+31
+Z104 !s108 1481217733.155000
+Z105 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/TrabalhoFinal.vhd|
+Z106 !s107 C:/Projetos/MIPS/Modulos/TrabalhoFinal.vhd|
+R11
+R12
+!s100 4`6jgY<8E2ce<QdjE5I931
+!i10b 1
+Abehavioral
+R2
+R3
+DEx4 work 13 trabalhofinal 0 22 Hz]711Xm<1Cgf15kaHNQh3
+l224
+L16
+V9RH5EU0D3`b`g7U88:KGO2
+R7
+31
+R104
+R105
+R106
+R11
+R12
+!s100 L>8j?Nd9z5a6MCh0PTFWg1
+!i10b 1
+Etrabalhofinal_vhd_tst
+R41
+R2
+R3
+R4
+Z107 8C:/Projetos/MIPS/simulation/modelsim/TrabalhoFinal.vht
+Z108 FC:/Projetos/MIPS/simulation/modelsim/TrabalhoFinal.vht
+l0
+L30
+VWdOD90OR8<81ZEZ]6d?EO3
+!s100 [Sk;]CB`7bC30CiEWZzP>2
+R7
+31
+!i10b 1
+Z109 !s108 1481217738.619000
+Z110 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/simulation/modelsim/TrabalhoFinal.vht|
+Z111 !s107 C:/Projetos/MIPS/simulation/modelsim/TrabalhoFinal.vht|
+R11
+R12
+Atrabalhofinal_arch
+R2
+R3
+DEx4 work 21 trabalhofinal_vhd_tst 0 22 WdOD90OR8<81ZEZ]6d?EO3
+l52
+L32
+V1z^Q??X8NQ>lgK=72AfKM0
+!s100 ECDUN0>@VD?JeEzikO8`I2
+R7
+31
+!i10b 1
+R109
+R110
+R111
+R11
+R12
+Eula
+R1
+R13
+R2
+R3
+R4
+Z112 8C:/Projetos/MIPS/Modulos/ula.vhd
+Z113 FC:/Projetos/MIPS/Modulos/ula.vhd
+l0
+L4
+V0mjJino]Qe24`nN]L=n]71
+R7
+31
+Z114 !s108 1481217735.229000
+Z115 !s90 -reportprogress|300|-93|-work|work|C:/Projetos/MIPS/Modulos/ula.vhd|
+Z116 !s107 C:/Projetos/MIPS/Modulos/ula.vhd|
+R11
+R12
+!s100 f`UIkajI0;NG6=0T1GB^M0
+!i10b 1
+Abehavioral
+R13
+R2
+R3
+DEx4 work 3 ula 0 22 0mjJino]Qe24`nN]L=n]71
+l14
+L11
+Vo]Y1QJl=L7fkGzYM]majT1
+R7
+31
+R114
+R115
+R116
+R11
+R12
+!s100 `<oj9OSQncXX_2BL;cP`k1
+!i10b 1
