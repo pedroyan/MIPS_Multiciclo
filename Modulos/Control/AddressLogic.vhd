@@ -19,7 +19,7 @@ begin
 		"0010" when "100011",
 		"0010" when "101011",
 		"1010" when "001000", --addi
-		"1100" when "001101",
+		"1011" when "001101", --ori
 		"0000" when others;
 
 	with OPcode select dispatch2 <=
