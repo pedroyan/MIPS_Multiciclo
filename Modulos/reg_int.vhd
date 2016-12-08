@@ -13,7 +13,7 @@ entity reg_int is
 		shamnt 	: out std_logic_vector(4 downto 0);
 		funct 	: out std_logic_vector(5 downto 0);
 		imm16		: out std_logic_vector(15 downto 0); 
-		imm26		: out std_logic_vector(25 downto 0);
+		imm26		: out std_logic_vector(25 downto 0)
 	);
 end entity;
 

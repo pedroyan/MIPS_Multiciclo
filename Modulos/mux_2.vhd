@@ -15,5 +15,6 @@ architecture rtl of mux_2 is
 begin
 	with sel select m_out <=
 		in0 when '0',
-		in1 when '1';
+		in1 when '1',
+		in1 when others;
 end architecture;

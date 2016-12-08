@@ -55,13 +55,22 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 
+
+
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH ProgramaFinal_Tb -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME ProgramaFinal_Tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ProgramaFinal_Tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ProgramaFinal_Tb -section_id ProgramaFinal_Tb
+set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/TrabalhoFinal.vht -section_id ProgramaFinal_Tb
+set_global_assignment -name VHDL_TEST_BENCH_FILE simulation/modelsim/TrabalhoFinal.vht
+set_global_assignment -name MIF_FILE Modulos/Memoria/memoria.mif
+set_global_assignment -name VHDL_FILE Modulos/reg_int.vhd
 set_global_assignment -name VHDL_FILE Modulos/Shift26_2.vhd
 set_global_assignment -name VHDL_FILE Modulos/alu_ctr.vhd
 set_global_assignment -name VHDL_FILE Modulos/mux_2_8bit.vhd
-set_global_assignment -name MIF_FILE Modulos/Memoria/memoria.mif
 set_global_assignment -name VHDL_FILE Modulos/mux_2_5bits.vhd
 set_global_assignment -name VHDL_FILE Modulos/TrabalhoFinal.vhd
-set_global_assignment -name VHDL_FILE Modulos/Memoria/memoria.vhd
 set_global_assignment -name VHDL_FILE Modulos/Control/Somador.vhd
 set_global_assignment -name VHDL_FILE Modulos/Control/ROM.vhd
 set_global_assignment -name VHDL_FILE Modulos/Control/Estado.vhd
