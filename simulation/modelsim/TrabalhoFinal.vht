@@ -64,15 +64,12 @@ BEGIN
  -- Clock process definitions
    clk_process :process
    begin
-   	reset<='1';
-	   wait for clk_period/2;
-		reset <='0';
 		clk <= '0';
 		wait for clk_period/2;
 		clk <= '1';
 		wait for clk_period/2;
    end process;
-
+reset<='1' after 10 ps , '0' after 30 ps ;
 	
 	
    -- Stimulus process
