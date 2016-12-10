@@ -221,6 +221,8 @@ signal enablePC : std_logic;
   signal AddressDado : std_logic_vector(7 downto 0)  ;
   --U18
   signal  Entrada2Mux: std_logic_vector(31 downto 0)  ;
+  --clock invertido
+  signal clk_inv : std_LOGIC;
 
 
 begin
@@ -229,7 +231,7 @@ begin
 	U1: pc port map(clk,enablePC,reset,mux3_U18,sSaidaPC);
 	U2: cntrMIPS port map(clk,reset,sopcode,sOpALU, sOrigBALU, sOrigPC,sOrigAALU ,sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR,sCtlEnd,sCtlInT,sSaidaSomadorT,sSaidaAddressT,sSaidaEstadoT );
 	U3: mux_2_8bit port map (sSaidaPC(7 downto 0),AddressDado,sIouD,EntradaMemoria);
-	U4: memoria port map(EntradaMemoria,clk,SaidaB_2,sEscreveMem,SaidaMemoria);
+	U4: memoria port map(EntradaMemoria,clk_inv,SaidaB_2,sEscreveMem,SaidaMemoria);
 	U19:reg_int port map(clk,sEscreveIR,SaidaMemoria,sopcode,srs,srt,srd,sshamnt,sfunct,simm16,simm26);
 	U5: reg_32 port map(clk,reset,SaidaMemoria,SaidaRegMemoria);
 	U6: mux_2_5bits port map (srt,srd,sregDst,mux2_5bits_U6);
@@ -249,13 +251,15 @@ begin
 	enablePC <= sEscrevePC or (sEscrevePCCond and szero);
 	
 	 --Sinais concatenados auxiliares
-	 
+AddressDado<= '1'& saidaULA_2(8 downto 2) ;
+Entrada2Mux <= sSaidaPC(31 downto 28)& simm26 & "00";
+clk_inv<= not(clk);
+
+--Final
 	 
 	 SaidaUla<=SaidaULa_2;
 	 SaidaPC<=sSaidaPC;
 	 SaidaRI <=SaidaMemoria;
-AddressDado<= '1'& saidaULA_2(8 downto 2) ;
-Entrada2Mux <= sSaidaPC(31 downto 28)& simm26 & "00";
 
 	end Behavioral;
 
