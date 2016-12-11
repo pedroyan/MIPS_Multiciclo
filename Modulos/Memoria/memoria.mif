@@ -1,15 +1,15 @@
--- Copyright (C) 1991-2013 Altera Corporation
--- Your use of Altera Corporation's design tools, logic functions 
--- and other software and tools, and its AMPP partner logic 
--- functions, and any output files from any of the foregoing 
--- (including device programming or simulation files), and any 
--- associated documentation or information are expressly subject 
--- to the terms and conditions of the Altera Program License 
--- Subscription Agreement, Altera MegaCore Function License 
--- Agreement, or other applicable license agreement, including, 
--- without limitation, that your use is for the sole purpose of 
--- programming logic devices manufactured by Altera and sold by 
--- Altera or its authorized distributors.  Please refer to the 
+-- Copyright (C) 1991-2011 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions
+-- and other software and tools, and its AMPP partner logic
+-- functions, and any output files from any of the foregoing
+-- (including device programming or simulation files), and any
+-- associated documentation or information are expressly subject
+-- to the terms and conditions of the Altera Program License
+-- Subscription Agreement, Altera MegaCore Function License
+-- Agreement, or other applicable license agreement, including,
+-- without limitation, that your use is for the sole purpose of
+-- programming logic devices manufactured by Altera and sold by
+-- Altera or its authorized distributors.  Please refer to the
 -- applicable agreement for further details.
 
 -- Quartus II generated Memory Initialization File (.mif)
@@ -21,46 +21,22 @@ ADDRESS_RADIX=HEX;
 DATA_RADIX=HEX;
 
 CONTENT BEGIN
-	000  :   3C011001;
-	[001..003]  :   00000000;
-	004  :   34290000;
-	[005..007]  :   00000000;
-	008  :   8D280000;
-	[009..00B]  :   00000000;
-	00C  :   8D2A0004;
-	[00D..00F]  :   00000000;
-	010  :   01285820;
-	[011..013]  :   00000000;
-	014  :   01285822;
-	[015..017]  :   00000000;
-	018  :   01095825;
-	[019..01B]  :   00000000;
-	01C  :   350F0002;
-	[01D..01F]  :   00000000;
-	020  :   01094026;
-	[021..023]  :   00000000;
-	024  :   01205827;
-	[025..027]  :   00000000;
-	028  :   AD2B000C;
-	[029..02B]  :   00000000;
-	02C  :   15290002;
-	[02D..02F]  :   00000000;
-	030  :   11290001;
-	[031..033]  :   00000000;
-	034  :   08100016;
-	[035..037]  :   00000000;
-	038  :   016A602A;
-	[039..03B]  :   00000000;
-	03C  :   294D0003;
-	[03D..03F]  :   00000000;
-	040  :   000A7080;
-	[041..043]  :   00000000;
-	044  :   0C10000F;
-	[045..047]  :   00000000;
-	048  :   2402000A;
-	[049..04B]  :   00000000;
-	04C  :   0000000C;
-	[04D..04F]  :   00000000;
-	050  :   03E00008;
-	[051..0FF]  :   00000000;
+	00				:		8c092000; --lw
+	01				:		8c0a2004; --lw
+	02				:		ac092004; --sw
+	03				:		012a5820; --add
+	04				:		216b0001; --addi
+	05				:		016a5822; --sub
+	06				:		012a6024; --and
+	07				:		012a6825; --or
+	08				:		012a7027; --nor
+	09				:		012a7826; --xor
+	0A				: 	0149802a; --slt
+	0B		    : 	0800000d; --j
+	0C		    :  	11ce0001; --beq
+	0D	      :   156afffe; --bne
+	[0E..7F]  :   0;
+	80			  :  	0000000f; --1111
+	81	      :   0000000a; --1010
+	[82..FF]  :   0;
 END;

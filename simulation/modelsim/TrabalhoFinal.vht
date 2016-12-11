@@ -32,18 +32,19 @@ END TrabalhoFinal_vhd_tst;
 ARCHITECTURE TrabalhoFinal_arch OF TrabalhoFinal_vhd_tst IS
 -- constants                                                 
 -- signals                                                   
-SIGNAL clk : STD_LOGIC;
-SIGNAL reset : STD_LOGIC;
-SIGNAL SaidaPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
-SIGNAL SaidaRDM : STD_LOGIC;
-SIGNAL SaidaRI : STD_LOGIC_VECTOR(31 DOWNTO 0);
-SIGNAL SaidaULA : STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL clk : STD_LOGIC:='0';
+SIGNAL reset : STD_LOGIC:='0';
+signal start : STD_LOGIC:='0';
+SIGNAL SaidaPC : STD_LOGIC_VECTOR(31 DOWNTO 0):= (others => '0');
+SIGNAL SaidaRDM : STD_LOGIC_VECTOR(31 DOWNTO 0):= (others => '0');
+SIGNAL SaidaRI : STD_LOGIC_VECTOR(25 DOWNTO 0):= (others => '0');
+SIGNAL SaidaULA : STD_LOGIC_VECTOR(31 DOWNTO 0):= (others => '0');
 COMPONENT TrabalhoFinal
 	PORT (
-	clk,reset : IN STD_LOGIC;
+	clk,reset,start : IN STD_LOGIC;
 	SaidaPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-	SaidaRDM : IN STD_LOGIC;
-	SaidaRI : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+	SaidaRDM : out STD_LOGIC_VECTOR(31 downto 0);
+	SaidaRI : OUT STD_LOGIC_VECTOR(25 DOWNTO 0);
 	SaidaULA : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
 END COMPONENT;
@@ -55,6 +56,7 @@ BEGIN
 	PORT MAP (
 -- list connections between master ports and signals
 	clk => clk,
+	start => start,
 	reset=> reset,
 	SaidaPC => SaidaPC,
 	SaidaRDM => SaidaRDM,
@@ -66,10 +68,11 @@ BEGIN
    begin
 		clk <= '0';
 		wait for clk_period/2;
+		start <='1';
 		clk <= '1';
 		wait for clk_period/2;
    end process;
-reset<='1' after 10 ps , '0' after 30 ps ;
+--reset<='1' after 10 ps , '0' after 20 ps ;
 	
 	
    -- Stimulus process

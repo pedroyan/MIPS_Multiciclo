@@ -14,12 +14,14 @@ end entity;
 
 architecture rtl of PC is
 begin
-	process (clk, enable)
+
+	
+	process (clk,reset)
 	begin
-	if reset = '1' then				
+	if ( reset='1' ) then				
 			reg_out <= (others => '0');
-		elsif (rising_edge(clk) and enable = '1') then 
-			reg_out <= reg_in;
-		end if;
+		elsif (rising_edge(clk) and enable ='1'  ) then 
+					reg_out <= reg_in;
+				end if;
 	end process;
 end rtl;

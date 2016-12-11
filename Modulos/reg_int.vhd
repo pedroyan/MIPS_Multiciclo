@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 entity reg_int is
 	port 
 	(
-		clk		: in std_logic;
+		clk,reset		: in std_logic;
 		enable   : in std_logic;
 		reg_in	: in std_logic_vector(31 downto 0);
 		opcode	: out std_logic_vector(5 downto 0);
@@ -20,9 +20,18 @@ end entity;
 
 architecture rtl of reg_int is
 begin
-	process(clk)
+	process(clk,reset)
 	begin
-		if (rising_edge(clk) and enable = '1') then
+	if reset = '1' then
+			opcode <=(others => '0');
+				rs <= (others => '0');
+				rt <= (others => '0');
+				rd <= (others => '0');
+				shamnt <=(others => '0');
+				funct <= (others => '0');
+				imm16 <= (others => '0');
+				imm26 <= (others => '0');
+		elsif (rising_edge(clk) and enable = '1') then
 				opcode <= reg_in(31 downto 26);
 				rs <= reg_in(25 downto 21);
 				rt <= reg_in(20 downto 16);
