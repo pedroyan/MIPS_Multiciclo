@@ -4,7 +4,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity Estado is
     Port ( d : in  STD_LOGIC_VECTOR (3 downto 0);
            clk : in  STD_LOGIC;
-           q : out  STD_LOGIC_VECTOR (3 downto 0));
+           q : out  STD_LOGIC_VECTOR (3 downto 0) :="0010" );
 end Estado;
 
 architecture Behavioral of Estado is

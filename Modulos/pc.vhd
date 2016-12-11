@@ -8,7 +8,7 @@ entity PC is
 		enable	: in std_logic;
 		reset	: in std_logic;
 		reg_in	: in std_logic_vector(31 downto 0); 
-		reg_out	: out std_logic_vector(31 downto 0)
+		reg_out	: out std_logic_vector(31 downto 0):=(others => '0')
 	);
 end entity;
 
@@ -16,11 +16,9 @@ architecture rtl of PC is
 begin
 
 	
-	process (clk,reset)
+	process (clk,reset,enable)
 	begin
-	if ( reset='1' ) then				
-			reg_out <= (others => '0');
-		elsif (rising_edge(clk) and enable ='1'  ) then 
+		if (rising_edge(clk) and enable ='1'  ) then 
 					reg_out <= reg_in;
 				end if;
 	end process;

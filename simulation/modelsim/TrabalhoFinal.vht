@@ -34,11 +34,11 @@ ARCHITECTURE TrabalhoFinal_arch OF TrabalhoFinal_vhd_tst IS
 -- signals                                                   
 SIGNAL clk : STD_LOGIC:='0';
 SIGNAL reset : STD_LOGIC:='0';
-signal start : STD_LOGIC:='0';
-SIGNAL SaidaPC : STD_LOGIC_VECTOR(31 DOWNTO 0):= (others => '0');
-SIGNAL SaidaRDM : STD_LOGIC_VECTOR(31 DOWNTO 0):= (others => '0');
-SIGNAL SaidaRI : STD_LOGIC_VECTOR(25 DOWNTO 0):= (others => '0');
-SIGNAL SaidaULA : STD_LOGIC_VECTOR(31 DOWNTO 0):= (others => '0');
+signal start : STD_LOGIC:='1';
+SIGNAL SaidaPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL SaidaRDM : STD_LOGIC_VECTOR(31 DOWNTO 0);
+SIGNAL SaidaRI : STD_LOGIC_VECTOR(25 DOWNTO 0);
+SIGNAL SaidaULA : STD_LOGIC_VECTOR(31 DOWNTO 0);
 COMPONENT TrabalhoFinal
 	PORT (
 	clk,reset,start : IN STD_LOGIC;
