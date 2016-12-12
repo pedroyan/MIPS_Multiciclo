@@ -1,17 +1,28 @@
---ula,bReg,memo,control,mux2.2,mux3.2,mux4.2,reg32.2,pc.2,extsgn2,Shift32_2,mux_2_5bits,reg_int,mux2_8bit,mux2_6bits
+--ula,bReg,memo,control,mux2.2,mux3.2,mux4.2,reg32.2,pc.2,extsgn2,Shift32_2,mux_2_5bits,reg_int,mux2_8bit,mux2_6bits,mux_2_8bit, mux_4_FPGA,
 --PIETRO LINDO S2
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 
+
 entity TrabalhoFinal is
     Port ( clk,reset,start : in  STD_LOGIC;
+			  selection : in 	 STD_LOGIC_VECTOR (3 downto 0);
            SaidaPC : out  STD_LOGIC_VECTOR (31 downto 0);
-          SaidaULA : out  STD_LOGIC_VECTOR (31 downto 0);
-          SaidaRI : out  STD_LOGIC_VECTOR (31 downto 0);
+           SaidaULA : out  STD_LOGIC_VECTOR (31 downto 0);
+           SaidaRI : out  STD_LOGIC_VECTOR (31 downto 0);
            SaidaRDM : out  STD_LOGIC_VECTOR(31 downto 0);
-			   SaidaULA8 : out  STD_LOGIC_VECTOR(7 downto 0));
+			  SaidaULA8 : out  STD_LOGIC_VECTOR(7 downto 0);
+			  HEX0: out  STD_LOGIC_VECTOR(7 downto 0);
+			  HEX1 : out  STD_LOGIC_VECTOR(7 downto 0);
+			  HEX2 : out  STD_LOGIC_VECTOR(7 downto 0);
+			  HEX3 : out  STD_LOGIC_VECTOR(7 downto 0);
+			  HEX4: out  STD_LOGIC_VECTOR(7 downto 0);
+			  HEX5 : out  STD_LOGIC_VECTOR(7 downto 0);
+			  HEX6 : out  STD_LOGIC_VECTOR(7 downto 0);
+			  HEX7 : out  STD_LOGIC_VECTOR(7 downto 0)	 
+					 );
 end TrabalhoFinal;
 
 architecture Behavioral of TrabalhoFinal  is
@@ -20,6 +31,30 @@ component mux_2_8bit is
 	 	in0, in1	: in std_logic_vector(7 downto 0);
 		sel			: in std_logic;
 		m_out		: out std_logic_vector(7 downto 0));
+end component;
+
+Component SaidaPinagem is
+port( num32bits : in STD_LOGIC_VECTOR(31 downto 0);
+        HEX0 : out STD_LOGIC_VECTOR(7 downto 0);
+		  HEX1 : out STD_LOGIC_VECTOR(7 downto 0);
+		  HEX2 : out STD_LOGIC_VECTOR(7 downto 0);
+		  HEX3 : out STD_LOGIC_VECTOR(7 downto 0);
+		  HEX4 : out STD_LOGIC_VECTOR(7 downto 0);
+		  HEX5 : out STD_LOGIC_VECTOR(7 downto 0);
+		  HEX6 : out STD_LOGIC_VECTOR(7 downto 0);
+		  HEX7 : out STD_LOGIC_VECTOR(7 downto 0)
+		  );
+end component;
+
+component mux_4_FPGA is
+	port (
+	 	in0, in1, in2, in3	: in std_logic_vector(31 downto 0);
+		sel	: in std_logic_vector(3 downto 0);
+		m_out : out std_logic_vector(31 downto 0));
+end component;
+component convbinario7seg is
+  port( numbinario : in STD_LOGIC_VECTOR(3 downto 0);
+        num7seg : out STD_LOGIC_VECTOR(7 downto 0) );
 end component;
 component mux_2_6bits is
 	port (
@@ -228,6 +263,8 @@ signal enablePC : std_logic :='0';
   signal  entradaPC: std_logic_vector(31 downto 0) :=(others => '0')  ;
 --U00:
 signal entradaOpcode :std_logic_vector(5 downto 0) :=(others => '0');
+--Saida Pinagem
+ signal  EntradaFPGA: std_logic_vector(31 downto 0)  ;
 
 begin
   
@@ -254,6 +291,13 @@ begin
 	U16: ula port map(opcode_ula,mux2_U13,mux4_U14,sSaidaULA,svai,sovfl,szero);
 	U17: reg_32 port map(clk,reset,sSaidaULA,SaidaUla_2);
 	U18: mux_3 port map(sSaidaULA,SaidaULa_2,Entrada2Mux,sOrigPc,mux3_U18); 
+	
+	U20:mux_4_FPGA port map(SaidaULa_2,sSaidaPC,simm31,SaidaRegMemoria,selection,EntradaFPGA);
+
+	U30: SaidaPinagem port map( EntradaFPGA, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
+
+	
+	
 	
 	enablePC <= sEscrevePC or (sEscrevePCCond and szero);
 	
