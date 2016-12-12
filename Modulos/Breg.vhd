@@ -18,10 +18,10 @@ architecture Behavioral of Breg is
 begin
 	regFile : process (clk,radd1,radd2,BancoRegistradores) is 
 	begin
-		if rising_edge(clk) then
 			r1 <= BancoRegistradores(to_integer(unsigned(radd1)));
-			r2 <= BancoRegistradores(to_integer(unsigned(radd2)));
-			if wren = '1' and wadd /= "00000" then
+			r2 <= BancoRegistradores(to_integer(unsigned(radd2)));	
+			
+			if (wren = '1' and wadd /= "00000" and rising_edge(clk)) then
 				BancoRegistradores(to_integer(unsigned(wadd))) <= wdata;
 				if wadd = radd1 then
 					r1 <= wdata;
@@ -29,6 +29,5 @@ begin
 					r2 <= wdata;
 				end if;
 			end if;
-		end if;
 	end process;
 end Behavioral;
