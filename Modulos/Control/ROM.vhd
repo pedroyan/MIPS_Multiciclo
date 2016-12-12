@@ -59,9 +59,9 @@ architecture Behavioral of ROM is
 
 	-- micro programa: listar os sinais de saida na ordem da figura
 	-- microinstrucao | ALU Cntr | SRC 1 | SRC 2 | Regs | Memory control | PC Write | Seq
-	constant mFETCH : microInstrucao_T := (ADD & '0' & SRC_2_4 & Reg_Read & Mem_readPC & PC_ALU , SEQ ); --0 
-	constant mFETCH2 : microInstrucao_T := (ADD & '0' & SRC_2_Extshift & Reg_Read & Mem_readPC & "0000", DISPATCH_1);--1
-	constant Mem1 : microInstrucao_T := (ADD & '1' & SRC_2_Extend & Reg_Read & Mem_readPC & "0000",DISPATCH_2);--2
+	constant mFETCH : microInstrucao_T := (ADD & '0' & SRC_2_4 & "000" & Mem_readPC & PC_ALU , SEQ ); --0 
+	constant mFETCH2 : microInstrucao_T := (ADD & '0' & SRC_2_Extshift & Reg_Read & "000" & "0000", DISPATCH_1);--1
+	constant Mem1 : microInstrucao_T := (ADD & '1' & SRC_2_Extend & "000" &"000" & "0000",DISPATCH_2);--2
 	constant LW : microInstrucao_T := ("000000000" & Mem_readALU & "0000", SEQ);--3
 	constant LW2 : microInstrucao_T := ("000000" & Reg_writeMDR & "0000000", FETCH);--4
 	constant SW2 : microInstrucao_T := ("000000000" & Mem_writeALU & "0000", FETCH);--5

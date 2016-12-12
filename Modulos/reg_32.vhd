@@ -6,7 +6,7 @@ entity reg_32 is
 	(
 		clk,reset		: in std_logic;
 		reg_in	: in std_logic_vector(31 downto 0);
-		reg_out	: out std_logic_vector(31 downto 0)
+		reg_out	: out std_logic_vector(31 downto 0):=(others => '0')
 	);
 end entity;
 

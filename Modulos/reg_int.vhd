@@ -4,24 +4,24 @@ use ieee.std_logic_1164.all;
 entity reg_int is
 	port 
 	(
-		clk		: in std_logic;
+		clk,reset		: in std_logic;
 		enable   : in std_logic;
-		reg_in	: in std_logic_vector(31 downto 0);
-		opcode	: out std_logic_vector(5 downto 0);
-		rs		 	: out std_logic_vector(4 downto 0);
-		rt		 	: out std_logic_vector(4 downto 0);
-		rd		 	: out std_logic_vector(4 downto 0);
-		shamnt 	: out std_logic_vector(4 downto 0);
-		funct 	: out std_logic_vector(5 downto 0);
-		imm16		: out std_logic_vector(15 downto 0); 
-		imm26		: out std_logic_vector(25 downto 0)
+		reg_in	: in std_logic_vector(31 downto 0):=(others => '0');
+		opcode	: out std_logic_vector(5 downto 0):=(others => '0');
+		rs		 	: out std_logic_vector(4 downto 0):=(others => '0');
+		rt		 	: out std_logic_vector(4 downto 0):=(others => '0');
+		rd		 	: out std_logic_vector(4 downto 0):=(others => '0');
+		shamnt 	: out std_logic_vector(4 downto 0):=(others => '0');
+		funct 	: out std_logic_vector(5 downto 0):=(others => '0');
+		imm16		: out std_logic_vector(15 downto 0):=(others => '0'); 
+		imm26		: out std_logic_vector(25 downto 0):=(others => '0')
 	);
 end entity;
 
 architecture rtl of reg_int is
 begin
-	process(clk)
-	begin
+	process(clk,reset,enable)
+	begin	
 		if (rising_edge(clk) and enable = '1') then
 				opcode <= reg_in(31 downto 26);
 				rs <= reg_in(25 downto 21);

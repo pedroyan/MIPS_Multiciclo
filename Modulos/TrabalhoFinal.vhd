@@ -1,4 +1,4 @@
---ula,bReg,memo,control,mux2.2,mux3.2,mux4.2,reg32.2,pc.2,extsgn2,Shift32_2,mux_2_5bits,reg_int,mux2_8bit
+--ula,bReg,memo,control,mux2.2,mux3.2,mux4.2,reg32.2,pc.2,extsgn2,Shift32_2,mux_2_5bits,reg_int,mux2_8bit,mux2_6bits
 --PIETRO LINDO S2
 ----------------------------------------------------------------------------------
 library IEEE;
@@ -6,11 +6,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 
 entity TrabalhoFinal is
-    Port ( clk,reset : in  STD_LOGIC;
+    Port ( clk,reset,start : in  STD_LOGIC;
            SaidaPC : out  STD_LOGIC_VECTOR (31 downto 0);
           SaidaULA : out  STD_LOGIC_VECTOR (31 downto 0);
-          SaidaRI : out  STD_LOGIC_VECTOR (31 downto 0);
-           SaidaRDM : in  STD_LOGIC);
+          SaidaRI : out  STD_LOGIC_VECTOR (25 downto 0);
+           SaidaRDM : out  STD_LOGIC_VECTOR(31 downto 0);
+			   SaidaULA8 : out  STD_LOGIC_VECTOR(7 downto 0));
 end TrabalhoFinal;
 
 architecture Behavioral of TrabalhoFinal  is
@@ -20,11 +21,16 @@ component mux_2_8bit is
 		sel			: in std_logic;
 		m_out		: out std_logic_vector(7 downto 0));
 end component;
-
+component mux_2_6bits is
+	port (
+	 	in0, in1	: in std_logic_vector(5 downto 0);
+		sel		: in std_logic;
+		m_out		: out std_logic_vector(5 downto 0));
+end component;
 component reg_int is
 	port 
 	(
-		clk		: in std_logic;
+		clk,reset		: in std_logic;
 		enable   : in std_logic;
 		reg_in	: in std_logic_vector(31 downto 0);
 		opcode	: out std_logic_vector(5 downto 0);
@@ -136,19 +142,15 @@ END component;
 
 component cntrMIPS is
 port (
-		clk ,reset: in std_logic;
+		clk ,start: in std_logic;
 		Op : in std_logic_vector(5 downto 0);
 		OpALU : out std_logic_vector(2 downto 0);
 		OrigBALU, OrigPC : out std_logic_vector(1 downto 0);
 		OrigAALU : out std_logic;
 		EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,
 		EscreveMem, EscreveIR : out std_logic;
-		CtlEnd : inout std_logic_vector(1 downto 0);
+		CtlEnd : inout std_logic_vector(1 downto 0)
 		
-	  CtlInT : out STD_LOGIC_VECTOR (1 downto 0);
-	 SaidaSomadorT : out  STD_LOGIC_VECTOR (3 downto 0);
-	 SaidaAddressT :  out STD_LOGIC_VECTOR (3 downto 0);
-	 SaidaEstadoT :  out STD_LOGIC_VECTOR (3 downto 0)
 		
 		);
 end component;
@@ -162,85 +164,88 @@ component mux_2 is
 end component;
 --SINAIS
 --CONTROLE:
-		SIGNAL sOpALU : std_logic_vector(2 downto 0) ;
+		SIGNAL sOpALU : std_logic_vector(2 downto 0)  :=(others => '0');
 		SIGNAL  sOrigBALU, sOrigPC :  std_logic_vector(1 downto 0) ;
 		SIGNAL sOrigAALU :  std_logic;
-		SIGNAL sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR :  std_logic;
-		SIGNAL sCtlEnd : std_logic_vector(1 downto 0) ;	
-	   SIGNAL sCtlInT :  STD_LOGIC_VECTOR (1 downto 0) ;
-	   SIGNAL sSaidaSomadorT :   STD_LOGIC_VECTOR (3 downto 0);
-	   SIGNAL sSaidaAddressT :   STD_LOGIC_VECTOR (3 downto 0) ;
-	   SIGNAL sSaidaEstadoT :   STD_LOGIC_VECTOR (3 downto 0) ;
+		SIGNAL sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR :std_LOGIC;
+		SIGNAL sCtlEnd : std_logic_vector(1 downto 0)  :=(others => '0');	
+	
 --PC:		
-signal sSaidaPc : std_logic_vector(31 downto 0) ;
+signal sSaidaPc : std_logic_vector(31 downto 0)  :=(others => '0');
 --MUX2, U3:(pos pc)
-signal EntradaMemoria : std_logic_vector(7 downto 0) ;
+signal EntradaMemoria : std_logic_vector(7 downto 0) :=(others => '0') ;
 --MEMoria
-signal SaidaMemoria : std_logic_vector(31 downto 0) ;
+signal SaidaMemoria : std_logic_vector(31 downto 0)  :=(others => '0');
 --regMemoria
-signal SaidaRegMemoria	:  std_logic_vector(31 downto 0) ;
+signal SaidaRegMemoria	:  std_logic_vector(31 downto 0)  :=(others => '0');
 --mux2_U6(registrador de escrita)
-signal mux2_5bits_U6 : std_logic_vector(4 downto 0) ;
+signal mux2_5bits_U6 : std_logic_vector(4 downto 0)  :=(others => '0');
 --mux2_U7(dados para escrita)
-signal mux2_U7 : std_logic_vector(31 downto 0) ;
+signal mux2_U7 : std_logic_vector(31 downto 0)  :=(others => '0');
 --BREG
-signal saidaA,saidaB : std_logic_vector(31 downto 0) ;
+signal saidaA,saidaB : std_logic_vector(31 downto 0) :=(others => '0') ;
 --extsgn32bits
-signal SaidaExt32 : std_logic_vector(31 downto 0) ;
+signal SaidaExt32 : std_logic_vector(31 downto 0)  :=(others => '0');
 ---Shift32_2
-signal SaidaDeslocamento : std_logic_vector(31 downto 0) ;
+signal SaidaDeslocamento : std_logic_vector(31 downto 0)  :=(others => '0');
 --reg_32 A,B
-signal SaidaA_2,SaidaB_2 : std_logic_vector(31 downto 0) ;
+signal SaidaA_2,SaidaB_2 : std_logic_vector(31 downto 0)  :=(others => '0');
 --mux U13(A)
-signal mux2_U13 : std_logic_vector(31 downto 0) ;
+signal mux2_U13 : std_logic_vector(31 downto 0)  :=(others => '0');
 --mux U13(B)
-signal mux4_U14 : std_logic_vector(31 downto 0) ;
+signal mux4_U14 : std_logic_vector(31 downto 0) :=(others => '0') ;
 --ULA Control
-signal opcode_ula   : std_logic_vector(3 downto 0) ;
+signal opcode_ula   : std_logic_vector(3 downto 0) :=(others => '0') ;
 --ULA
-signal sSaidaULA : std_logic_vector(31 downto 0) ;
-signal svai,sovfl,szero :std_logic;
+signal sSaidaULA : std_logic_vector(31 downto 0) :=(others => '0') ;
+signal svai,sovfl,szero :std_logic:='0';
 --RegUla
-signal SaidaULA_2 : std_logic_vector(31 downto 0) ;
+signal SaidaULA_2 : std_logic_vector(31 downto 0) :=(others => '0') ;
 --Mux3(pos ula)
-signal  mux3_U18: std_logic_vector(31 downto 0) ;
+signal  mux3_U18: std_logic_vector(31 downto 0)  :=(others => '0');
 --Controle do Enable(Final do controle)
-signal enablePC : std_logic;
+signal enablePC : std_logic :='0';
 --registrador innstrucao
-   signal sopcode	:  std_logic_vector(5 downto 0) ;
-	signal	srs		 	:  std_logic_vector(4 downto 0) ;
-	signal	srt		 	:  std_logic_vector(4 downto 0) ;
-	signal	srd		 	:  std_logic_vector(4 downto 0) ;
-	signal	sshamnt 	:  std_logic_vector(4 downto 0) ;
-	signal	sfunct 	:  std_logic_vector(5 downto 0) ;
-	signal	simm16		:  std_logic_vector(15 downto 0) ; 
-	signal	simm26		:  std_logic_vector(25 downto 0) ;
+   signal sopcode	:  std_logic_vector(5 downto 0) :=(others => '0') ;
+	signal	srs		 	:  std_logic_vector(4 downto 0)  :=(others => '0');
+	signal	srt		 	:  std_logic_vector(4 downto 0)  :=(others => '0');
+	signal	srd		 	:  std_logic_vector(4 downto 0)  :=(others => '0');
+	signal	sshamnt 	:  std_logic_vector(4 downto 0)  :=(others => '0');
+	signal	sfunct 	:  std_logic_vector(5 downto 0) :=(others => '0') ;
+	signal	simm16		:  std_logic_vector(15 downto 0) :=(others => '0') ; 
+	signal	simm26		:  std_logic_vector(25 downto 0) :=(others => '0') ;
 
 --cocatenacao de sinais
   --U4 ->  address  
-  signal AddressDado : std_logic_vector(7 downto 0)  ;
+  signal AddressDado : std_logic_vector(7 downto 0)  :=(others => '0') ;
   --U18
-  signal  Entrada2Mux: std_logic_vector(31 downto 0)  ;
+  signal  Entrada2Mux: std_logic_vector(31 downto 0)  :=(others => '0') ;
   --clock invertido
   signal clk_inv : std_LOGIC;
-
+  --UL
+  signal  entradaPC: std_logic_vector(31 downto 0) :=(others => '0')  ;
+--U00:
+signal entradaOpcode :std_logic_vector(5 downto 0) :=(others => '0');
 
 begin
   
+	U0:mux_2 port map(x"00000000",mux3_U18,start,entradaPC);
+--	U00:mux_2_6bits port map("000000",sopcode,start,EntradaOpcode);
+	U1: pc port map(clk,EnablePC,'0',EntradaPC,sSaidaPC);
 	
-	U1: pc port map(clk,enablePC,reset,mux3_U18,sSaidaPC);
-	U2: cntrMIPS port map(clk,reset,sopcode,sOpALU, sOrigBALU, sOrigPC,sOrigAALU ,sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR,sCtlEnd,sCtlInT,sSaidaSomadorT,sSaidaAddressT,sSaidaEstadoT );
-	U3: mux_2_8bit port map (sSaidaPC(7 downto 0),AddressDado,sIouD,EntradaMemoria);
+	U2: cntrMIPS port map(clk,start,sopcode,sOpALU, sOrigBALU, sOrigPC,sOrigAALU ,sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR,sCtlEnd);
+	
+	U3: mux_2_8bit port map (sSaidaPC(9 downto 2),AddressDado,sIouD,EntradaMemoria);
 	U4: memoria port map(EntradaMemoria,clk_inv,SaidaB_2,sEscreveMem,SaidaMemoria);
-	U19:reg_int port map(clk,sEscreveIR,SaidaMemoria,sopcode,srs,srt,srd,sshamnt,sfunct,simm16,simm26);
-	U5: reg_32 port map(clk,reset,SaidaMemoria,SaidaRegMemoria);
+	U19:reg_int port map(clk,'0',sEscreveIR,SaidaMemoria,sopcode,srs,srt,srd,sshamnt,sfunct,simm16,simm26);
+	U5: reg_32 port map(clk,'0',SaidaMemoria,SaidaRegMemoria);
 	U6: mux_2_5bits port map (srt,srd,sregDst,mux2_5bits_U6);
 	U7: mux_2 port map(SaidaUla_2,SaidaRegMemoria,sMemparaReg,mux2_U7);
-	U8: Breg port map(clk,sEscreveReg,srs,srd,mux2_5bits_U6,mux2_U7,saidaA,saidaB);
+	U8: Breg port map(clk,sEscreveReg,srs,srt,mux2_5bits_U6,mux2_U7,saidaA,saidaB);
 	U9: extsgn port map(simm16,SaidaExt32);
 	U10: Shift32_2 port map(SaidaExt32,SaidaDeslocamento);
-	U11: reg_32 port map (clk,reset,SaidaA,SaidaA_2);
-	U12: reg_32 port map (clk,reset,SaidaB,SaidaB_2);
+	U11: reg_32 port map (clk,'0',SaidaA,SaidaA_2);
+	U12: reg_32 port map (clk,'0',SaidaB,SaidaB_2);
 	U13: mux_2 port map(sSaidaPC,SaidaA_2,sOrigAALU,mux2_U13);
 	U14: mux_4 port map(SaidaB_2,X"00000004",SaidaExt32,SaidaDeslocamento,sOrigBALU,mux4_U14);
 	U15: alu_ctr port map(sOpALU,sfunct,opcode_ula);
@@ -256,11 +261,14 @@ Entrada2Mux <= sSaidaPC(31 downto 28)& simm26 & "00";
 clk_inv<= not(clk);
 
 --Final
+
+
 	 
 	 SaidaUla<=SaidaULa_2;
 	 SaidaPC<=sSaidaPC;
-	 SaidaRI <=SaidaMemoria;
-
+	 SaidaRI <=simm26;
+	 SaidaRDM<=SaidaRegMemoria;
+SaidaULA8<= '1'& saidaULA_2(8 downto 2);
 	end Behavioral;
 
 
