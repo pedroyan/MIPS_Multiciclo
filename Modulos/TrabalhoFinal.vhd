@@ -9,7 +9,7 @@ entity TrabalhoFinal is
     Port ( clk,reset,start : in  STD_LOGIC;
            SaidaPC : out  STD_LOGIC_VECTOR (31 downto 0);
           SaidaULA : out  STD_LOGIC_VECTOR (31 downto 0);
-          SaidaRI : out  STD_LOGIC_VECTOR (25 downto 0);
+          SaidaRI : out  STD_LOGIC_VECTOR (31 downto 0);
            SaidaRDM : out  STD_LOGIC_VECTOR(31 downto 0);
 			   SaidaULA8 : out  STD_LOGIC_VECTOR(7 downto 0));
 end TrabalhoFinal;
@@ -40,7 +40,8 @@ component reg_int is
 		shamnt 	: out std_logic_vector(4 downto 0);
 		funct 	: out std_logic_vector(5 downto 0);
 		imm16		: out std_logic_vector(15 downto 0); 
-		imm26		: out std_logic_vector(25 downto 0)
+		imm26		: out std_logic_vector(25 downto 0);
+		imm32		: out std_logic_vector(31 downto 0)
 	);
 end component;
 component alu_ctr is
@@ -214,6 +215,7 @@ signal enablePC : std_logic :='0';
 	signal	sfunct 	:  std_logic_vector(5 downto 0) :=(others => '0') ;
 	signal	simm16		:  std_logic_vector(15 downto 0) :=(others => '0') ; 
 	signal	simm26		:  std_logic_vector(25 downto 0) :=(others => '0') ;
+	signal	simm31		:  std_logic_vector(31 downto 0) :=(others => '0') ;
 
 --cocatenacao de sinais
   --U4 ->  address  
@@ -237,7 +239,7 @@ begin
 	
 	U3: mux_2_8bit port map (sSaidaPC(9 downto 2),AddressDado,sIouD,EntradaMemoria);
 	U4: memoria port map(EntradaMemoria,clk_inv,SaidaB_2,sEscreveMem,SaidaMemoria);
-	U19:reg_int port map(clk,'0',sEscreveIR,SaidaMemoria,sopcode,srs,srt,srd,sshamnt,sfunct,simm16,simm26);
+	U19:reg_int port map(clk,'0',sEscreveIR,SaidaMemoria,sopcode,srs,srt,srd,sshamnt,sfunct,simm16,simm26,simm31);
 	U5: reg_32 port map(clk,'0',SaidaMemoria,SaidaRegMemoria);
 	U6: mux_2_5bits port map (srt,srd,sregDst,mux2_5bits_U6);
 	U7: mux_2 port map(SaidaUla_2,SaidaRegMemoria,sMemparaReg,mux2_U7);
@@ -266,9 +268,9 @@ clk_inv<= not(clk);
 	 
 	 SaidaUla<=SaidaULa_2;
 	 SaidaPC<=sSaidaPC;
-	 SaidaRI <=simm26;
+	 SaidaRI <=simm31;
 	 SaidaRDM<=SaidaRegMemoria;
-SaidaULA8<= '1'& saidaULA_2(8 downto 2);
+	 SaidaULA8<= '1'& saidaULA_2(8 downto 2);
 	end Behavioral;
 
 
