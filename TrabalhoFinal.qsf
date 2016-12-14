@@ -64,6 +64,15 @@ set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ProgramaFina
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ProgramaFinal_Tb -section_id ProgramaFinal_Tb
 set_global_assignment -name EDA_TEST_BENCH_FILE simulation/modelsim/TrabalhoFinal.vht -section_id ProgramaFinal_Tb
 set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR "C:\\Projetos\\MIPS\\simulation2" -section_id eda_simulation
+
+
+
+
+
+set_global_assignment -name VHDL_FILE Modulos/SaidaPinagem.vhd
+set_global_assignment -name VHDL_FILE Modulos/convbinario7seg.vHD
+set_global_assignment -name VHDL_FILE Modulos/mux_4_fpga.vhd
+set_global_assignment -name VHDL_FILE Modulos/convbinario7seg.vhdl
 set_global_assignment -name VHDL_FILE Modulos/mux_2_4bits.vhd
 set_global_assignment -name VHDL_FILE Modulos/mux_2_6bits.vhd
 set_global_assignment -name VHDL_TEST_BENCH_FILE simulation/modelsim/TrabalhoFinal.vht
@@ -89,4 +98,86 @@ set_global_assignment -name VHDL_FILE Modulos/mux_2.vhd
 set_global_assignment -name VHDL_FILE Modulos/extsgn.vhd
 set_global_assignment -name VHDL_FILE Modulos/Breg.vhd
 set_global_assignment -name QIP_FILE Modulos/Memoria/memoria.qip
+
+
+
+set_location_assignment PIN_AE8 -to HEX0[7]
+set_location_assignment PIN_AF9 -to HEX0[6]
+set_location_assignment PIN_AH9 -to HEX0[5]
+set_location_assignment PIN_AD10 -to HEX0[4]
+set_location_assignment PIN_AF10 -to HEX0[3]
+set_location_assignment PIN_AD11 -to HEX0[2]
+set_location_assignment PIN_AD12 -to HEX0[1]
+set_location_assignment PIN_AF12 -to HEX0[0]
+#####
+set_location_assignment PIN_AG13 -to HEX1[7]
+set_location_assignment PIN_AE16 -to HEX1[6]
+set_location_assignment PIN_AF16 -to HEX1[5]
+set_location_assignment PIN_AG16 -to HEX1[4]
+set_location_assignment PIN_AE17 -to HEX1[3]
+set_location_assignment PIN_AF17 -to HEX1[2]
+set_location_assignment PIN_AD17 -to HEX1[1]
+set_location_assignment PIN_AC17 -to HEX1[0]
+
+
+
+set_location_assignment PIN_AE7 -to HEX2[7]
+set_location_assignment PIN_AF7 -to HEX2[6]
+set_location_assignment PIN_AH5 -to HEX2[5]
+set_location_assignment PIN_AG4 -to HEX2[4]
+set_location_assignment PIN_AB18 -to HEX2[3]
+set_location_assignment PIN_AB19 -to HEX2[2]
+set_location_assignment PIN_AE19 -to HEX2[1]
+set_location_assignment PIN_AC19 -to HEX2[0]
+
+set_location_assignment PIN_P6 -to HEX3[7]
+set_location_assignment PIN_P4 -to HEX3[6]
+set_location_assignment PIN_N10 -to HEX3[5]
+set_location_assignment PIN_N7 -to HEX3[4]
+set_location_assignment PIN_M8 -to HEX3[3]
+set_location_assignment PIN_M7 -to HEX3[2]
+set_location_assignment PIN_M6 -to HEX3[1]
+set_location_assignment PIN_M4 -to HEX3[0]
+
+
+set_location_assignment PIN_P1 -to HEX4[7]
+set_location_assignment PIN_P2 -to HEX4[6]
+set_location_assignment PIN_P3 -to HEX4[5]
+set_location_assignment PIN_N2 -to HEX4[4]
+set_location_assignment PIN_N3 -to HEX4[3]
+set_location_assignment PIN_M1 -to HEX4[2]
+set_location_assignment PIN_M2 -to HEX4[1]
+set_location_assignment PIN_L6 -to HEX4[0]
+
+set_location_assignment PIN_M3 -to HEX5[7]
+set_location_assignment PIN_L1 -to HEX5[6]
+set_location_assignment PIN_L2 -to HEX5[5]
+set_location_assignment PIN_L3 -to HEX5[4]
+set_location_assignment PIN_K1 -to HEX5[3]
+set_location_assignment PIN_K4 -to HEX5[2]
+set_location_assignment PIN_K5 -to HEX5[1]
+set_location_assignment PIN_K6 -to HEX5[0]
+
+set_location_assignment PIN_H6 -to HEX6[7]
+set_location_assignment PIN_H4 -to HEX6[6]
+set_location_assignment PIN_H7 -to HEX6[5]
+set_location_assignment PIN_H8 -to HEX6[4]
+set_location_assignment PIN_G4 -to HEX6[3]
+set_location_assignment PIN_F4 -to HEX6[2]
+set_location_assignment PIN_E4 -to HEX6[1]
+set_location_assignment PIN_K2 -to HEX6[0]
+set_location_assignment PIN_K3 -to HEX7[7]
+set_location_assignment PIN_J1 -to HEX7[6]
+set_location_assignment PIN_J2 -to HEX7[5]
+set_location_assignment PIN_H1 -to HEX7[4]
+set_location_assignment PIN_H2 -to HEX7[3]
+set_location_assignment PIN_H3 -to HEX7[2]
+set_location_assignment PIN_G1 -to HEX7[1]
+set_location_assignment PIN_G2 -to HEX7[0]
+
+set_location_assignment PIN_T29 -to clk
+set_location_assignment PIN_AA23 -to selection[0]
+set_location_assignment PIN_AB26 -to selection[1]
+set_location_assignment PIN_AB25 -to selection[2]
+set_location_assignment PIN_AC27 -to selection[3]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

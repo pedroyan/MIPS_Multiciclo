@@ -13,21 +13,16 @@ end Breg;
 
 architecture Behavioral of Breg is
   type VetorBanco is array(0 to 31) of std_logic_vector(31 downto 0);
-  signal BancoRegistradores : VetorBanco:=( others => (others => '0'));
 
 begin
-	regFile : process (clk,radd1,radd2,BancoRegistradores) is 
+	regFile : process (clk,radd1,radd2) is 
+		variable BancoRegistradores : VetorBanco:=( others => (others => '0'));
 	begin
-			r1 <= BancoRegistradores(to_integer(unsigned(radd1)));
-			r2 <= BancoRegistradores(to_integer(unsigned(radd2)));	
-			
-			if (wren = '1' and wadd /= "00000" and rising_edge(clk)) then
-				BancoRegistradores(to_integer(unsigned(wadd))) <= wdata;
-				if wadd = radd1 then
-					r1 <= wdata;
-				elsif wadd = radd2 then
-					r2 <= wdata;
-				end if;
-			end if;
+		if rising_edge(clk) and wren = '1' and wadd /= "00000" then
+				BancoRegistradores(to_integer(unsigned(wadd))) := wdata;
+		end if;
+		r1 <= BancoRegistradores(to_integer(unsigned(radd1)));
+		r2 <= BancoRegistradores(to_integer(unsigned(radd2)));
 	end process;
 end Behavioral;
+

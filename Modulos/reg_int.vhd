@@ -14,7 +14,8 @@ entity reg_int is
 		shamnt 	: out std_logic_vector(4 downto 0):=(others => '0');
 		funct 	: out std_logic_vector(5 downto 0):=(others => '0');
 		imm16		: out std_logic_vector(15 downto 0):=(others => '0'); 
-		imm26		: out std_logic_vector(25 downto 0):=(others => '0')
+		imm26		: out std_logic_vector(25 downto 0):=(others => '0');
+		imm32    : out std_logic_vector(31 downto 0):=(others => '0')
 	);
 end entity;
 
@@ -31,6 +32,7 @@ begin
 				funct <= reg_in(5 downto 0);
 				imm16 <= reg_in(15 downto 0);
 				imm26 <= reg_in(25 downto 0);
+				imm32 <= reg_in(31 downto 0);
 		end if;
 	end process;
 end rtl;
