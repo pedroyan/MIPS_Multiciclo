@@ -39,15 +39,15 @@ SIGNAL SaidaPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL SaidaRDM : STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL SaidaRI : STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL SaidaULA : STD_LOGIC_VECTOR(31 DOWNTO 0);
-signal Hex0:   STD_LOGIC_VECTOR(3 downto 0);--PC
-signal Hex1 :   STD_LOGIC_VECTOR(3 downto 0);--RI
-signal Hex2 :   STD_LOGIC_VECTOR(3 downto 0);--RDM
-signal Hex3 :   STD_LOGIC_VECTOR(3 downto 0);--ULA
-signal Hex4 :   STD_LOGIC_VECTOR(3 downto 0);--PC
-signal Hex5 :   STD_LOGIC_VECTOR(3 downto 0);--RI
-signal Hex6 :   STD_LOGIC_VECTOR(3 downto 0);--RDM
-signal Hex7 :   STD_LOGIC_VECTOR(3 downto 0);--ULA
-signal selection :   STD_LOGIC_VECTOR(3 downto 0);--ULA 
+signal Hex0:   STD_LOGIC_VECTOR(7 downto 0);--PC
+signal Hex1 :   STD_LOGIC_VECTOR(7 downto 0);--RI
+signal Hex2 :   STD_LOGIC_VECTOR(7 downto 0);--RDM
+signal Hex3 :   STD_LOGIC_VECTOR(7 downto 0);--ULA
+signal Hex4 :   STD_LOGIC_VECTOR(7 downto 0);--PC
+signal Hex5 :   STD_LOGIC_VECTOR(7 downto 0);--RI
+signal Hex6 :   STD_LOGIC_VECTOR(7 downto 0);--RDM
+signal Hex7 :   STD_LOGIC_VECTOR(7 downto 0);--ULA
+signal selection :   STD_LOGIC_VECTOR(3 downto 0) := "0001";--ULA 
 COMPONENT TrabalhoFinal
 	PORT (
 	clk,reset,start : IN STD_LOGIC;
@@ -88,7 +88,7 @@ BEGIN
 	Hex4 => Hex4 ,
 	Hex5 => Hex5, 
    Hex6 => Hex6 ,
-   Hex7 => Hex7 ,
+   Hex7 => Hex7 
   
 			  
 	);
