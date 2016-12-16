@@ -265,6 +265,8 @@ signal enablePC : std_logic :='0';
 signal entradaOpcode :std_logic_vector(5 downto 0) :=(others => '0');
 --Saida Pinagem
  signal  EntradaFPGA: std_logic_vector(31 downto 0)  ;
+--saida mostrador
+signal sHEX0, sHEX1, sHEX2, sHEX3, sHEX4, sHEX5, sHEX6, sHEX7 :std_LOGIC_VECTOR (7 downto 0);
 
 begin
   
@@ -294,7 +296,7 @@ begin
 	
 	U20:mux_4_FPGA port map(SaidaULa_2,sSaidaPC,simm31,SaidaRegMemoria,selection,EntradaFPGA);
 
-	U30: SaidaPinagem port map( EntradaFPGA, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7);
+	U30: SaidaPinagem port map( EntradaFPGA, sHEX0, sHEX1, sHEX2, sHEX3, sHEX4, sHEX5, sHEX6, sHEX7);
 
 	
 	
@@ -309,6 +311,14 @@ clk_inv<= not(clk);
 --Final
 
 
+			  HEX0<=sHEX0;
+			  HEX1<=sHEX1;
+			  HEX2<=sHEX2;
+			  HEX3<=sHEX3;
+			  HEX4<=sHEX4;
+			  HEX5<=sHEX5;
+			  HEX6<=sHEX6;
+			  HEX7<=sHEX7;	 
 	 
 	 SaidaUla<=SaidaULa_2;
 	 SaidaPC<=sSaidaPC;

@@ -16,6 +16,6 @@ begin
 		in1 when "0010", 
 		in2 when "0100",
 		in3 when "1000",
-		in3 when others;
+		in2 when others;
 		
 end architecture;

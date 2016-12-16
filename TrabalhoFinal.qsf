@@ -72,7 +72,6 @@ set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR "C:\\Projetos\\MIPS\\s
 set_global_assignment -name VHDL_FILE Modulos/SaidaPinagem.vhd
 set_global_assignment -name VHDL_FILE Modulos/convbinario7seg.vHD
 set_global_assignment -name VHDL_FILE Modulos/mux_4_fpga.vhd
-set_global_assignment -name VHDL_FILE Modulos/convbinario7seg.vhdl
 set_global_assignment -name VHDL_FILE Modulos/mux_2_4bits.vhd
 set_global_assignment -name VHDL_FILE Modulos/mux_2_6bits.vhd
 set_global_assignment -name VHDL_TEST_BENCH_FILE simulation/modelsim/TrabalhoFinal.vht
