@@ -10,11 +10,13 @@ end ula;
 
 architecture behavioral of ula is
 	signal Result : std_logic_vector(31 downto 0);
-	signal A33,B33,Result33,Bext : std_logic_vector(32 downto 0);
+	signal A33,B33,Result33,Bext,sub : std_logic_vector(32 downto 0);
 begin
 	Z <= Result;
 	A33 <= A(31) & A;
 	Bext <= B(31) & B;
+	
+	sub <= std_logic_vector(unsigned(A33) - unsigned(Bext));
 	with opcode select B33 <= 
 		std_logic_vector(unsigned(not(Bext)) + 1) when "0100",
 		std_logic_vector(unsigned(not(Bext)) + 1) when "0101", 
@@ -63,11 +65,7 @@ begin
 				Result <= temResult33(31 downto 0);
 				tempVai := temResult33(32);
 			when "0110" => --SLT 
-				if(A < B)then
-					Result <= X"00000001";
-				else
-					Result <= (others => '0');
-				end if;
+					Result <= (0 => sub(31), others => '0'); 
 			when "0111" => Result <= A nand B; -- nand
 			when "1000" => Result <= A nor B; -- nor
 			when "1001" => Result <= A xor B; -- xor
