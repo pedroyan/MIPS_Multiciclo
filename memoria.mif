@@ -10,18 +10,6 @@
 -- without limitation, that your use is for the sole purpose of 
 -- programming logic devices manufactured by Altera and sold by 
 -- Altera or its authorized distributors.  Please refer to the 
--- applicable agreement for furt-- Copyright (C) 1991-2013 Altera Corporation
--- Your use of Altera Corporation's design tools, logic functions 
--- and other software and tools, and its AMPP partner logic 
--- functions, and any output files from any of the foregoing 
--- (including device programming or simulation files), and any 
--- associated documentation or information are expressly subject 
--- to the terms and conditions of the Altera Program License 
--- Subscription Agreement, Altera MegaCore Function License 
--- Agreement, or other applicable license agreement, including, 
--- without limitation, that your use is for the sole purpose of 
--- programming logic devices manufactured by Altera and sold by 
--- Altera or its authorized distributors.  Please refer to the 
 -- applicable agreement for further details.
 
 -- Quartus II generated Memory Initialization File (.mif)
@@ -33,28 +21,26 @@ ADDRESS_RADIX=HEX;
 DATA_RADIX=HEX;
 
 CONTENT BEGIN
-	000  :   8C280000;
-	001  :   8C290004;
-	002  :   01285820;
-	003  :   21300003;
-	004  :   01285822;
-	005  :   01295824;
-	006  :   01095825;
-	007  :   350F0002;
-	008  :   01094026;
-	009  :   01205827;
-	00A  :   AD2B000C;
-	00B  :   15290002;
-	00C  :   11290001;
-	00D  :   08100016;
-	00E  :   016A602A;
-	00F  :   294D0003;
-	010  :   000A7080;
-	011  :   0C10000F;
-	012  :   2402000A;
-	013  :   0000000C;
-	014  :   03E00008;
-	[015..07F]  :   00000000;
+	000  :   8C280000; --lw
+	001  :   8C290004; --lw
+	002  :   01285820;  --add
+	003  :   21300003;   --addi
+	004  :   01285822;  --sub
+	005  :   01295824;  -- and
+	006  :   01095825; --or
+	007  :   350F0002;  --ori
+	008  :   01094026;  xor
+	009  :   01205827;  --nor
+	00A  :   AD2B000C; --sw
+	00B  :   15290002; --bne
+	00C  :   11290001; --beq
+	00D  :   08000014; -- j
+	00E  :   016A602A; --slt
+	00F  :   294D0003; --slti
+	010  :   000A7080;  --sll
+	011  :   0C100010; --jal
+	012  :   03E00008; -- jr
+	[013..07F]  :   00000000;
 	080  :   00000002;
 	081  :   00000005;
 	082  :   00000003;
