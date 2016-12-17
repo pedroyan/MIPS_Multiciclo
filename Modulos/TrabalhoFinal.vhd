@@ -271,7 +271,6 @@ signal sHEX0, sHEX1, sHEX2, sHEX3, sHEX4, sHEX5, sHEX6, sHEX7 :std_LOGIC_VECTOR 
 begin
   
 	U0:mux_2 port map(x"00000000",mux3_U18,start,entradaPC);
---	U00:mux_2_6bits port map("000000",sopcode,start,EntradaOpcode);
 	U1: pc port map(clk,EnablePC,'0',EntradaPC,sSaidaPC);
 	
 	U2: cntrMIPS port map(clk,start,sopcode,sOpALU, sOrigBALU, sOrigPC,sOrigAALU ,sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR,sCtlEnd);
