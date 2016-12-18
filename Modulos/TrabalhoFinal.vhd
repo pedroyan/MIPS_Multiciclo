@@ -133,8 +133,8 @@ end component;
 component mux_4 is
 	
 	port (
-	 	in0, in1, in2, in3	: in std_logic_vector(31 downto 0);
-		sel						: in std_logic_vector(1 downto 0);
+	 	in0, in1, in2, in3,in4	: in std_logic_vector(31 downto 0);
+		sel						: in std_logic_vector(2 downto 0);
 		m_out						: out std_logic_vector(31 downto 0));
 end component;
 
@@ -179,10 +179,10 @@ END component;
 component cntrMIPS is
 port (
 		clk ,start: in std_logic;
-		Op : in std_logic_vector(5 downto 0);
-		OpALU : out std_logic_vector(2 downto 0);
-		OrigBALU, OrigPC : out std_logic_vector(1 downto 0);
-		OrigAALU : out std_logic;
+		Op,funct : in std_logic_vector(5 downto 0);
+		OpALU,OrigBALU : out std_logic_vector(2 downto 0);
+		 OrigPC : out std_logic_vector(1 downto 0);
+		OrigAALU : out std_logic_vector(1 downto 0);
 		EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,
 		EscreveMem, EscreveIR : out std_logic;
 		CtlEnd : inout std_logic_vector(1 downto 0)
@@ -200,9 +200,9 @@ component mux_2 is
 end component;
 --SINAIS
 --CONTROLE:
-		SIGNAL sOpALU : std_logic_vector(2 downto 0)  :=(others => '0');
-		SIGNAL  sOrigBALU, sOrigPC :  std_logic_vector(1 downto 0) ;
-		SIGNAL sOrigAALU :  std_logic;
+		SIGNAL sOpALU,sOrigBALU : std_logic_vector(2 downto 0)  :=(others => '0');
+		SIGNAL   sOrigPC :  std_logic_vector(1 downto 0) ;
+		SIGNAL sOrigAALU :  std_logic_vector(1 downto 0);
 		SIGNAL sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR :std_LOGIC;
 		SIGNAL sCtlEnd : std_logic_vector(1 downto 0)  :=(others => '0');	
 	
@@ -221,7 +221,7 @@ signal mux2_U7 : std_logic_vector(31 downto 0)  :=(others => '0');
 --BREG
 signal saidaA,saidaB : std_logic_vector(31 downto 0) :=(others => '0') ;
 --extsgn32bits
-signal SaidaExt32 : std_logic_vector(31 downto 0)  :=(others => '0');
+signal SaidaExt32,shamt32 : std_logic_vector(31 downto 0)  :=(others => '0');
 ---Shift32_2
 signal SaidaDeslocamento : std_logic_vector(31 downto 0)  :=(others => '0');
 --reg_32 A,B
@@ -263,6 +263,8 @@ signal enablePC : std_logic :='0';
   signal  entradaPC: std_logic_vector(31 downto 0) :=(others => '0')  ;
 --U00:
 signal entradaOpcode :std_logic_vector(5 downto 0) :=(others => '0');
+--U22:
+signal schamt16 :std_logic_vector(15 downto 0) :=(others => '0');
 --Saida Pinagem
  signal  EntradaFPGA: std_logic_vector(31 downto 0)  ;
 --saida mostrador
@@ -273,7 +275,7 @@ begin
 	U0:mux_2 port map(x"00000000",mux3_U18,start,entradaPC);
 	U1: pc port map(clk,EnablePC,'0',EntradaPC,sSaidaPC);
 	
-	U2: cntrMIPS port map(clk,start,sopcode,sOpALU, sOrigBALU, sOrigPC,sOrigAALU ,sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR,sCtlEnd);
+	U2: cntrMIPS port map(clk,start,sopcode,sfunct,sOpALU, sOrigBALU, sOrigPC,sOrigAALU ,sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR,sCtlEnd);
 	
 	U3: mux_2_8bit port map (sSaidaPC(9 downto 2),AddressDado,sIouD,EntradaMemoria);
 	U4: memoria port map(EntradaMemoria,clk_inv,SaidaB_2,sEscreveMem,SaidaMemoria);
@@ -283,11 +285,12 @@ begin
 	U7: mux_2 port map(SaidaUla_2,SaidaRegMemoria,sMemparaReg,mux2_U7);
 	U8: Breg port map(clk,sEscreveReg,srs,srt,mux2_5bits_U6,mux2_U7,saidaA,saidaB);
 	U9: extsgn port map(simm16,SaidaExt32);
+	U22: extsgn port map(schamt16,shamt32);
 	U10: Shift32_2 port map(SaidaExt32,SaidaDeslocamento);
 	U11: reg_32 port map (clk,'0',SaidaA,SaidaA_2);
 	U12: reg_32 port map (clk,'0',SaidaB,SaidaB_2);
-	U13: mux_2 port map(sSaidaPC,SaidaA_2,sOrigAALU,mux2_U13);
-	U14: mux_4 port map(SaidaB_2,X"00000004",SaidaExt32,SaidaDeslocamento,sOrigBALU,mux4_U14);
+	U13: mux_3 port map(sSaidaPC,SaidaA_2,shamt32,sOrigAALU,mux2_U13);
+   U14: mux_4 port map(SaidaB_2,X"00000004",SaidaExt32,SaidaDeslocamento,shamt32,sOrigBALU,mux4_U14);
 	U15: alu_ctr port map(sOpALU,sfunct,opcode_ula);
 	U16: ula port map(opcode_ula,mux2_U13,mux4_U14,sSaidaULA,svai,sovfl,szero);
 	U17: reg_32 port map(clk,reset,sSaidaULA,SaidaUla_2);
@@ -295,7 +298,7 @@ begin
 	
 	U20:mux_4_FPGA port map(SaidaULa_2,sSaidaPC,simm31,SaidaRegMemoria,selection,EntradaFPGA);
 
-	U30: SaidaPinagem port map( EntradaFPGA, sHEX0, sHEX1, sHEX2, sHEX3, sHEX4, sHEX5, sHEX6, sHEX7);
+	U21: SaidaPinagem port map( EntradaFPGA, sHEX0, sHEX1, sHEX2, sHEX3, sHEX4, sHEX5, sHEX6, sHEX7);
 
 	
 	
@@ -306,7 +309,8 @@ begin
 AddressDado<= '1'& saidaULA_2(8 downto 2) ;
 Entrada2Mux <= sSaidaPC(31 downto 28)& simm26 & "00";
 clk_inv<= not(clk);
-
+  --shamt16
+  Schamt16<="00000000000" & sshamnt;
 --Final
 
 

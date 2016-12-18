@@ -92,9 +92,9 @@ GND*                         : A22       :        :                   :         
 GND*                         : A23       :        :                   :         : 4         :                
 GND*                         : A24       :        :                   :         : 4         :                
 GND*                         : A25       :        :                   :         : 4         :                
-SaidaULA[4]                  : A26       : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : A26       :        :                   :         : 4         :                
 VCCIO4                       : A27       : power  :                   : 3.3V    : 4         :                
-SaidaULA8[7]                 : A28       : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : A28       :        :                   :         : 4         :                
 GND                          : A29       : gnd    :                   :         :           :                
 GND*                         : AA1       :        :                   :         : 1         :                
 GND*                         : AA2       :        :                   :         : 1         :                
@@ -119,13 +119,13 @@ GND                          : AA20      : gnd    :                   :         
 GND_PLL4                     : AA21      : gnd    :                   :         :           :                
 GND_PLL4                     : AA22      : gnd    :                   :         :           :                
 selection[0]                 : AA23      : input  : 3.3-V LVTTL       :         : 6         : Y              
-SaidaULA[17]                 : AA24      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[29]                  : AA25      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[26]                  : AA26      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRDM[22]                 : AA27      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA[11]                 : AA28      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRI[6]                   : AA29      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRDM[7]                  : AA30      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[12]                 : AA24      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[0]                  : AA25      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[16]                 : AA26      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaPC[10]                  : AA27      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[23]                 : AA28      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[1]                  : AA29      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRI[30]                  : AA30      : output : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : AB1       :        :                   :         : 1         :                
 GND*                         : AB2       :        :                   :         : 1         :                
 VCCIO1                       : AB3       : power  :                   : 3.3V    : 1         :                
@@ -154,8 +154,8 @@ selection[2]                 : AB25      : input  : 3.3-V LVTTL       :         
 selection[1]                 : AB26      : input  : 3.3-V LVTTL       :         : 6         : Y              
 GND                          : AB27      : gnd    :                   :         :           :                
 VCCIO6                       : AB28      : power  :                   : 3.3V    : 6         :                
-SaidaULA[28]                 : AB29      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[3]                   : AB30      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[8]                  : AB29      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaULA[11]                 : AB30      : output : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : AC1       :        :                   :         : 1         :                
 GND*                         : AC2       :        :                   :         : 1         :                
 GND*                         : AC3       :        :                   :         : 1         :                
@@ -180,12 +180,12 @@ GND*                         : AC21      :        :                   :         
 VCCA_PLL4                    : AC22      : power  :                   : 1.2V    :           :                
 GND*                         : AC23      :        :                   :         : 6         :                
 GND*                         : AC24      :        :                   :         : 6         :                
-SaidaULA[7]                  : AC25      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA8[5]                 : AC26      : output : 3.3-V LVTTL       :         : 6         : N              
+GND*                         : AC25      :        :                   :         : 6         :                
+GND*                         : AC26      :        :                   :         : 6         :                
 selection[3]                 : AC27      : input  : 3.3-V LVTTL       :         : 6         : Y              
-SaidaPC[10]                  : AC28      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[16]                  : AC29      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[25]                  : AC30      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[13]                 : AC28      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[11]                 : AC29      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaPC[8]                   : AC30      : output : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : AD1       :        :                   :         : 1         :                
 GND*                         : AD2       :        :                   :         : 1         :                
 GND*                         : AD3       :        :                   :         : 1         :                
@@ -205,17 +205,17 @@ GND*                         : AD16      :        :                   :         
 HEX1[1]                      : AD17      : output : 3.3-V LVTTL       :         : 7         : Y              
 GND*                         : AD18      :        :                   :         : 7         :                
 GND*                         : AD19      :        :                   :         : 7         :                
-GND*                         : AD20      :        :                   :         : 7         :                
+SaidaULA8[1]                 : AD20      : output : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : AD21      :        :                   :         : 7         :                
 GND*                         : AD22      :        :                   :         : 7         :                
 GNDA_PLL4                    : AD23      : gnd    :                   :         :           :                
 GND*                         : AD24      :        :                   :         : 6         :                
 ~LVDS195p/nCEO~              : AD25      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA[3]                  : AD26      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA8[1]                 : AD27      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[17]                  : AD28      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA[22]                 : AD29      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA[27]                 : AD30      : output : 3.3-V LVTTL       :         : 6         : N              
+GND*                         : AD26      :        :                   :         : 6         :                
+GND*                         : AD27      :        :                   :         : 6         :                
+SaidaPC[6]                   : AD28      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[7]                  : AD29      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaPC[17]                  : AD30      : output : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : AE1       :        :                   :         : 1         :                
 GND*                         : AE2       :        :                   :         : 1         :                
 GND*                         : AE3       :        :                   :         : 1         :                
@@ -242,10 +242,10 @@ GND*                         : AE23      :        :                   :         
 GND*                         : AE24      :        :                   :         : 7         :                
 GND                          : AE25      : gnd    :                   :         :           :                
 VCCIO6                       : AE26      : power  :                   : 3.3V    : 6         :                
-SaidaRDM[20]                 : AE27      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRDM[0]                  : AE28      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA[29]                 : AE29      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA[18]                 : AE30      : output : 3.3-V LVTTL       :         : 6         : N              
+GND*                         : AE27      :        :                   :         : 6         :                
+SaidaPC[0]                   : AE28      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[18]                 : AE29      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[3]                  : AE30      : output : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : AF1       :        :                   :         : 1         :                
 GND*                         : AF2       :        :                   :         : 1         :                
 GND*                         : AF3       :        :                   :         : 1         :                
@@ -272,10 +272,10 @@ GND*                         : AF23      :        :                   :         
 GND*                         : AF24      :        :                   :         : 7         :                
 VCCIO7                       : AF25      : power  :                   : 3.3V    : 7         :                
 GND                          : AF26      : gnd    :                   :         :           :                
-SaidaRDM[10]                 : AF27      : output : 3.3-V LVTTL       :         : 6         : N              
+GND*                         : AF27      :        :                   :         : 6         :                
 GND*                         : AF28      :        :                   :         : 6         :                
-SaidaRDM[4]                  : AF29      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[5]                   : AF30      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaULA[5]                  : AF29      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaULA8[3]                 : AF30      : output : 3.3-V LVTTL       :         : 6         : N              
 VCCIO1                       : AG1       : power  :                   : 3.3V    : 1         :                
 GND*                         : AG2       :        :                   :         : 1         :                
 GND*                         : AG3       :        :                   :         : 1         :                
@@ -297,14 +297,14 @@ GND*                         : AG18      :        :                   :         
 GND*                         : AG19      :        :                   :         : 7         :                
 GND*                         : AG20      :        :                   :         : 7         :                
 GND                          : AG21      : gnd    :                   :         :           :                
-GND*                         : AG22      :        :                   :         : 7         :                
+SaidaPC[15]                  : AG22      : output : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : AG23      :        :                   :         : 7         :                
-SaidaULA[2]                  : AG24      : output : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : AG24      :        :                   :         : 7         :                
 GND*                         : AG25      :        :                   :         : 7         :                
 GND*                         : AG26      :        :                   :         : 7         :                
 GND*                         : AG27      :        :                   :         : 7         :                
-SaidaRI[27]                  : AG28      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[19]                  : AG29      : output : 3.3-V LVTTL       :         : 6         : N              
+GND*                         : AG28      :        :                   :         : 6         :                
+GND*                         : AG29      :        :                   :         : 6         :                
 VCCIO6                       : AG30      : power  :                   : 3.3V    : 6         :                
 GND*                         : AH1       :        :                   :         : 1         :                
 GND*                         : AH2       :        :                   :         : 1         :                
@@ -329,13 +329,13 @@ GND*                         : AH20      :        :                   :         
 VCCIO7                       : AH21      : power  :                   : 3.3V    : 7         :                
 GND*                         : AH22      :        :                   :         : 7         :                
 VCCIO7                       : AH23      : power  :                   : 3.3V    : 7         :                
-SaidaULA8[0]                 : AH24      : output : 3.3-V LVTTL       :         : 7         : N              
+GND*                         : AH24      :        :                   :         : 7         :                
 GND                          : AH25      : gnd    :                   :         :           :                
 GND*                         : AH26      :        :                   :         : 7         :                
 GND*                         : AH27      :        :                   :         : 7         :                
-SaidaULA8[3]                 : AH28      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRDM[31]                 : AH29      : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA[5]                  : AH30      : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaULA[7]                  : AH28      : output : 3.3-V LVTTL       :         : 6         : N              
+GND*                         : AH29      :        :                   :         : 6         :                
+SaidaULA8[5]                 : AH30      : output : 3.3-V LVTTL       :         : 6         : N              
 GND                          : AJ1       : gnd    :                   :         :           :                
 GND*                         : AJ2       :        :                   :         : 8         :                
 GND*                         : AJ3       :        :                   :         : 8         :                
@@ -364,7 +364,7 @@ GND*                         : AJ25      :        :                   :         
 GND*                         : AJ26      :        :                   :         : 7         :                
 GND*                         : AJ27      :        :                   :         : 7         :                
 GND*                         : AJ28      :        :                   :         : 7         :                
-SaidaPC[7]                   : AJ29      : output : 3.3-V LVTTL       :         : 6         : N              
+GND*                         : AJ29      :        :                   :         : 6         :                
 GND                          : AJ30      : gnd    :                   :         :           :                
 GND                          : AK2       : gnd    :                   :         :           :                
 GND*                         : AK3       :        :                   :         : 8         :                
@@ -389,7 +389,7 @@ GND*                         : AK21      :        :                   :         
 GND*                         : AK22      :        :                   :         : 7         :                
 GND*                         : AK23      :        :                   :         : 7         :                
 GND*                         : AK24      :        :                   :         : 7         :                
-GND*                         : AK25      :        :                   :         : 7         :                
+SaidaULA[3]                  : AK25      : output : 3.3-V LVTTL       :         : 7         : N              
 GND*                         : AK26      :        :                   :         : 7         :                
 VCCIO7                       : AK27      : power  :                   : 3.3V    : 7         :                
 GND*                         : AK28      :        :                   :         : 7         :                
@@ -416,10 +416,10 @@ GND*                         : B19       :        :                   :         
 GND*                         : B20       :        :                   :         : 4         :                
 GND*                         : B21       :        :                   :         : 4         :                
 GND*                         : B22       :        :                   :         : 4         :                
-GND*                         : B23       :        :                   :         : 4         :                
+SaidaULA[0]                  : B23       : output : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : B24       :        :                   :         : 4         :                
-GND*                         : B25       :        :                   :         : 4         :                
-SaidaULA8[2]                 : B26       : output : 3.3-V LVTTL       :         : 4         : N              
+SaidaULA8[0]                 : B25       : output : 3.3-V LVTTL       :         : 4         : N              
+GND*                         : B26       :        :                   :         : 4         :                
 GND*                         : B27       :        :                   :         : 4         :                
 GND*                         : B28       :        :                   :         : 4         :                
 GND*                         : B29       :        :                   :         : 4         :                
@@ -447,13 +447,13 @@ VCCIO4                       : C20       : power  :                   : 3.3V    
 GND*                         : C21       :        :                   :         : 4         :                
 GND*                         : C22       :        :                   :         : 4         :                
 VCCIO4                       : C23       : power  :                   : 3.3V    : 4         :                
-GND*                         : C24       :        :                   :         : 4         :                
+SaidaPC[31]                  : C24       : output : 3.3-V LVTTL       :         : 4         : N              
 GND                          : C25       : gnd    :                   :         :           :                
 GND*                         : C26       :        :                   :         : 4         :                
 GND*                         : C27       :        :                   :         : 4         :                
 GND*                         : C28       :        :                   :         : 4         :                
-GND*                         : C29       :        :                   :         : 5         :                
-GND*                         : C30       :        :                   :         : 5         :                
+SaidaULA[8]                  : C29       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[4]                  : C30       : output : 3.3-V LVTTL       :         : 5         : N              
 VCCIO2                       : D1        : power  :                   : 3.3V    : 2         :                
 GND*                         : D2        :        :                   :         : 2         :                
 GND*                         : D3        :        :                   :         : 2         :                
@@ -477,7 +477,7 @@ GND                          : D20       : gnd    :                   :         
 GND*                         : D21       :        :                   :         : 4         :                
 GND*                         : D22       :        :                   :         : 4         :                
 GND*                         : D23       :        :                   :         : 4         :                
-GND*                         : D24       :        :                   :         : 4         :                
+SaidaULA[2]                  : D24       : output : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : D25       :        :                   :         : 4         :                
 GND*                         : D26       :        :                   :         : 4         :                
 GND*                         : D27       :        :                   :         : 4         :                
@@ -493,7 +493,7 @@ VCCIO3                       : E6        : power  :                   : 3.3V    
 GND*                         : E7        :        :                   :         : 3         :                
 GND*                         : E8        :        :                   :         : 3         :                
 GND*                         : E9        :        :                   :         : 3         :                
-GND*                         : E10       :        :                   :         : 3         :                
+SaidaULA8[7]                 : E10       : output : 3.3-V LVTTL       :         : 3         : N              
 GND*                         : E11       :        :                   :         : 3         :                
 GND*                         : E12       :        :                   :         : 3         :                
 GND*                         : E13       :        :                   :         : 3         :                
@@ -505,15 +505,15 @@ VCCIO4                       : E18       : power  :                   : 3.3V    
 GND*                         : E19       :        :                   :         : 4         :                
 GND*                         : E20       :        :                   :         : 4         :                
 GND*                         : E21       :        :                   :         : 4         :                
-GND*                         : E22       :        :                   :         : 4         :                
+SaidaULA[31]                 : E22       : output : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : E23       :        :                   :         : 4         :                
 GND*                         : E24       :        :                   :         : 4         :                
 VCCIO4                       : E25       : power  :                   : 3.3V    : 4         :                
 GND                          : E26       : gnd    :                   :         :           :                
 GND*                         : E27       :        :                   :         : 5         :                
 GND*                         : E28       :        :                   :         : 5         :                
-GND*                         : E29       :        :                   :         : 5         :                
-GND*                         : E30       :        :                   :         : 5         :                
+SaidaPC[21]                  : E29       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA8[2]                 : E30       : output : 3.3-V LVTTL       :         : 5         : N              
 GND*                         : F1        :        :                   :         : 2         :                
 GND*                         : F2        :        :                   :         : 2         :                
 GND*                         : F3        :        :                   :         : 2         :                
@@ -542,8 +542,8 @@ GND                          : F25       : gnd    :                   :         
 VCCIO5                       : F26       : power  :                   : 3.3V    : 5         :                
 GND*                         : F27       :        :                   :         : 5         :                
 GND*                         : F28       :        :                   :         : 5         :                
-SaidaULA[8]                  : F29       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaULA8[6]                 : F30       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[6]                  : F29       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA8[4]                 : F30       : output : 3.3-V LVTTL       :         : 5         : N              
 HEX7[1]                      : G1        : output : 3.3-V LVTTL       :         : 2         : Y              
 HEX7[0]                      : G2        : output : 3.3-V LVTTL       :         : 2         : Y              
 GND*                         : G3        :        :                   :         : 2         :                
@@ -570,10 +570,10 @@ GNDA_PLL2                    : G23       : gnd    :                   :         
 GND*                         : G24       :        :                   :         : 5         :                
 GND*                         : G25       :        :                   :         : 5         :                
 GND*                         : G26       :        :                   :         : 5         :                
-SaidaRDM[27]                 : G27       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaULA8[4]                 : G28       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRI[29]                  : G29       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRDM[1]                  : G30       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRDM[28]                 : G27       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA8[6]                 : G28       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRDM[15]                 : G29       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[19]                  : G30       : output : 3.3-V LVTTL       :         : 5         : N              
 HEX7[4]                      : H1        : output : 3.3-V LVTTL       :         : 2         : Y              
 HEX7[3]                      : H2        : output : 3.3-V LVTTL       :         : 2         : Y              
 HEX7[2]                      : H3        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -593,17 +593,17 @@ GND*                         : H16       :        :                   :         
 GND*                         : H17       :        :                   :         : 4         :                
 GND*                         : H18       :        :                   :         : 4         :                
 GND*                         : H19       :        :                   :         : 4         :                
-GND*                         : H20       :        :                   :         : 4         :                
+SaidaPC[16]                  : H20       : output : 3.3-V LVTTL       :         : 4         : N              
 GND*                         : H21       :        :                   :         : 4         :                
 VCCA_PLL2                    : H22       : power  :                   : 1.2V    :           :                
 GND*                         : H23       :        :                   :         : 5         :                
 GND*                         : H24       :        :                   :         : 5         :                
 GND*                         : H25       :        :                   :         : 5         :                
-SaidaRDM[29]                 : H26       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaULA[6]                  : H27       : output : 3.3-V LVTTL       :         : 5         : N              
-GND*                         : H28       :        :                   :         : 5         :                
-SaidaRDM[18]                 : H29       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaPC[15]                  : H30       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[13]                  : H26       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRDM[26]                 : H27       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRDM[24]                 : H28       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[28]                  : H29       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[12]                 : H30       : output : 3.3-V LVTTL       :         : 5         : N              
 HEX7[6]                      : J1        : output : 3.3-V LVTTL       :         : 2         : Y              
 HEX7[5]                      : J2        : output : 3.3-V LVTTL       :         : 2         : Y              
 VCCIO2                       : J3        : power  :                   : 3.3V    : 2         :                
@@ -629,11 +629,11 @@ VCCD_PLL2                    : J22       : power  :                   : 1.2V    
 VCCIO5                       : J23       : power  :                   : 3.3V    : 5         :                
 GND*                         : J24       :        :                   :         : 5         :                
 GND*                         : J25       :        :                   :         : 5         :                
-SaidaRDM[23]                 : J26       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[11]                  : J26       : output : 3.3-V LVTTL       :         : 5         : N              
 GND                          : J27       : gnd    :                   :         :           :                
 VCCIO5                       : J28       : power  :                   : 3.3V    : 5         :                
-SaidaULA[12]                 : J29       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaULA[9]                  : J30       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[26]                 : J29       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[23]                  : J30       : output : 3.3-V LVTTL       :         : 5         : N              
 HEX5[3]                      : K1        : output : 3.3-V LVTTL       :         : 2         : Y              
 HEX6[0]                      : K2        : output : 3.3-V LVTTL       :         : 2         : Y              
 HEX7[7]                      : K3        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -656,14 +656,14 @@ GND                          : K19       : gnd    :                   :         
 GND                          : K20       : gnd    :                   :         :           :                
 GND_PLL2                     : K21       : gnd    :                   :         :           :                
 GND_PLL2                     : K22       : gnd    :                   :         :           :                
-SaidaRDM[13]                 : K23       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaPC[11]                  : K24       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRDM[8]                  : K25       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRDM[28]                 : K26       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaPC[9]                   : K27       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRDM[26]                 : K28       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRDM[14]                 : K29       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRDM[12]                 : K30       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRDM[31]                 : K23       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[12]                  : K24       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRDM[22]                 : K25       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[20]                 : K26       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[19]                 : K27       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[14]                 : K28       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[17]                  : K29       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[18]                  : K30       : output : 3.3-V LVTTL       :         : 5         : N              
 HEX5[6]                      : L1        : output : 3.3-V LVTTL       :         : 2         : Y              
 HEX5[5]                      : L2        : output : 3.3-V LVTTL       :         : 2         : Y              
 HEX5[4]                      : L3        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -684,16 +684,16 @@ VCCINT                       : L17       : power  :                   : 1.2V    
 VCCINT                       : L18       : power  :                   : 1.2V    :           :                
 VCCINT                       : L19       : power  :                   : 1.2V    :           :                
 VCCIO5                       : L20       : power  :                   : 3.3V    : 5         :                
-SaidaRDM[15]                 : L21       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaPC[13]                  : L22       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[24]                 : L21       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[29]                  : L22       : output : 3.3-V LVTTL       :         : 5         : N              
 GND                          : L23       : gnd    :                   :         :           :                
-SaidaRI[24]                  : L24       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaPC[4]                   : L25       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRDM[9]                  : L26       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaULA[26]                 : L27       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaULA[25]                 : L28       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRI[25]                  : L29       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRDM[21]                 : L30       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRDM[25]                 : L24       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[20]                  : L25       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[23]                  : L26       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[25]                 : L27       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[15]                 : L28       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[14]                  : L29       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[5]                   : L30       : output : 3.3-V LVTTL       :         : 5         : N              
 HEX4[2]                      : M1        : output : 3.3-V LVTTL       :         : 2         : Y              
 HEX4[1]                      : M2        : output : 3.3-V LVTTL       :         : 2         : Y              
 HEX5[7]                      : M3        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -714,16 +714,16 @@ VCCINT                       : M17       : power  :                   : 1.2V    
 VCCINT                       : M18       : power  :                   : 1.2V    :           :                
 VCCINT                       : M19       : power  :                   : 1.2V    :           :                
 GND                          : M20       : gnd    :                   :         :           :                
-SaidaRDM[6]                  : M21       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRI[31]                  : M22       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRI[30]                  : M23       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRDM[25]                 : M24       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRDM[30]                 : M25       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaPC[6]                   : M26       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaPC[8]                   : M27       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRI[23]                  : M28       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRDM[17]                 : M29       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaPC[22]                  : M30       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[22]                 : M21       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[27]                 : M22       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[25]                  : M23       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[21]                 : M24       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[28]                  : M25       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[23]                 : M26       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[22]                  : M27       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[16]                 : M28       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRDM[29]                 : M29       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[18]                 : M30       : output : 3.3-V LVTTL       :         : 5         : N              
 GND                          : N1        : gnd    :                   :         :           :                
 HEX4[4]                      : N2        : output : 3.3-V LVTTL       :         : 2         : Y              
 HEX4[3]                      : N3        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -744,15 +744,15 @@ GND                          : N17       : gnd    :                   :         
 GND                          : N18       : gnd    :                   :         :           :                
 VCCINT                       : N19       : power  :                   : 1.2V    :           :                
 VCCINT                       : N20       : power  :                   : 1.2V    :           :                
-SaidaRDM[16]                 : N21       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaPC[31]                  : N22       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaULA[20]                 : N23       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaPC[14]                  : N24       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRDM[19]                 : N25       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[13]                 : N21       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[29]                  : N22       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[31]                  : N23       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[21]                  : N24       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[27]                  : N25       : output : 3.3-V LVTTL       :         : 5         : N              
 GND                          : N26       : gnd    :                   :         :           :                
 VCCIO5                       : N27       : power  :                   : 3.3V    : 5         :                
-SaidaRI[22]                  : N28       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRI[20]                  : N29       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[0]                   : N28       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[28]                 : N29       : output : 3.3-V LVTTL       :         : 5         : N              
 GND                          : N30       : gnd    :                   :         :           :                
 HEX4[7]                      : P1        : output : 3.3-V LVTTL       :         : 2         : Y              
 HEX4[6]                      : P2        : output : 3.3-V LVTTL       :         : 2         : Y              
@@ -775,15 +775,15 @@ GND                          : P18       : gnd    :                   :         
 VCCINT                       : P19       : power  :                   : 1.2V    :           :                
 VCCINT                       : P20       : power  :                   : 1.2V    :           :                
 GND                          : P21       : gnd    :                   :         :           :                
-SaidaULA[13]                 : P22       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaULA[19]                 : P23       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRI[18]                  : P24       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRI[16]                  : P25       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaULA[15]                 : P26       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaULA[16]                 : P27       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaPC[18]                  : P28       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaPC[12]                  : P29       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRI[17]                  : P30       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[2]                   : P22       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[9]                   : P23       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[29]                 : P24       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[22]                  : P25       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[24]                  : P26       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[20]                  : P27       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[15]                  : P28       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[26]                  : P29       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[24]                  : P30       : output : 3.3-V LVTTL       :         : 5         : N              
 VCCIO2                       : R1        : power  :                   : 3.3V    : 2         :                
 reset                        : R2        : input  : 3.3-V LVTTL       :         : 2         : N              
 GND+                         : R3        :        :                   :         : 2         :                
@@ -805,12 +805,12 @@ GND                          : R18       : gnd    :                   :         
 VCCINT                       : R19       : power  :                   : 1.2V    :           :                
 GND                          : R20       : gnd    :                   :         :           :                
 VCCIO5                       : R21       : power  :                   : 3.3V    : 5         :                
-SaidaRI[21]                  : R22       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaPC[30]                  : R23       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRI[14]                  : R24       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRI[9]                   : R25       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[26]                  : R22       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[25]                  : R23       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[17]                 : R24       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaPC[27]                  : R25       : output : 3.3-V LVTTL       :         : 5         : N              
 SaidaRI[19]                  : R26       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRI[11]                  : R27       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaULA[1]                  : R27       : output : 3.3-V LVTTL       :         : 5         : N              
 GND+                         : R28       :        :                   :         : 5         :                
 GND+                         : R29       :        :                   :         : 5         :                
 VCCIO5                       : R30       : power  :                   : 3.3V    : 5         :                
@@ -835,13 +835,13 @@ GND                          : T18       : gnd    :                   :         
 VCCINT                       : T19       : power  :                   : 1.2V    :           :                
 GND                          : T20       : gnd    :                   :         :           :                
 VCCIO6                       : T21       : power  :                   : 3.3V    : 6         :                
-SaidaRI[13]                  : T22       : output : 3.3-V LVTTL       :         : 5         : N              
-SaidaRI[12]                  : T23       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[2]                   : T22       : output : 3.3-V LVTTL       :         : 5         : N              
+SaidaRI[6]                   : T23       : output : 3.3-V LVTTL       :         : 5         : N              
 GND+                         : T24       :        :                   :         : 6         :                
 GND+                         : T25       :        :                   :         : 6         :                
-SaidaRI[26]                  : T26       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRI[2]                   : T27       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRDM[11]                 : T28       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRI[10]                  : T26       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRI[1]                   : T27       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRI[11]                  : T28       : output : 3.3-V LVTTL       :         : 6         : N              
 clk                          : T29       : input  : 3.3-V LVTTL       :         : 6         : Y              
 VCCIO6                       : T30       : power  :                   : 3.3V    : 6         :                
 GND*                         : U1        :        :                   :         : 1         :                
@@ -866,14 +866,14 @@ VCCINT                       : U19       : power  :                   : 1.2V    
 VCCINT                       : U20       : power  :                   : 1.2V    :           :                
 GND                          : U21       : gnd    :                   :         :           :                
 MSEL0                        : U22       :        :                   :         : 6         :                
-SaidaULA[1]                  : U23       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRI[4]                   : U24       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[1]                   : U25       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaULA[30]                 : U23       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRI[12]                  : U24       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRI[13]                  : U25       : output : 3.3-V LVTTL       :         : 6         : N              
 nSTATUS                      : U26       :        :                   :         : 6         :                
 CONF_DONE                    : U27       :        :                   :         : 6         :                
 MSEL1                        : U28       :        :                   :         : 6         :                
-SaidaPC[0]                   : U29       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRI[8]                   : U30       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaPC[9]                   : U29       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRI[5]                   : U30       : output : 3.3-V LVTTL       :         : 6         : N              
 GND                          : V1        : gnd    :                   :         :           :                
 GND*                         : V2        :        :                   :         : 1         :                
 GND*                         : V3        :        :                   :         : 1         :                
@@ -894,15 +894,15 @@ GND                          : V17       : gnd    :                   :         
 GND                          : V18       : gnd    :                   :         :           :                
 VCCINT                       : V19       : power  :                   : 1.2V    :           :                
 VCCINT                       : V20       : power  :                   : 1.2V    :           :                
-SaidaRI[10]                  : V21       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRDM[5]                  : V22       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRI[0]                   : V23       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[21]                  : V24       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaPC[4]                   : V21       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[6]                  : V22       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRI[8]                   : V23       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[10]                 : V24       : output : 3.3-V LVTTL       :         : 6         : N              
 GND                          : V25       : gnd    :                   :         :           :                
 VCCIO6                       : V26       : power  :                   : 3.3V    : 6         :                
-SaidaULA[30]                 : V27       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRI[28]                  : V28       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA[31]                 : V29       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaPC[30]                  : V27       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaULA[9]                  : V28       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRI[14]                  : V29       : output : 3.3-V LVTTL       :         : 6         : N              
 GND                          : V30       : gnd    :                   :         :           :                
 GND*                         : W1        :        :                   :         : 1         :                
 GND*                         : W2        :        :                   :         : 1         :                
@@ -924,16 +924,16 @@ VCCINT                       : W17       : power  :                   : 1.2V    
 VCCINT                       : W18       : power  :                   : 1.2V    :           :                
 VCCINT                       : W19       : power  :                   : 1.2V    :           :                
 GND                          : W20       : gnd    :                   :         :           :                
-SaidaRDM[3]                  : W21       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[24]                  : W22       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA[23]                 : W23       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[20]                  : W24       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA[21]                 : W25       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRI[7]                   : W26       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[28]                  : W27       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRI[5]                   : W28       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRI[1]                   : W29       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRI[3]                   : W30       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[9]                  : W21       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaULA[10]                 : W22       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaPC[7]                   : W23       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[17]                 : W24       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[30]                 : W25       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[5]                  : W26       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[14]                 : W27       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRI[16]                  : W28       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRI[4]                   : W29       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[4]                  : W30       : output : 3.3-V LVTTL       :         : 6         : N              
 GND*                         : Y1        :        :                   :         : 1         :                
 GND*                         : Y2        :        :                   :         : 1         :                
 GND*                         : Y3        :        :                   :         : 1         :                
@@ -954,13 +954,13 @@ VCCINT                       : Y17       : power  :                   : 1.2V    
 VCCINT                       : Y18       : power  :                   : 1.2V    :           :                
 GND                          : Y19       : gnd    :                   :         :           :                
 VCCIO6                       : Y20       : power  :                   : 3.3V    : 6         :                
-SaidaULA[0]                  : Y21       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRDM[2]                  : Y22       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRDM[24]                 : Y23       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[27]                  : Y24       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA[24]                 : Y25       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[23]                  : Y26       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaPC[2]                   : Y27       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaRI[15]                  : Y28       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA[14]                 : Y29       : output : 3.3-V LVTTL       :         : 6         : N              
-SaidaULA[10]                 : Y30       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[27]                 : Y21       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[21]                 : Y22       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaPC[18]                  : Y23       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[20]                 : Y24       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaPC[3]                   : Y25       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaPC[1]                   : Y26       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[2]                  : Y27       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRDM[19]                 : Y28       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRI[7]                   : Y29       : output : 3.3-V LVTTL       :         : 6         : N              
+SaidaRI[3]                   : Y30       : output : 3.3-V LVTTL       :         : 6         : N              
