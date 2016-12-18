@@ -258,7 +258,7 @@ signal enablePC : std_logic :='0';
   --U18
   signal  Entrada2Mux: std_logic_vector(31 downto 0)  :=(others => '0') ;
   --clock invertido
-  signal clk_inv : std_LOGIC;
+  signal clk_inv,scond : std_LOGIC;
   --UL
   signal  entradaPC: std_logic_vector(31 downto 0) :=(others => '0')  ;
 --U00:
@@ -299,8 +299,8 @@ begin
 
 	
 	
-	
-	enablePC <= sEscrevePC or (sEscrevePCCond and szero);
+	scond <= szero xor sopcode(0);
+	enablePC <= sEscrevePC or (sEscrevePCCond and scond);
 	
 	 --Sinais concatenados auxiliares
 AddressDado<= '1'& saidaULA_2(8 downto 2) ;
