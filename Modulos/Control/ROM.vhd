@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity ROM is
 port (
-		Entrada : in std_logic_vector(3 downto 0);
+		Entrada : in std_logic_vector(4 downto 0);
 		OpALU,OrigBALU : out std_logic_vector(2 downto 0);
 		OrigPC : out std_logic_vector(1 downto 0);
 		OrigAALU : out std_logic_vector(1 downto 0);
@@ -20,7 +20,7 @@ architecture Behavioral of ROM is
 		microCmds : microComandos_T;
 		nextAddress : nextAddress_T;
 	end RECORD;
-	TYPE microPrograma_T is array (0 to 15) of microInstrucao_T;
+	TYPE microPrograma_T is array (0 to 16) of microInstrucao_T;
 	-- valores para o campo de sequenciamento
 	constant SEQ : nextAddress_T := "11";
 	constant FETCH : nextAddress_T := "00";
@@ -76,10 +76,11 @@ architecture Behavioral of ROM is
 	constant	BNE : microInstrucao_T := (subt & "01" & SRC_2_B & "000000" & PC_ALUOut_cond, FETCH);--13
 	constant	SLL1 : microInstrucao_T := (funcCode & "10" & SRC_2_B & "000000" & "0000", SEQ);--14
 	constant	SLL2 : microInstrucao_T := ("00000000" & Reg_writeAlu & "0000000", FETCH);--15
+	constant JR : microInstrucao_T:= (ADD & "01" & SRC_2_B & "000" & "000" & PC_ALU, FETCH);--16
 begin
 
 	proc_ROM : process (Entrada)
-		variable programa : microPrograma_T := (mFETCH,mFETCH2,Mem1,LW,LW2,SW2,Rformat,WriteBack,BEQ,JUMP,ADDI1,ORI,SLTI,BNE,SLL1,SLL2);
+		variable programa : microPrograma_T := (mFETCH,mFETCH2,Mem1,LW,LW2,SW2,Rformat,WriteBack,BEQ,JUMP,ADDI1,ORI,SLTI,BNE,SLL1,SLL2,JR);
 		variable instrucaoSelecionada : microInstrucao_T;
 		variable comando : microComandos_T;
 		variable prox : nextAddress_T;
