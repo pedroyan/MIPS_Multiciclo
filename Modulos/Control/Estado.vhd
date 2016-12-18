@@ -2,9 +2,9 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity Estado is
-    Port ( d : in  STD_LOGIC_VECTOR (3 downto 0);
+    Port ( d : in  STD_LOGIC_VECTOR (4 downto 0);
            clk : in  STD_LOGIC;
-           q : out  STD_LOGIC_VECTOR (3 downto 0) :="0010" );
+           q : out  STD_LOGIC_VECTOR (4 downto 0) :="00010" );
 end Estado;
 
 architecture Behavioral of Estado is
