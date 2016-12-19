@@ -233,8 +233,6 @@ signal saidaA,saidaB : std_logic_vector(31 downto 0) :=(others => '0') ;
 signal SaidaExt32,shamt32 : std_logic_vector(31 downto 0)  :=(others => '0');
 ---Shift32_2
 signal SaidaDeslocamento : std_logic_vector(31 downto 0)  :=(others => '0');
---Shift26_2
-signal Entrada2Mux : std_logic_vector(31 downto 0) :=(others => '0');
 --reg_32 A,B
 signal SaidaA_2,SaidaB_2 : std_logic_vector(31 downto 0)  :=(others => '0');
 --mux U13(A)
@@ -267,7 +265,7 @@ signal enablePC : std_logic :='0';
   --U4 ->  address  
   signal AddressDado : std_logic_vector(7 downto 0)  :=(others => '0') ;
   --U18
-  --signal  Entrada2Mux: std_logic_vector(31 downto 0)  :=(others => '0') ;
+  signal  Entrada2Mux: std_logic_vector(31 downto 0)  :=(others => '0') ;
   --clock invertido
   signal clk_inv,scond : std_LOGIC;
   --UL
@@ -318,7 +316,7 @@ begin
 	
 	 --Sinais concatenados auxiliares
 AddressDado<= '1'& saidaULA_2(8 downto 2) ;
---Entrada2Mux <= sSaidaPC(31 downto 28)& simm26 & "00";
+Entrada2Mux <= sSaidaPC(31 downto 28)& simm26 & "00";
 clk_inv<= not(clk);
   --shamt16
   Schamt16<="00000000000" & sshamnt;
