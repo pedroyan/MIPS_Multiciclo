@@ -7,20 +7,20 @@ port (
 		Entrada : in std_logic_vector(4 downto 0);
 		OpALU,OrigBALU : out std_logic_vector(2 downto 0);
 		OrigPC : out std_logic_vector(1 downto 0);
-		OrigAALU : out std_logic_vector(1 downto 0);
-		EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,
+		OrigAALU, RegDst : out std_logic_vector(1 downto 0);
+		EscreveReg, MemparaReg, EscrevePC, EscrevePCCond, IouD,
 		EscreveMem, EscreveIR : out std_logic;
 		CtlEnd : out std_logic_vector(1 downto 0));
 end ROM;
 
 architecture Behavioral of ROM is
-	SUBTYPE microComandos_T is std_logic_vector(17 downto 0);
+	SUBTYPE microComandos_T is std_logic_vector(18 downto 0);
 	SUBTYPE nextAddress_T is std_logic_vector(1 downto 0);
 	TYPE microInstrucao_T is RECORD
 		microCmds : microComandos_T;
 		nextAddress : nextAddress_T;
 	end RECORD;
-	TYPE microPrograma_T is array (0 to 16) of microInstrucao_T;
+	TYPE microPrograma_T is array (0 to 18) of microInstrucao_T;
 	-- valores para o campo de sequenciamento
 	constant SEQ : nextAddress_T := "11";
 	constant FETCH : nextAddress_T := "00";
@@ -43,9 +43,10 @@ architecture Behavioral of ROM is
 	constant SRC_2_Shamt : std_logic_vector(2 downto 0) := "111";
 	
 	-- tipos register
-	constant Reg_Read : std_logic_vector(2 downto 0) := "000"; --EscreveReg/RegDst/MemparaReg
-	constant Reg_writeAlu : std_logic_vector(2 downto 0) := "110";
-	constant Reg_writeMDR : std_logic_vector(2 downto 0) := "101";
+	constant Reg_Read : std_logic_vector(3 downto 0) := "0000"; --EscreveReg/RegDst/MemparaReg
+	constant Reg_writeAlu : std_logic_vector(3 downto 0) := "1010";
+	constant Reg_writeMDR : std_logic_vector(3 downto 0) := "1011";
+	constant Reg_writeJAL : std_logic_vector(3 downto 0) := "1101";
 	
 	--tipos controle Memoria
 	constant Mem_readPC : std_logic_vector(2 downto 0) := "010"; --ioud/escreveIR/EscreveMem
@@ -60,27 +61,29 @@ architecture Behavioral of ROM is
 
 	-- micro programa: listar os sinais de saida na ordem da figura
 	-- microinstrucao | ALU Cntr | SRC 1 | SRC 2 | Regs | Memory control | PC Write | Seq
-	constant mFETCH : microInstrucao_T := (ADD & "00" & SRC_2_4 & "000" & Mem_readPC & PC_ALU , SEQ ); --0 
+	constant mFETCH : microInstrucao_T := (ADD & "00" & SRC_2_4 & "0000" & Mem_readPC & PC_ALU , SEQ ); --0 
 	constant mFETCH2 : microInstrucao_T := (ADD & "00" & SRC_2_Extshift & Reg_Read & "000" & "0000", DISPATCH_1);--1
-	constant Mem1 : microInstrucao_T := (ADD & "01" & SRC_2_Extend & "000" &"000" & "0000",DISPATCH_2);--2
-	constant LW : microInstrucao_T := ("00000000000" & Mem_readALU & "0000", SEQ);--3
+	constant Mem1 : microInstrucao_T := (ADD & "01" & SRC_2_Extend & "0000" &"000" & "0000",DISPATCH_2);--2
+	constant LW : microInstrucao_T := ("000000000000" & Mem_readALU & "0000", SEQ);--3
 	constant LW2 : microInstrucao_T := ("00000000" & Reg_writeMDR & "0000000", FETCH);--4
-	constant SW2 : microInstrucao_T := ("00000000000" & Mem_writeALU & "0000", FETCH);--5
-	constant Rformat : microInstrucao_T := (funcCode & "01" & SRC_2_B & "0000000000", SEQ);--6
+	constant SW2 : microInstrucao_T := ("000000000000" & Mem_writeALU & "0000", FETCH);--5
+	constant Rformat : microInstrucao_T := (funcCode & "01" & SRC_2_B & "00000000000", SEQ);--6
 	constant WriteBack : microInstrucao_T := ("00000000" & Reg_writeAlu & "0000000", FETCH);--7
-	constant BEQ : microInstrucao_T := (subt & "01" & SRC_2_B & "000000" & PC_ALUOut_cond, FETCH);--8
-	constant JUMP : microInstrucao_T := ("00000000000000" & PC_JumpAddress,FETCH);--9
-	constant ADDI1 : microInstrucao_T := (ADD & "01" & SRC_2_Extend & "000" & "000" & "0000",DISPATCH_2);--10
-	constant ORI : microInstrucao_T := (Alu_or & "01" & SRC_2_Extend & "000" & "000" & "0000", DISPATCH_2);--11
-	constant SLTI : microInstrucao_T:= (Alu_slt & "01" & SRC_2_Extend & "000" & "000" & "0000", DISPATCH_2);--12
-	constant	BNE : microInstrucao_T := (subt & "01" & SRC_2_B & "000000" & PC_ALUOut_cond, FETCH);--13
-	constant	SLL1 : microInstrucao_T := (funcCode & "10" & SRC_2_B & "000000" & "0000", SEQ);--14
+	constant BEQ : microInstrucao_T := (subt & "01" & SRC_2_B & "0000000" & PC_ALUOut_cond, FETCH);--8
+	constant JUMP : microInstrucao_T := ("000000000000000" & PC_JumpAddress,FETCH);--9
+	constant ADDI1 : microInstrucao_T := (ADD & "01" & SRC_2_Extend & "0000" & "000" & "0000",DISPATCH_2);--10
+	constant ORI : microInstrucao_T := (Alu_or & "01" & SRC_2_Extend & "0000" & "000" & "0000", DISPATCH_2);--11
+	constant SLTI : microInstrucao_T:= (Alu_slt & "01" & SRC_2_Extend & "0000" & "000" & "0000", DISPATCH_2);--12
+	constant	BNE : microInstrucao_T := (subt & "01" & SRC_2_B & "0000000" & PC_ALUOut_cond, FETCH);--13
+	constant	SLL1 : microInstrucao_T := (funcCode & "10" & SRC_2_B & "0000000" & "0000", SEQ);--14
 	constant	SLL2 : microInstrucao_T := ("00000000" & Reg_writeAlu & "0000000", FETCH);--15
-	constant JR : microInstrucao_T:= (ADD & "01" & SRC_2_B & "000" & "000" & PC_ALU, FETCH);--16
+	constant JR : microInstrucao_T:= (ADD & "01" & SRC_2_B & "0000" & "000" & PC_ALU, FETCH);--16
+	constant JAL : microInstrucao_T:= (ADD & "01" & SRC_2_B & "0000" & "000" & PC_JumpAddress, SEQ);--17
+	constant JAL2 : microInstrucao_T:= ("00000000" & Reg_writeJAL & "0000000", FETCH);--18
 begin
 
 	proc_ROM : process (Entrada)
-		variable programa : microPrograma_T := (mFETCH,mFETCH2,Mem1,LW,LW2,SW2,Rformat,WriteBack,BEQ,JUMP,ADDI1,ORI,SLTI,BNE,SLL1,SLL2,JR);
+		variable programa : microPrograma_T := (mFETCH,mFETCH2,Mem1,LW,LW2,SW2,Rformat,WriteBack,BEQ,JUMP,ADDI1,ORI,SLTI,BNE,SLL1,SLL2,JR,JAL,JAL2);
 		variable instrucaoSelecionada : microInstrucao_T;
 		variable comando : microComandos_T;
 		variable prox : nextAddress_T;
@@ -89,11 +92,11 @@ begin
 		instrucaoSelecionada := programa(to_integer(unsigned(Entrada)));
 		comando := instrucaoSelecionada.microCmds;
 		prox := instrucaoSelecionada.nextAddress;
-		OpALU <= comando (17 downto 15);
-		OrigAALU <= comando(14 downto 13);
-		OrigBALU <= comando (12 downto 10);
-		EscreveReg <= comando(9);
-		RegDst <= comando(8);
+		OpALU <= comando (18 downto 16);
+		OrigAALU <= comando(15 downto 14);
+		OrigBALU <= comando (13 downto 11);
+		EscreveReg <= comando(10);
+		RegDst <= comando(9 downto 8);
 		MemparaReg <= comando(7);
 		IouD<= comando (6);
 		EscreveIR <= comando(5);

@@ -6,9 +6,9 @@ port (
 		clk,start : in std_logic;
 		Op,funct : in std_logic_vector(5 downto 0);
 		OpALU,OrigBALU : out std_logic_vector(2 downto 0);
-		 OrigPC : out std_logic_vector(1 downto 0);
-		OrigAALU : out std_logic_vector(1 downto 0);
-		EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,
+		OrigPC : out std_logic_vector(1 downto 0);
+		OrigAALU, RegDst : out std_logic_vector(1 downto 0);
+		EscreveReg, MemparaReg, EscrevePC, EscrevePCCond, IouD,
 		EscreveMem, EscreveIR : out std_logic;
 		CtlEnd : inout std_logic_vector(1 downto 0)
 		
@@ -36,9 +36,9 @@ end component;
 	port (
 			Entrada : in std_logic_vector(4 downto 0);
 			OpALU,OrigBALU : out std_logic_vector(2 downto 0);
-			 OrigPC : out std_logic_vector(1 downto 0);
-			OrigAALU : out std_logic_vector(1 downto 0);
-			EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,
+			OrigPC : out std_logic_vector(1 downto 0);
+			OrigAALU, RegDst: out std_logic_vector(1 downto 0);
+			EscreveReg, MemparaReg, EscrevePC, EscrevePCCond, IouD,
 			EscreveMem, EscreveIR : out std_logic;
 			CtlEnd : out std_logic_vector(1 downto 0));
 	end component ;
@@ -67,13 +67,14 @@ end component;
 	signal SaidaAddress,SaidaAddress2 : STD_LOGIC_VECTOR (4 downto 0):="00000";
 	signal SaidaEstado : STD_LOGIC_VECTOR (4 downto 0) :="00000";
 	signal EntradaSomador : STD_LOGIC_VECTOR (4 downto 0) :="00000";
+	
 begin
 
 	U1: AddressLogic port map (Op,SaidaSomador,CtlEnd,SaidaAddress);
 	U6: CheckR port map (SaidaAddress,funct,SaidaAddress2);
 	U2: Estado port map (SaidaAddress2,clk,SaidaEstado);
 	U3: Somador port map (EntradaSomador,"00001",SaidaSomador);
-	U4: ROM port map (SaidaEstado,OpALU, OrigBALU, OrigPC ,OrigAALU,EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,EscreveMem, EscreveIR,CtlEnd  );
+	U4: ROM port map (SaidaEstado,OpALU, OrigBALU, OrigPC ,OrigAALU, RegDst, EscreveReg, MemparaReg, EscrevePC, EscrevePCCond, IouD,EscreveMem, EscreveIR,CtlEnd  );
 	U5: mux_2_4bits port map("00000",SaidaEstado,start,EntradaSomador);
 
 	
