@@ -21,7 +21,7 @@ architecture Behavioral of ROM is
 		microCmds : microComandos_T;
 		nextAddress : nextAddress_T;
 	end RECORD;
-	TYPE microPrograma_T is array (0 to 16) of microInstrucao_T;
+	TYPE microPrograma_T is array (0 to 17) of microInstrucao_T;
 	-- valores para o campo de sequenciamento
 	constant SEQ : nextAddress_T := "11";
 	constant FETCH : nextAddress_T := "00";
@@ -75,14 +75,15 @@ architecture Behavioral of ROM is
 	constant ADDI1 : microInstrucao_T := (ADD & "01" & SRC_2_Extend & "00100" & "000" & "0000",DISPATCH_2);--10
 	constant ORI : microInstrucao_T := (Alu_or & "01" & SRC_2_Extend & "00000" & "000" & "0000", DISPATCH_2);--11
 	constant SLTI : microInstrucao_T:= (Alu_slt & "01" & SRC_2_Extend & "00000" & "000" & "0000", DISPATCH_2);--12
-	constant	BNE : microInstrucao_T := (subt & "01" & SRC_2_B & "00000"&"000" & PC_ALUOut_cond, FETCH);--13
-	constant	SLL1 : microInstrucao_T := (funcCode & "10" & SRC_2_B & "00000"&"000" & "0000", SEQ);--14
-	constant	SLL2 : microInstrucao_T := ("000"&"00"&"000" & Reg_writeAlu & "000"&"0000", FETCH);--15
+	constant BNE : microInstrucao_T := (subt & "01" & SRC_2_B & "00000"&"000" & PC_ALUOut_cond, FETCH);--13
+	constant SLL1 : microInstrucao_T := (funcCode & "10" & SRC_2_B & "00000"&"000" & "0000", SEQ);--14
+	constant SLL2 : microInstrucao_T := ("000"&"00"&"000" & Reg_writeAlu & "000"&"0000", FETCH);--15
 	constant JR : microInstrucao_T:= (ADD & "01" & SRC_2_B & "00000" & "000" & PC_ALU, FETCH);--16
+	constant JAL : microInstrucao_T := ("000" & "00" & "000" & Reg_writeJAL & "000" & "0000", DISPATCH_2); -- 17
 begin
 
 	proc_ROM : process (Entrada)
-		variable programa : microPrograma_T := (mFETCH,mFETCH2,Mem1,LW,LW2,SW2,Rformat,WriteBack,BEQ,JUMP,ADDI1,ORI,SLTI,BNE,SLL1,SLL2,JR);
+		variable programa : microPrograma_T := (mFETCH,mFETCH2,Mem1,LW,LW2,SW2,Rformat,WriteBack,BEQ,JUMP,ADDI1,ORI,SLTI,BNE,SLL1,SLL2,JR,JAL);
 		variable instrucaoSelecionada : microInstrucao_T;
 		variable comando : microComandos_T;
 		variable prox : nextAddress_T;
