@@ -6,10 +6,10 @@ port (
 		clk,start : in std_logic;
 		Op,funct : in std_logic_vector(5 downto 0);
 		OpALU,OrigBALU : out std_logic_vector(2 downto 0);
-		 OrigPC : out std_logic_vector(1 downto 0);
+		OrigPC : out std_logic_vector(1 downto 0);
 		OrigAALU : out std_logic_vector(1 downto 0);
-		EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,
-		EscreveMem, EscreveIR : out std_logic;
+		MemparaReg, RegDst : out std_logic(1 downto 0);
+		EscreveReg, EscrevePC, EscrevePCCond, IouD, EscreveMem, EscreveIR : out std_logic;
 		CtlEnd : inout std_logic_vector(1 downto 0)
 		
 		

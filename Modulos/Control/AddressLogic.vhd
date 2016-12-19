@@ -22,6 +22,7 @@ begin
 		"01010" when "001000", --addi
 		"01011" when "001101", --ori
 		"01100" when "001010", -- SLTI
+		--"xxxxx" when "000011",
 		"00000" when others;
 
 	with OPcode select dispatch2 <=

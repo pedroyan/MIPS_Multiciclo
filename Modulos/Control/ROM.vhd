@@ -8,7 +8,8 @@ port (
 		OpALU,OrigBALU : out std_logic_vector(2 downto 0);
 		OrigPC : out std_logic_vector(1 downto 0);
 		OrigAALU : out std_logic_vector(1 downto 0);
-		EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,
+		MemparaReg, RegDst : out std_logic_vector(1 downto 0);
+		EscreveReg, EscrevePC, EscrevePCCond, IouD,
 		EscreveMem, EscreveIR : out std_logic;
 		CtlEnd : out std_logic_vector(1 downto 0));
 end ROM;

@@ -181,9 +181,9 @@ port (
 		clk ,start: in std_logic;
 		Op,funct : in std_logic_vector(5 downto 0);
 		OpALU,OrigBALU : out std_logic_vector(2 downto 0);
-		 OrigPC : out std_logic_vector(1 downto 0);
-		OrigAALU : out std_logic_vector(1 downto 0);
-		EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,
+		OrigPC : out std_logic_vector(1 downto 0);
+		OrigAALU, RegDst, MemparaReg : out std_logic_vector(1 downto 0);
+		EscreveReg, EscrevePC, EscrevePCCond, IouD,
 		EscreveMem, EscreveIR : out std_logic;
 		CtlEnd : inout std_logic_vector(1 downto 0)
 		
@@ -203,7 +203,8 @@ end component;
 		SIGNAL sOpALU,sOrigBALU : std_logic_vector(2 downto 0)  :=(others => '0');
 		SIGNAL   sOrigPC :  std_logic_vector(1 downto 0) ;
 		SIGNAL sOrigAALU :  std_logic_vector(1 downto 0);
-		SIGNAL sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR : std_logic;
+		SIGNAL sEscreveReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR : std_logic;
+		SIGNAL sMemparaReg, sRegDst: std_LOGIC_VECTOR (1 downto 0);
 		SIGNAL sCtlEnd : std_logic_vector(1 downto 0)  :=(others => '0');	
 	
 --PC:		
@@ -275,17 +276,40 @@ begin
 	U0:mux_2 port map(x"00000000",mux3_U18,start,entradaPC);
 	U1: pc port map(clk,EnablePC,'0',EntradaPC,sSaidaPC);
 	
-	U2: cntrMIPS port map(clk,start,sopcode,sfunct,sOpALU, sOrigBALU, sOrigPC,sOrigAALU ,sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR,sCtlEnd);
+	U2: cntrMIPS port map(
+		clk=>clk,
+		start=>start,
+		Op=>sopcode,
+		funct=>sfunct,
+		OpALU=>sOpALU,
+		OrigBALU=>sOrigBALU,
+		OrigPC=>sOrigPC,
+		OrigAALU=>sOrigAALU,
+		EscreveReg=>sEscreveReg,
+		RegDst=>sRegDst,
+		MemparaReg=>sMemparaReg,
+		EscrevePC=>sEscrevePC,
+		EscrevePCCond=>sEscrevePCCond,
+		IouD=>sIouD,
+		EscreveMem=>sEscreveMem,
+		EscreveIR=>sEscreveIR,
+		CtlEnd=>sCtlEnd
+	);
 	
 	U3: mux_2_8bit port map (sSaidaPC(9 downto 2),AddressDado,sIouD,EntradaMemoria);
 	U4: memoria port map(EntradaMemoria,clk_inv,SaidaB_2,sEscreveMem,SaidaMemoria);
 	U19:reg_int port map(clk,'0',sEscreveIR,SaidaMemoria,sopcode,srs,srt,srd,sshamnt,sfunct,simm16,simm26,simm31);
 	U5: reg_32 port map(clk,'0',SaidaMemoria,SaidaRegMemoria);
-	U6: mux_2_5bits port map (srt,srd,sregDst,mux2_5bits_U6);
+	with sregDst select mux2_5bits_U6 <=
+		srt when "00",
+		srd when "01",
+		x"11111" when "10",
+		srt when others;
 	with sMemparaReg select mux2_U7 <=
-		SaidaUla_2 when '0',
-		SaidaRegMemoria when '1',
-		SaidaRegMemoria when others;
+		SaidaUla_2 when "00",
+		SaidaRegMemoria when "01",
+		sSaidaPC when "10",
+		X"00000000" when others;
 	U8: Breg port map(
 						clk=>clk,
 						wren=>sEscreveReg,
