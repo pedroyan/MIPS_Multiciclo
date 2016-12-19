@@ -203,7 +203,7 @@ end component;
 		SIGNAL sOpALU,sOrigBALU : std_logic_vector(2 downto 0)  :=(others => '0');
 		SIGNAL   sOrigPC :  std_logic_vector(1 downto 0) ;
 		SIGNAL sOrigAALU :  std_logic_vector(1 downto 0);
-		SIGNAL sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR :std_LOGIC;
+		SIGNAL sEscreveReg, sRegDst, sMemparaReg, sEscrevePC, sEscrevePCCond, sIouD,sEscreveMem, sEscreveIR : std_logic;
 		SIGNAL sCtlEnd : std_logic_vector(1 downto 0)  :=(others => '0');	
 	
 --PC:		
@@ -282,8 +282,20 @@ begin
 	U19:reg_int port map(clk,'0',sEscreveIR,SaidaMemoria,sopcode,srs,srt,srd,sshamnt,sfunct,simm16,simm26,simm31);
 	U5: reg_32 port map(clk,'0',SaidaMemoria,SaidaRegMemoria);
 	U6: mux_2_5bits port map (srt,srd,sregDst,mux2_5bits_U6);
-	U7: mux_2 port map(SaidaUla_2,SaidaRegMemoria,sMemparaReg,mux2_U7);
-	U8: Breg port map(clk,sEscreveReg,srs,srt,mux2_5bits_U6,mux2_U7,saidaA,saidaB);
+	with sMemparaReg select mux2_U7 <=
+		SaidaUla_2 when '0',
+		SaidaRegMemoria when '1',
+		SaidaRegMemoria when others;
+	U8: Breg port map(
+						clk=>clk,
+						wren=>sEscreveReg,
+						radd1=>srs,
+						radd2=>srt,
+						wadd=>mux2_5bits_U6,
+						wdata=>mux2_U7,
+						r1=>saidaA,
+						r2=>saidaB
+					);
 	U9: extsgn port map(simm16,SaidaExt32);
 	U22: extsgn port map(schamt16,shamt32);
 	U10: Shift32_2 port map(SaidaExt32,SaidaDeslocamento);
