@@ -14,7 +14,7 @@
 	ori $t7, $t0, 2
 	xor $t0, $t0, $t1
 	nor $t3, $t1, $zero
-	sw $t3, c
+	sw $t3,c
 	bne $t1, $t1, Label
 	beq $t1,$t1, Label
 	
@@ -23,11 +23,11 @@ Label2:
 	
 Label: 
 	slt $t4, $t3, $t2
-	slti $t5, $t2, 3
-	sll $t6, $t2, 2
+	slti $t5, $t2,3
 	jal Label2
-	li $v0, 10
-	syscall 
+	sll $t6, $t1,2
+	
+	
 Label3:
 	jr $ra
 	
