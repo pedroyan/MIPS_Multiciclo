@@ -8,7 +8,7 @@ port (
 		OpALU,OrigBALU : out std_logic_vector(2 downto 0);
 		OrigPC : out std_logic_vector(1 downto 0);
 		OrigAALU : out std_logic_vector(1 downto 0);
-		MemparaReg, RegDst : out std_logic(1 downto 0);
+		MemparaReg, RegDst : out std_logic_vector(1 downto 0);
 		EscreveReg, EscrevePC, EscrevePCCond, IouD, EscreveMem, EscreveIR : out std_logic;
 		CtlEnd : inout std_logic_vector(1 downto 0)
 		
@@ -36,9 +36,9 @@ end component;
 	port (
 			Entrada : in std_logic_vector(4 downto 0);
 			OpALU,OrigBALU : out std_logic_vector(2 downto 0);
-			 OrigPC : out std_logic_vector(1 downto 0);
-			OrigAALU : out std_logic_vector(1 downto 0);
-			EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,
+			OrigPC : out std_logic_vector(1 downto 0);
+			OrigAALU, RegDst, MemparaReg : out std_logic_vector(1 downto 0);
+			EscreveReg, EscrevePC, EscrevePCCond, IouD,
 			EscreveMem, EscreveIR : out std_logic;
 			CtlEnd : out std_logic_vector(1 downto 0));
 	end component ;
@@ -73,7 +73,22 @@ begin
 	U6: CheckR port map (SaidaAddress,funct,SaidaAddress2);
 	U2: Estado port map (SaidaAddress2,clk,SaidaEstado);
 	U3: Somador port map (EntradaSomador,"00001",SaidaSomador);
-	U4: ROM port map (SaidaEstado,OpALU, OrigBALU, OrigPC ,OrigAALU,EscreveReg, RegDst, MemparaReg, EscrevePC, EscrevePCCond, IouD,EscreveMem, EscreveIR,CtlEnd  );
+	U4: ROM port map (
+			Entrada=>SaidaEstado,
+			OpALU=>OpALU,
+			OrigBALU=>OrigBALU,
+			OrigPC=>OrigPC, 
+			OrigAALU=>OrigAALU,
+			EscreveReg=>EscreveReg,
+			RegDst=>RegDst,
+			MemparaReg=>MemparaReg,
+			EscrevePC=>EscrevePC,
+			EscrevePCCond=>EscrevePCCond,
+			IouD=>IouD,
+			EscreveMem=>EscreveMem,
+			EscreveIR=>EscreveIR,
+			CtlEnd=>CtlEnd 
+		);
 	U5: mux_2_4bits port map("00000",SaidaEstado,start,EntradaSomador);
 
 	
