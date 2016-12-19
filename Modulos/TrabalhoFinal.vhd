@@ -301,8 +301,8 @@ begin
 	U19:reg_int port map(clk,'0',sEscreveIR,SaidaMemoria,sopcode,srs,srt,srd,sshamnt,sfunct,simm16,simm26,simm31);
 	U5: reg_32 port map(clk,'0',SaidaMemoria,SaidaRegMemoria);
 	with sregDst select mux2_5bits_U6 <=
-		srd when "00",
-		srt when "01",
+		srt when "00",
+		srd when "01",
 		"11111" when "10",
 		srt when others;
 	with sMemparaReg select mux2_U7 <=

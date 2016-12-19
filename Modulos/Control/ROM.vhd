@@ -72,7 +72,7 @@ architecture Behavioral of ROM is
 	constant WriteBack : microInstrucao_T := ("000"&"00"&"000" & Reg_writeAlu & "000"&"0000", FETCH);--7
 	constant BEQ : microInstrucao_T := (subt & "01" & SRC_2_B & "00000"&"000" & PC_ALUOut_cond, FETCH);--8
 	constant JUMP : microInstrucao_T := ("000"&"00"&"000"&"00000"&"000" & PC_JumpAddress,FETCH);--9
-	constant ADDI1 : microInstrucao_T := (ADD & "01" & SRC_2_Extend & "00000" & "000" & "0000",DISPATCH_2);--10
+	constant ADDI1 : microInstrucao_T := (ADD & "01" & SRC_2_Extend & "00100" & "000" & "0000",DISPATCH_2);--10
 	constant ORI : microInstrucao_T := (Alu_or & "01" & SRC_2_Extend & "00000" & "000" & "0000", DISPATCH_2);--11
 	constant SLTI : microInstrucao_T:= (Alu_slt & "01" & SRC_2_Extend & "00000" & "000" & "0000", DISPATCH_2);--12
 	constant	BNE : microInstrucao_T := (subt & "01" & SRC_2_B & "00000"&"000" & PC_ALUOut_cond, FETCH);--13
