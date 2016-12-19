@@ -146,7 +146,12 @@ set_location_assignment PIN_H3 -to HEX7[2]
 set_location_assignment PIN_G1 -to HEX7[1]
 set_location_assignment PIN_G2 -to HEX7[0]
 
+
+
+set_location_assignment PIN_W27 -to clk_out
 set_location_assignment PIN_T29 -to clk
+set_location_assignment PIN_L7 -to reset
+set_location_assignment PIN_L8 -to start
 set_location_assignment PIN_AA23 -to selection[0]
 set_location_assignment PIN_AB26 -to selection[1]
 set_location_assignment PIN_AB25 -to selection[2]

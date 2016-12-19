@@ -33,6 +33,7 @@ ARCHITECTURE TrabalhoFinal_arch OF TrabalhoFinal_vhd_tst IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL clk : STD_LOGIC:='0';
+SIGNAL clk_out : STD_LOGIC:='0';
 SIGNAL reset : STD_LOGIC:='0';
 signal start : STD_LOGIC:='1';
 SIGNAL SaidaPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -51,6 +52,7 @@ signal selection :   STD_LOGIC_VECTOR(3 downto 0) := "0010";--PC
 COMPONENT TrabalhoFinal
 	PORT (
 	clk,reset,start : IN STD_LOGIC;
+	 clk_out : out STD_LOGIC;
 	 selection : in  STD_LOGIC_VECTOR(3 downto 0);
 	SaidaPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 	SaidaRDM : out STD_LOGIC_VECTOR(31 downto 0);
@@ -74,6 +76,7 @@ BEGIN
 	PORT MAP (
 -- list connections between master ports and signals
 	clk => clk,
+	clk_out => clk_out,
 	start => start,
 	reset=> reset,
 	selection => selection,
@@ -81,7 +84,7 @@ BEGIN
 	SaidaRDM => SaidaRDM,
 	SaidaRI => SaidaRI,
 	SaidaULA => SaidaULA,
-	HEX0 => HEX1 ,
+	HEX0 => HEX0 ,
 	HEX1 => HEX1, 
    HEX2 => HEX2 ,
    HEX3 => HEX3 ,

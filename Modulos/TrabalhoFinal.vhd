@@ -8,6 +8,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity TrabalhoFinal is
     Port ( clk,reset,start : in  STD_LOGIC;
+				clk_out : out  STD_LOGIC;
 			  selection : in 	 STD_LOGIC_VECTOR (3 downto 0);
            SaidaPC : out  STD_LOGIC_VECTOR (31 downto 0);
            SaidaULA : out  STD_LOGIC_VECTOR (31 downto 0);
@@ -322,7 +323,7 @@ clk_inv<= not(clk);
 			  HEX5<=sHEX5;
 			  HEX6<=sHEX6;
 			  HEX7<=sHEX7;	 
-	 
+	 clk_out<=clk_inv;
 	 SaidaUla<=SaidaULa_2;
 	 SaidaPC<=sSaidaPC;
 	 SaidaRI <=simm31;
